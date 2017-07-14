@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Camagru</title>
-    <link href='style/footer.css' rel='stylesheet' type='text/css'>
+    <link href="style/footer.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
 </head>
 
 <body>
