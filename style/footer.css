@@ -1,5 +1,41 @@
-.footer {
+footer {
     background: #222;
     width: 100%;
     height: 200px;
+}
+
+.flex-footer {
+    display: flex;
+    width: 1339px;
+    height: 200px;
+    margin: auto;
+}
+
+.footer-logo {
+    display: flex;
+    width: 242px;
+    height: 200px;
+    align-self: flex-end;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+@media (max-width : 1920px) {
+
+    .flex-footer {
+        width: 70%;
+    }
+}
+
+@media (max-width : 992px) {
+    .flex-footer {
+        width: 90%;
+    }
+}
+
+@media (max-width : 600px) {
+    .flex-footer {
+        width: 100%;
+    }
 }

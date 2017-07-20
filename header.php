@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <div class="header">
+    <header>
         <div class="flex-header">
             <div class="box-actions">
 
@@ -24,6 +24,6 @@
             </div>
 
         </div>
-    </div>
+    </header>
 </body>
 </html>

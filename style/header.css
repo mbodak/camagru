@@ -1,4 +1,4 @@
-.header {
+header {
     display: flex;
     justify-content: center;
     background: white;
@@ -14,22 +14,44 @@
     background: white;
     width: 70%;
     height: 80px;
-
+    margin: auto;
 }
+
 .box-logo {
-    width: 20%;
+    width: 242px;
     margin: auto;
 }
 
 .logo {
     width: 250px;
     height: 40px;
+    margin: auto;
 }
 
 .box-actions {
-    width: 40%;
+    width: 551px;
 }
 
 .box-nav {
-    width: 40%;
+    width: 551px;
+}
+
+@media (max-width : 1920px) {
+
+    .box-actions {
+        width: 41%;
+    }
+
+    .box-nav {
+        width: 41%;
+    }
+}
+
+@media (max-width : 992px) {
+
+}
+
+@media (max-width : 600px) {
+
+
 }

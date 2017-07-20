@@ -7,8 +7,15 @@
 </head>
 
 <body>
-    <div class="footer">
+    <footer>
+        <div class="flex-footer">
+            <div class="footer-logo">
 
-    </div>
+            </div>
+
+        </div>
+
+    </footer>
+
 </body>
 </html>
