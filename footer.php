@@ -14,7 +14,7 @@
             </div>
             <div class="about">
                 <p>
-                    <a href="/" >About The Project</a>
+                    <a href="/" >About Project</a>
                     <br><br>
                     <a href="/" >Contact Us</a>
                     <br><br>
