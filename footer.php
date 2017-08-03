@@ -14,11 +14,7 @@
             </div>
             <div class="about">
                 <p>
-<<<<<<< HEAD
                     <a href="/" >About Project</a>
-=======
-                    <a href="">About The Project</a>
->>>>>>> 22c2fa82e909db61f6af77495399ab66ea6a3fe8
                     <br><br>
                     <a href="">Contact Us</a>
                     <br><br>

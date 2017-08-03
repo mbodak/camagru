@@ -12,46 +12,100 @@ header {
 .flex-header {
     display: flex;
     background: white;
-    width: 70%;
+    width: 1333.5px;
     height: 80px;
     margin: auto;
 }
-
+.box-actions {
+    display: flex;
+    width: 551px;
+}
+.box-actions > a > i{
+    font-size: 40px;
+    margin-top: 16px;
+    color: #222;
+}
+/*.menu {*/
+    /*display: block;*/
+    /*position: absolute;*/
+    /*font-family: AvenirNextLTPro-Demi,Arial,Helvetica;*/
+    /*text-transform: uppercase;*/
+    /*font-weight: 400;*/
+    /*letter-spacing: .1875rem;*/
+    /*text-indent: 0;*/
+    /*font-size: .625rem;*/
+    /*text-rendering: auto;*/
+    /*-webkit-font-smoothing: initial;*/
+    /*height: 52px;*/
+    /*line-height: 52px;*/
+    /*padding: 0;*/
+    /*margin: 0;*/
+    /*background: rgba(255,255,255,0);*/
+    /*opacity: 0;*/
+    /*visibility: hidden;*/
+    /*color: #1D1D1F;*/
+    /*transition: all 250ms cubic-bezier(.25,.46,.45,.94);*/
+/*}*/
 .box-logo {
     width: 242px;
     margin: auto;
 }
-
 .logo {
     width: 250px;
     height: 40px;
     margin: auto;
 }
 
-.box-actions {
-    width: 551px;
-}
-
 .box-nav {
     width: 551px;
+}
+.box-nav > a > i {
+    float: right;
+    margin-top: 20px;
+    font-size: 40px;
+    color: #222;
 }
 
 @media (max-width : 1920px) {
 
+    .flex-header {
+        width: 70%;
+    }
     .box-actions {
         width: 41%;
     }
-
     .box-nav {
         width: 41%;
     }
+
 }
 
 @media (max-width : 992px) {
 
+    .flex-header {
+        width: 90%;
+    }
 }
 
-@media (max-width : 600px) {
+@media only screen
+and (min-width : 300px)
+and (max-width : 600px) {
 
-
+    .flex-header {
+        width: 100%;
+    }
+    .logo {
+        width: 200px;
+        height: 32px;
+        margin: auto;
+    }
+    .box-actions > a > i {
+        font-size: 30px;
+        margin-top: 21px;
+    }
+    .box-nav > a > i {
+        float: right;
+        margin-top: 24px;
+        font-size: 30px;
+    }
 }
