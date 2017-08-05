@@ -1,21 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Camagru</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-          rel="stylesheet">
-    <link href="style/header.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
-</head>
-
-<body>
+<html>
     <header>
         <div class="flex-header">
+
             <div class="box-actions">
-                <a href="">
-                    <i class="material-icons">menu
-<!--                        <span class="menu">MENU</span>-->
-                    </i>
+                <a href="#" >
+                    <i class="material-icons" onclick="w3_open()">menu</i>
                 </a>
             </div>
 
@@ -26,13 +15,14 @@
             </div>
 
             <div class="box-nav">
-                    <a href="">
-                        <i class="material-icons">search</i>
-                    </a>
+                <a href="">
+                    <i class="material-icons">search</i>
+                </a>
             </div>
-
-
         </div>
     </header>
-</body>
+
+
+
+
 </html>

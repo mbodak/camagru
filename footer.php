@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Camagru</title>
-    <link href="style/footer.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
-</head>
-
-<body>
+<html>
     <footer>
         <div class="info">
             <div class="head">
@@ -29,8 +21,8 @@
                         <img class="link" src="">
                     </a>
                 </div>
-                <div class="instagram">
-                    <a href="https://www.instagram.com/marynsbody/" target="_blank">
+                <div class="github">
+                    <a href="https://github.com/mbodak" target="_blank">
                         <img class="link" src="">
                     </a>
                 </div>
@@ -43,5 +35,4 @@
         </div>
     </footer>
 
-</body>
 </html>

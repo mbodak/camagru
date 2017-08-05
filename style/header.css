@@ -21,8 +21,8 @@ header {
     width: 551px;
 }
 .box-actions > a > i{
-    font-size: 40px;
-    margin-top: 16px;
+    font-size: 35px;
+    margin-top: 20px;
     color: #222;
 }
 /*.menu {*/
@@ -62,7 +62,7 @@ header {
 .box-nav > a > i {
     float: right;
     margin-top: 20px;
-    font-size: 40px;
+    font-size: 35px;
     color: #222;
 }
 
@@ -79,14 +79,12 @@ header {
     }
 
 }
-
 @media (max-width : 992px) {
 
     .flex-header {
         width: 90%;
     }
 }
-
 @media only screen
 and (min-width : 300px)
 and (max-width : 600px) {

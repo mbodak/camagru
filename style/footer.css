@@ -79,6 +79,10 @@ p {
     height: 35px;
     outline: none;
     border: 0;
-
-
+}
+.link {
+    color: #f3f3f5;
+    font-size: 30px;
+    border-bottom: 0;
+    margin: auto;
 }
