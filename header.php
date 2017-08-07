@@ -9,14 +9,14 @@
             </div>
 
             <div class="box-logo">
-                <a href="">
+                <a href="#">
                     <img class="logo" src="icons/logo.png" alt="camagru">
                 </a>
             </div>
 
             <div class="box-nav">
-                <a href="">
-                    <i class="material-icons">search</i>
+                <a href="#">
+                    <i class="material-icons" onclick="open_search()">search</i>
                 </a>
             </div>
         </div>

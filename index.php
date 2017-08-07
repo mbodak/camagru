@@ -10,7 +10,9 @@
     <link href="style/main.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
     <link href="style/footer.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
 
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="style/sidebar.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="style/searchform.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
+
     <script type="text/javascript" src="js/index.js"></script>
 </head>
 
@@ -33,6 +35,22 @@
     <a href="#" class="w3-bar-item w3-button">Link 1</a>
     <a href="#" class="w3-bar-item w3-button">Link 2</a>
     <a href="#" class="w3-bar-item w3-button">Link 3</a>
+</div>
+
+<div class="search-overlay" style="display: none;" id="mySearch">
+    <svg class="close-search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" onclick="close_search()">
+        <polygon points="64,5.9 58.1,0 32,26.1 5.9,0 0,5.9 26.1,32 0,58.1 5.9,64 32,37.9 58.1,64 64,58.1 37.9,32"></polygon>
+    </svg>
+    <form role="search" method="get" class="search-form" action="http://localhost:8080/Camagru/">
+        <div>
+            <input type="text" value="" name="s" id="s" placeholder="Type and press enter">
+        </div>
+    </form>
+    <form role="search" method="get" class="search-form" action="http://localhost:8080/Camagru/">
+        <div>
+            <input type="text" value="" name="s" id="s" placeholder="Type and press enter">
+        </div>
+    </form>
 </div>
 <!--    <div id="main-1" class="w3-main">-->
         <?php
