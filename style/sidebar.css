@@ -2,27 +2,36 @@
 button,input,select,textarea{font:inherit;margin:0}optgroup{font-weight:bold}
 
 .w3-button {
-    border:none;
-    display:inline-block;
-    outline:0;padding:8px 16px;
+    border: none;
+    display: inline-block;
+    outline: 0;
+    padding: 8px 16px;
     vertical-align:middle;
-    overflow:hidden;
-    text-decoration:none;
-    color:inherit;
-    background-color:inherit;
-    text-align:center;
-    cursor:pointer;
-    white-space:nowrap;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
 }
-.w3-button:hover{box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)}
+.w3-button:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
 
 .w3-sidebar {
     height: 100%;
     width: 200px;
-    background-color: #fff;
+    background: #1D1D1F;
     position: fixed !important;
     z-index: 1;
-    overflow: auto
+    overflow: hidden;
+    min-height: 500px;
+    margin-top: 0!important;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    letter-spacing: .1875rem;
 }
 
 .w3-bar-block .w3-bar-block {
@@ -35,9 +44,9 @@ button,input,select,textarea{font:inherit;margin:0}optgroup{font-weight:bold}
 }
 
 .w3-bar {
-    width:100%;
-    overflow:hidden;
-    display:inline-block;
+    width: 100%;
+    overflow: hidden;
+    display: inline-block;
 }
 
 .w3-bar .w3-bar-item {
@@ -65,9 +74,56 @@ button,input,select,textarea{font:inherit;margin:0}optgroup{font-weight:bold}
     /*text-align:center;*/
 }
 
+
+#mySidebar div {
+    position: absolute;
+    height: 372px;
+    top: 50%;
+    left: -100px;
+    opacity: 0;
+    display: block;
+    margin: -218px 0;
+    transition: all 750ms ease .25s;
+}
+
+#mySidebar h3 {
+    font-family: AvenirNextLTPro-Demi,Arial,Helvetica;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: .8125rem;
+    color: #FFF;
+    letter-spacing: .3rem;
+    margin: 400px 0 60px 55px;
+    padding: 0;
+    top: 50px;
+}
+
+#mySidebar ul {
+    font-family: AvenirNextLTPro-Demi,Arial,Helvetica;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #FFF;
+    margin: 0 0 37px 40px;
+    padding: 2px 0 7px;
+    font-size: .625rem;
+    letter-spacing: .2rem;
+    list-style: none;
+    line-height: 1.6;
+}
+
+#mySidebar ul li {
+    display: block;
+    position: relative;
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 0 5px;
+    padding: 0;
+}
+
 .w3-animate-left {
     position: relative;
-    animation: animateleft 0.4s
+    animation: animateleft 0.4s;
 }
 @keyframes animateleft {
     from {left: -300px; opacity: 0}
@@ -76,6 +132,6 @@ button,input,select,textarea{font:inherit;margin:0}optgroup{font-weight:bold}
 
 .w3-button:hover {
     color: #000 !important;
-    background-color: #ccc !important;
+    background-color: white !important;
 }
 

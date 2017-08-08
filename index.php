@@ -10,8 +10,8 @@
     <link href="style/main.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
     <link href="style/footer.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
 
-    <link rel="stylesheet" href="style/sidebar.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="style/searchform.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
+    <link href="style/sidebar.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
+    <link href="style/searchform.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
 
     <script type="text/javascript" src="js/index.js"></script>
 </head>
@@ -32,9 +32,27 @@
 ?>
 <div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-left" style="display:none" id="mySidebar">
     <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
-    <a href="#" class="w3-bar-item w3-button">Link 1</a>
-    <a href="#" class="w3-bar-item w3-button">Link 2</a>
-    <a href="#" class="w3-bar-item w3-button">Link 3</a>
+    <h3>Menu</h3>
+
+    <nav role="navigation">
+        <ul>
+            <li>
+                <a href="#" class="w3-bar-item w3-button">Home</a>
+            </li>
+            <li>
+                <a href="#" class="w3-bar-item w3-button">Profile</a>
+            </li>
+            <li>
+                <a href="#" class="w3-bar-item w3-button">Link 3</a>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="#" class="w3-bar-item w3-button">Logout</a>
+            </li>
+        </ul>
+    </nav>
+
 </div>
 
 <div class="search-overlay" style="display: none;" id="mySearch">
@@ -52,14 +70,14 @@
         </div>
     </form>
 </div>
-<!--    <div id="main-1" class="w3-main">-->
+    <div>
         <?php
             include ("header.php");
             include ("main.php");
             include ("footer.php");
         ?>
 
-<!--    </div>-->
+    </div>
 </body>
 
 </html>
