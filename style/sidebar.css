@@ -34,9 +34,6 @@ button,input,select,textarea{font:inherit;margin:0}optgroup{font-weight:bold}
     letter-spacing: .1875rem;
 }
 
-.w3-bar-block .w3-bar-block {
-    min-width: 100%;
-}
 .w3-bar-block .w3-button .w3-bar-block {
     width: 100%;
     text-align: left;
@@ -73,7 +70,6 @@ button,input,select,textarea{font:inherit;margin:0}optgroup{font-weight:bold}
     float: none;
     /*text-align:center;*/
 }
-
 
 #mySidebar div {
     position: absolute;
@@ -135,3 +131,20 @@ button,input,select,textarea{font:inherit;margin:0}optgroup{font-weight:bold}
     background-color: white !important;
 }
 
+
+
+@media (max-width : 1920px) {
+
+
+
+}
+@media (max-width : 992px) {
+
+
+}
+@media only screen
+and (min-width : 300px)
+and (max-width : 600px) {
+
+
+}

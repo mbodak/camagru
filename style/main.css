@@ -47,16 +47,6 @@ body {
     flex-direction: column;
 }
 
-/*1920 ---*/
-/*992 - max for tablet*/
-/*600 - max for mobile*/
-/*
-0 - 600
-600 - 992
-992 - 1920
-1920++
- */
-
 .head-block {
     background: #f3f3f5;
     width: 100%;

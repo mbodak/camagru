@@ -6,6 +6,8 @@
     <title>Camagru</title>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
     <link href="style/header.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
     <link href="style/main.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
     <link href="style/footer.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
@@ -43,7 +45,7 @@
                 <a href="#" class="w3-bar-item w3-button">Profile</a>
             </li>
             <li>
-                <a href="#" class="w3-bar-item w3-button">Link 3</a>
+                <a href="#" class="w3-bar-item w3-button">Take photo</a>
             </li>
         </ul>
         <ul>
@@ -70,14 +72,14 @@
         </div>
     </form>
 </div>
-    <div>
+<!--    <div>-->
         <?php
             include ("header.php");
             include ("main.php");
             include ("footer.php");
         ?>
 
-    </div>
+<!--    </div>-->
 </body>
 
 </html>

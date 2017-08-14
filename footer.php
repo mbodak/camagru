@@ -18,17 +18,23 @@
             <div class="social">
                 <div class="facebook">
                     <a href="https://www.facebook.com/m.bodak.ev" target="_blank">
-                        <img class="link" src="">
+                        <button>
+                            <img class="link" src="icons/facebook-logo.png">
+                        </button>
                     </a>
                 </div>
                 <div class="github">
                     <a href="https://github.com/mbodak" target="_blank">
-                        <img class="link" src="">
+                        <button>
+                            <img class="link" src="icons/github-big-logo.png">
+                        </button>
                     </a>
                 </div>
                 <div class="linkedin">
                     <a href="https://www.linkedin.com/in/marina-bodak-a1a5abb4/" target="_blank">
-                        <img class="link" src="">
+                        <button>
+                            <img class="link" src="icons/linkedin-logo.png">
+                        </button>
                     </a>
                 </div>
             </div>

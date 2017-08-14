@@ -3,9 +3,9 @@
         <div class="flex-header">
 
             <div class="box-actions">
-                <a href="#" >
+                <button>
                     <i class="material-icons" onclick="w3_open()">menu</i>
-                </a>
+                </button>
             </div>
 
             <div class="box-logo">
