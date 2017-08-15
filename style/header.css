@@ -28,6 +28,7 @@ header {
     background: #FFFFFF;
     cursor: pointer;
     outline: none;
+    float: left;
 }
 
 .box-actions button i {
@@ -37,22 +38,38 @@ header {
 
 .box-logo {
     width: 242px;
+    height: 40px;
     margin: auto;
 }
+
+.box-logo a {
+    margin: 0;
+}
+
 .logo {
     width: 250px;
     height: 40px;
-    margin: auto;
 }
 
 .box-nav {
     width: 551px;
 }
-.box-nav > a > i {
+
+.box-nav button {
+    border: none;
+    padding: 0;
+    margin: 0;
+    background: #FFFFFF;
+    cursor: pointer;
+    outline: none;
     float: right;
-    margin-top: 20px;
+}
+
+.box-nav  button  i {
+    margin-top: 23px;
     font-size: 35px;
     color: #222;
+
 }
 
 @media (max-width : 1920px) {
@@ -84,16 +101,15 @@ and (max-width : 600px) {
     .logo {
         width: 200px;
         height: 32px;
-        margin: auto;
+        margin-top: 4px;
+
     }
-    .box-actions > a > i {
+    .box-actions button i {
         font-size: 30px;
-        margin-top: 21px;
     }
-    .box-nav > a > i {
-        float: right;
-        margin-top: 24px;
+    .box-nav button i {
         font-size: 30px;
+        margin-top: 26px;
     }
 }
 

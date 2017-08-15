@@ -15,9 +15,9 @@
             </div>
 
             <div class="box-nav">
-                <a href="#">
+                <button>
                     <i class="material-icons" onclick="open_search()">search</i>
-                </a>
+                </button>
             </div>
         </div>
     </header>
