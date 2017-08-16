@@ -99,6 +99,11 @@ p {
     outline: none;
 }
 
-/*.img.rollover:hover {*/
-    /*background: url(/icons/facebook-logo.png);*/
-/*}*/
+.social > div {
+    transition: all 500ms cubic-bezier(.39, .575, .565, 1);
+}
+
+.social div:hover {
+    color: #000 !important;
+    background-color: #9c9c9c !important;
+}

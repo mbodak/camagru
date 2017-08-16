@@ -3,8 +3,8 @@
         <div class="flex-header">
 
             <div class="box-actions">
-                <button>
-                    <i class="material-icons" onclick="w3_open()">menu</i>
+                <button onclick="w3_open()">
+                    <i class="material-icons">menu</i>
                 </button>
             </div>
 
@@ -15,8 +15,8 @@
             </div>
 
             <div class="box-nav">
-                <button>
-                    <i class="material-icons" onclick="open_search()">search</i>
+                <button onclick="open_search()">
+                    <i class="material-icons">search</i>
                 </button>
             </div>
         </div>

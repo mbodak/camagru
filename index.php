@@ -6,7 +6,6 @@
     <title>Camagru</title>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 
     <link href="style/header.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
     <link href="style/main.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
@@ -18,7 +17,7 @@
     <script type="text/javascript" src="js/index.js"></script>
 </head>
 
-<body>
+<body id="body">
 
 <?php
     session_start();
@@ -32,10 +31,10 @@
 //    $_SESSION['thing'] = $_GET['thing'];
 
 ?>
-<div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-left" style="display:none" id="mySidebar">
-    <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
-    <h3>Menu</h3>
+<div id="invisibleBox" style="display:none" onclick="w3_close()"></div>
 
+<aside class="w3-sidebar w3-bar-block w3-card-2 w3-animate-left" style="display:none" id="mySidebar">
+    <h3>Menu</h3>
     <nav role="navigation">
         <ul>
             <li>
@@ -54,8 +53,7 @@
             </li>
         </ul>
     </nav>
-
-</div>
+</aside>
 
 <div class="search-overlay" style="display: none;" id="mySearch">
     <svg class="close-search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" onclick="close_search()">

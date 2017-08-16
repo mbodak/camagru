@@ -20,18 +20,23 @@ button,input,select,textarea{font:inherit;margin:0}optgroup{font-weight:bold}
 }
 
 .w3-sidebar {
-    height: 100%;
-    width: 200px;
+    height: auto;
+    width: 300px;
     background: #1D1D1F;
     position: fixed !important;
-    z-index: 1;
-    overflow: hidden;
+    z-index: 2;
     min-height: 500px;
     margin-top: 0!important;
     left: 0;
     top: 0;
     bottom: 0;
     letter-spacing: .1875rem;
+    /* если в модальном окне много содержимого, показываем скроллбар */
+    overflow: auto;
+    /* однопальцевый скролл для iPad*/
+    -webkit-overflow-scrolling: touch;
+    /* фикс для странностей в iPad */
+    -webkit-transform: translateZ(0px);
 }
 
 .w3-bar-block .w3-button .w3-bar-block {
@@ -42,25 +47,19 @@ button,input,select,textarea{font:inherit;margin:0}optgroup{font-weight:bold}
 
 .w3-bar {
     width: 100%;
-    overflow: hidden;
     display: inline-block;
 }
 
 .w3-bar .w3-bar-item {
     padding: 8px 16px;
     float: left;
-    width: auto;
+    /*width: auto;*/
     border: none;
     outline: none;
     display: block
 }
 
-.w3-bar .w3-button {
-    white-space: normal;
-}
-
 .w3-bar-block .w3-bar-item {
-    width: 100%;
     display: block;
     padding: 8px 16px;
     text-align: left;
@@ -68,10 +67,9 @@ button,input,select,textarea{font:inherit;margin:0}optgroup{font-weight:bold}
     outline: none;
     white-space: normal;
     float: none;
-    /*text-align:center;*/
 }
 
-#mySidebar div {
+#mySidebar aside {
     position: absolute;
     height: 372px;
     top: 50%;
@@ -89,9 +87,9 @@ button,input,select,textarea{font:inherit;margin:0}optgroup{font-weight:bold}
     font-size: .8125rem;
     color: #FFF;
     letter-spacing: .3rem;
-    margin: 400px 0 60px 55px;
+    margin: 364px 0px 62px 75px;
     padding: 0;
-    top: 50px;
+    top: 40px;
 }
 
 #mySidebar ul {
@@ -99,9 +97,9 @@ button,input,select,textarea{font:inherit;margin:0}optgroup{font-weight:bold}
     text-transform: uppercase;
     font-weight: 400;
     color: #FFF;
-    margin: 0 0 37px 40px;
+    margin: 0px 0px 50px 60px;
     padding: 2px 0 7px;
-    font-size: .625rem;
+    font-size: .725rem;
     letter-spacing: .2rem;
     list-style: none;
     line-height: 1.6;
@@ -113,14 +111,24 @@ button,input,select,textarea{font:inherit;margin:0}optgroup{font-weight:bold}
     width: 200px;
     height: 40px;
     line-height: 40px;
-    margin: 0 0 5px;
+    margin: 0 0 10px;
     padding: 0;
+}
+
+#mySidebar ul li a {
+    transition: all 500ms cubic-bezier(.39, .575, .565, 1);
+    color: #9c9c9c;
+    overflow: hidden;
+    background-color: transparent;
+    text-decoration: none;
+    line-height: inherit;
 }
 
 .w3-animate-left {
     position: relative;
     animation: animateleft 0.4s;
 }
+
 @keyframes animateleft {
     from {left: -300px; opacity: 0}
     to {left: 0; opacity: 1}
@@ -131,20 +139,43 @@ button,input,select,textarea{font:inherit;margin:0}optgroup{font-weight:bold}
     background-color: white !important;
 }
 
-
-
 @media (max-width : 1920px) {
-
-
-
+    .w3-sidebar {
+        width: 250px;
+    }
+    #mySidebar h3 {
+        margin: 364px 0 60px 70px;
+        top: 40px;
+    }
+    #mySidebar ul {
+        margin: 0px 0px 40px 56px;
+        font-size: .625rem;
+    }
 }
 @media (max-width : 992px) {
-
-
+    .w3-sidebar {
+        width: 220px;
+    }
+    #mySidebar h3 {
+        margin: 364px 0 60px 60px;
+        top: 40px;
+    }
+    #mySidebar ul {
+        margin: 0px 0px 40px 45px;
+    }
 }
-@media only screen
-and (min-width : 300px)
-and (max-width : 600px) {
-
-
+@media (max-width : 600px) {
+    .w3-sidebar {
+        width: 180px;
+    }
+    #mySidebar h3 {
+        font-size: .6125rem;
+        margin: 364px 0 50px 45px;
+        top: 30px;
+    }
+    #mySidebar ul {
+        margin: 0px 1px 36px 30px;
+        font-size: .425rem;
+        line-height: 1.0;
+    }
 }
