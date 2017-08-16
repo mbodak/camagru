@@ -1,0 +1,30 @@
+main {
+    display: block;
+}
+
+div {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding-bottom: 100px;
+}
+
+.transform-container {
+    transition-property: -webkit-transform;
+    transition-property: transform;
+    transition-duration: .5s;
+    transition-timing-function: cubic-bezier(.645,.045,.355,1);
+}
+
+header {
+    display: block;
+    position: relative;
+    width: 100vw;
+    height: 30vh;
+    background: #000;
+    margin: 0 0 90px;
+    padding: 26px;
+}
+

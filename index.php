@@ -10,6 +10,7 @@
     <link href="style/header.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
     <link href="style/main.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
     <link href="style/footer.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
+<!--    <link href="style/login.css?v=--><?//=time();?><!--" rel='stylesheet' type='text/css'>-->
 
     <link href="style/sidebar.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
     <link href="style/searchform.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
@@ -74,7 +75,9 @@
         <?php
             include ("header.php");
             include ("main.php");
+//            include ("login.php");
             include ("footer.php");
+
         ?>
 
 <!--    </div>-->
