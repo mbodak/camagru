@@ -1,8 +1,8 @@
 main {
-    display: block;
+    /*display: block;*/
 }
 
-div {
+main div {
     margin: 0;
     padding: 0;
 }
@@ -18,7 +18,7 @@ div {
     transition-timing-function: cubic-bezier(.645,.045,.355,1);
 }
 
-header {
+.big_header {
     display: block;
     position: relative;
     width: 100vw;

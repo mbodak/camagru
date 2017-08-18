@@ -1,22 +1,29 @@
 <?php
-    include ("database.php");
+//    include ("database.php");
+//
+//    $result = mysqli_query($conn, "SELECT login, password FROM users");
+//    foreach ($result as $val)
+//    {
+//        if ($val['login'] == $_POST['login'] && $val['password'] == hash("sha512", $_POST['password']))
+//            setcookie("login", $_POST['login'], time()+3600);
+//    }
+//    header("Location: index.php");
+//?>
 
-    $result = mysqli_query($conn, "SELECT login, password FROM users");
-    foreach ($result as $val)
-    {
-        if ($val['login'] == $_POST['login'] && $val['password'] == hash("sha512", $_POST['password']))
-            setcookie("login", $_POST['login'], time()+3600);
-    }
-    header("Location: index.php");
+<?php
+    include ("head.php");
+    include ("header.php");
 ?>
 
+
+<link href="/Camagru/style/login.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
 <main>
 <div class="container transform-container">
 
     <div class="transform-container">
-        <header>
-            <h1>ETQ Amsterdam customer login</h1>
-        </header>
+        <div class="big_header">
+            <h1>CAMAGRU member login</h1>
+        </div>
     </div>
 
     <div class="transform-container">
