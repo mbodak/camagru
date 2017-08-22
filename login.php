@@ -15,9 +15,10 @@
     include ("header.php");
 ?>
 
-
 <link href="/Camagru/style/login.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
-<main>
+
+
+<main class="backoffice" style="opacity: 1">
 <div class="container transform-container">
 
     <div class="transform-container">
@@ -30,11 +31,11 @@
         <form method="post" name="login-form" id="login-form">
             <div class="row">
                 <div class="small-12 medium-5 medium-offset-1 columns">
-                    <h2>New Customer</h2>
+                    <h2>New Member</h2>
                 </div>
 
                 <div class="hide-for-small medium-5 medium-offset-0 columns">
-                    <h2>Registered customers</h2>
+                    <h2>Registered Member</h2>
                 </div>
 
                 <div class="small-12 medium-4 3 medium-offset-1 columns">

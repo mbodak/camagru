@@ -1,5 +1,13 @@
-main {
-    /*display: block;*/
+body {
+    color: #222;
+    padding: 0;
+    margin: 0;
+    font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.5;
+    position: relative;
+    cursor: auto;
 }
 
 main div {
@@ -25,6 +33,264 @@ main div {
     height: 30vh;
     background: #000;
     margin: 0 0 90px;
-    padding: 26px;
 }
 
+.big_header h1 {
+    font-family: AvenirNextLTPro-Demi,Arial,Helvetica;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: .3rem;
+    margin: 0;
+    padding: 0;
+    line-height: 35vh;
+    text-align: center;
+    font-size: 1rem;
+    color: #FFF;
+}
+
+#login-form .row {
+    margin-bottom: 0;
+}
+
+.row {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 62.5rem;
+}
+
+.columns {
+    position: relative;
+    padding-left: .9375rem;
+    padding-right: .9375rem;
+    float: left;
+}
+
+.small-12 {
+    width: 100%;
+}
+
+.medium-offset-0 {
+    margin-left: 0!important;
+}
+
+.medium-offset-1 {
+    margin-left: 8.33333%!important;
+}
+
+.medium-offset-6 {
+    margin-left: 50%!important;
+}
+
+.medium-4 {
+    width: 33.33333%;
+}
+
+.medium-5 {
+    width: 41.66667%;
+}
+
+.backoffice .button, .backoffice button {
+    font-family: AvenirNextLTPro-Regular,Arial,Helvetica;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: .1875rem;
+    width: 100%;
+    font-size: .6875rem;
+    padding: 0;
+    height: 52px;
+    line-height: 52px;
+    background: #000;
+    color: #FFF;
+    overflow: hidden;
+}
+
+.backoffice .button, .backoffice button, .button, button {
+    text-rendering: auto;
+}
+
+.button, button {
+    display: inline-block;
+}
+
+.button, button {
+    border-style: solid;
+    border-width: 0;
+    cursor: pointer;
+    margin: 0 0 1.25rem;
+    position: relative;
+    text-decoration: none;
+    text-align: center;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+    border-color: #007095;
+    transition: background-color 300ms ease-out;
+}
+
+.backoffice .button>span, .backoffice button>span {
+    pointer-events: none;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: top .35s cubic-bezier(.455,.03,.515,.955);
+    top: 0;
+    left: 0;
+}
+
+b, strong {
+    font-weight: 700;
+    line-height: inherit;
+}
+
+.backoffice .button>span.hover, .backoffice button>span.hover {
+    top: 100%;
+}
+
+.backoffice a {
+    color: #151517;
+}
+
+a {
+    background-color: transparent;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.4;
+}
+
+.backoffice h2 {
+    font-family: AvenirNextLTPro-Demi,Arial,Helvetica;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin: 10px 0 30px;
+    font-size: .8125rem;
+    letter-spacing: .4em;
+}
+
+h2 {
+    display: block;
+    -webkit-margin-before: 0.83em;
+    -webkit-margin-after: 0.83em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+.hide-for-small {
+    display: inherit!important;
+}
+
+label:first-of-type {
+    margin-top: 0;
+}
+
+.backoffice label {
+    display: block;
+    position: relative;
+    font-family: AvenirNextLTPro-Regular,Arial,Helvetica;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin: 30px 0 10px;
+    padding: 0;
+    font-size: .5625rem;
+    letter-spacing: .125rem;
+    color: #6C6C6C;
+}
+
+label {
+    font-size: .875rem;
+    color: #4d4d4d;
+    cursor: pointer;
+    display: block;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.backoffice .cleaninput.border-bottom {
+    border: 1px solid #d5d5d6;
+    padding: 7px 14px;
+}
+
+.backoffice .cleaninput {
+    display: block;
+    position: relative;
+    font-family: AvenirNextLTPro-Regular,Arial,Helvetica;
+    font-weight: 400;
+    font-size: .625rem;
+    letter-spacing: .125rem;
+    background: 0 0;
+    outline: 0;
+    box-shadow: none;
+    color: #000;
+    margin: 0 0 10px;
+    text-transform: uppercase;
+}
+
+input[type=text], input[type=password], input[type=email] {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+    height: 2.3125rem;
+    width: 100%;
+    box-sizing: border-box;
+    transition: box-shadow .45s,border-color .45s ease-in-out;
+}
+
+input {
+    line-height: normal;
+}
+
+.backoffice p {
+    font-family: AvenirNextLTPro-Regular,Arial,Helvetica;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #000;
+    font-size: .5625rem;
+    letter-spacing: .125rem;
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    text-rendering: optimizeLegibility;
+}
+
+.backoffice [class*=column]+[class*=column]:last-child {
+    float: left;
+}
+
+[class*=column]+[class*=column]:last-child {
+    float: right;
+}
+
+
+button, input, optgroup, select, textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+
+input, textarea, select, button, meter, progress {
+    -webkit-writing-mode: horizontal-tb;
+}
+
+
+
+
+@media (max-width : 1920px) {
+    .big_header h1 {
+
+    }
+}
+
+@media (max-width : 992px) {
+    .big_header h1 {
+
+    }
+}
+
+@media (max-width : 600px) {
+    .big_header h1 {
+        font-size: .6rem;
+        line-height: 42vh;
+    }
+}

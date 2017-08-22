@@ -29,7 +29,7 @@
             <nav role="navigation">
                 <ul>
                     <li>
-                        <a href="#" class="w3-bar-item w3-button">Home</a>
+                        <a href="/Camagru/index.php" class="w3-bar-item w3-button">Home</a>
                     </li>
                     <li>
                         <a href="#" class="w3-bar-item w3-button">Profile</a>

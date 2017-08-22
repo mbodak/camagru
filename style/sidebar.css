@@ -87,7 +87,7 @@ button,input,select,textarea{font:inherit;margin:0}optgroup{font-weight:bold}
     font-size: .8125rem;
     color: #FFF;
     letter-spacing: .3rem;
-    margin: 364px 0px 62px 75px;
+    margin: 350px 0px 62px 75px;
     padding: 0;
     top: 40px;
 }
@@ -144,7 +144,7 @@ button,input,select,textarea{font:inherit;margin:0}optgroup{font-weight:bold}
         width: 250px;
     }
     #mySidebar h3 {
-        margin: 364px 0 60px 70px;
+        margin: 300px 0 60px 70px;
         top: 40px;
     }
     #mySidebar ul {
@@ -157,7 +157,7 @@ button,input,select,textarea{font:inherit;margin:0}optgroup{font-weight:bold}
         width: 220px;
     }
     #mySidebar h3 {
-        margin: 364px 0 60px 60px;
+        margin: 300px 0 60px 60px;
         top: 40px;
     }
     #mySidebar ul {
@@ -170,11 +170,11 @@ button,input,select,textarea{font:inherit;margin:0}optgroup{font-weight:bold}
     }
     #mySidebar h3 {
         font-size: .6125rem;
-        margin: 364px 0 50px 45px;
+        margin: 200px 0 50px 45px;
         top: 30px;
     }
     #mySidebar ul {
-        margin: 0px 1px 36px 30px;
+        margin: 0px 0px 36px 30px;
         font-size: .425rem;
         line-height: 1.0;
     }
