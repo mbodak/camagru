@@ -1,32 +1,19 @@
-body {
-    color: #222;
-    padding: 0;
-    margin: 0;
-    font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 1.5;
-    position: relative;
-    cursor: auto;
-}
-
-main div {
-    margin: 0;
-    padding: 0;
-}
-
 .container {
-    padding-bottom: 100px;
+    width: 100%;
+    height: 900px;
 }
 
 .transform-container {
+    width: 100%;
+    height: 30vh;
+    margin-bottom: 60px;
     transition-property: -webkit-transform;
     transition-property: transform;
     transition-duration: .5s;
     transition-timing-function: cubic-bezier(.645,.045,.355,1);
 }
 
-.big_header {
+.big-header {
     display: block;
     position: relative;
     width: 100vw;
@@ -35,7 +22,7 @@ main div {
     margin: 0 0 90px;
 }
 
-.big_header h1 {
+.big-header h1 {
     font-family: AvenirNextLTPro-Demi,Arial,Helvetica;
     text-transform: uppercase;
     font-weight: 500;
@@ -48,12 +35,22 @@ main div {
     color: #FFF;
 }
 
+.backoffice h2 {
+    font-family: AvenirNextLTPro-Demi,Arial,Helvetica;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin: 10px -21px 30px;
+    font-size: .8125rem;
+    letter-spacing: .4em;
+}
+
 #login-form .row {
     margin-bottom: 0;
 }
 
 .row {
     width: 100%;
+    height: 312px;
     margin: 0 auto;
     max-width: 62.5rem;
 }
@@ -65,12 +62,8 @@ main div {
     float: left;
 }
 
-.small-12 {
-    width: 100%;
-}
-
 .medium-offset-0 {
-    margin-left: 0!important;
+    margin-left: 21px!important;
 }
 
 .medium-offset-1 {
@@ -78,7 +71,11 @@ main div {
 }
 
 .medium-offset-6 {
-    margin-left: 50%!important;
+    margin-left: 53%!important;
+}
+
+.medium-offset-7 {
+    margin-left: 40.8%!important;
 }
 
 .medium-4 {
@@ -116,7 +113,7 @@ main div {
     border-style: solid;
     border-width: 0;
     cursor: pointer;
-    margin: 0 0 1.25rem;
+    margin: 0 -22px 1.25rem;
     position: relative;
     text-decoration: none;
     text-align: center;
@@ -150,31 +147,6 @@ b, strong {
     color: #151517;
 }
 
-a {
-    background-color: transparent;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    line-height: 1.4;
-}
-
-.backoffice h2 {
-    font-family: AvenirNextLTPro-Demi,Arial,Helvetica;
-    text-transform: uppercase;
-    font-weight: 400;
-    margin: 10px 0 30px;
-    font-size: .8125rem;
-    letter-spacing: .4em;
-}
-
-h2 {
-    display: block;
-    -webkit-margin-before: 0.83em;
-    -webkit-margin-after: 0.83em;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
-}
-
 .hide-for-small {
     display: inherit!important;
 }
@@ -189,7 +161,7 @@ label:first-of-type {
     font-family: AvenirNextLTPro-Regular,Arial,Helvetica;
     text-transform: uppercase;
     font-weight: 400;
-    margin: 30px 0 10px;
+    margin: -4px 0 6px;
     padding: 0;
     font-size: .5625rem;
     letter-spacing: .125rem;
@@ -208,7 +180,7 @@ label {
 
 .backoffice .cleaninput.border-bottom {
     border: 1px solid #d5d5d6;
-    padding: 7px 14px;
+    padding: 4px 14px;
 }
 
 .backoffice .cleaninput {
@@ -222,11 +194,11 @@ label {
     outline: 0;
     box-shadow: none;
     color: #000;
-    margin: 0 0 10px;
+    margin: 0 0 15px;
     text-transform: uppercase;
 }
 
-input[type=text], input[type=password], input[type=email] {
+.backoffice input[type=text], input[type=password], input[type=email] {
     -webkit-appearance: none;
     -webkit-border-radius: 0;
     height: 2.3125rem;
@@ -246,9 +218,6 @@ input {
     color: #000;
     font-size: .5625rem;
     letter-spacing: .125rem;
-}
-
-p {
     line-height: 1.6;
     margin-bottom: 1.25rem;
     text-rendering: optimizeLegibility;
@@ -258,10 +227,26 @@ p {
     float: left;
 }
 
-[class*=column]+[class*=column]:last-child {
+.backoffice [class*=column]+[class*=column]:last-child {
     float: right;
 }
 
+a {
+    background-color: transparent;
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.4;
+}
+
+h2 {
+    display: block;
+    -webkit-margin-before: 0.83em;
+    -webkit-margin-after: 0.83em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
 
 button, input, optgroup, select, textarea {
     color: inherit;
@@ -273,24 +258,35 @@ input, textarea, select, button, meter, progress {
     -webkit-writing-mode: horizontal-tb;
 }
 
-
-
-
-@media (max-width : 1920px) {
-    .big_header h1 {
-
-    }
-}
-
 @media (max-width : 992px) {
-    .big_header h1 {
-
+    .medium-5 {
+        width: 38%;
     }
+    .medium-offset-0 {
+        margin-left: 30px!important;
+    }
+    .medium-offset-1 {
+        margin-left: 7.2%!important;
+    }
+    .medium-offset-7 {
+        margin-left: 44%!important;
+    }
+    .columns {
+        padding-left: 1.10375rem;
+        padding-right: .8375rem;
+    }
+    .backoffice h2 {
+        margin: -45px -21px 30px;
+    }
+    .row {
+        margin: -31px auto;
+    }
+    .transform-container {
+        height: 36vh;
+    }
+
 }
 
 @media (max-width : 600px) {
-    .big_header h1 {
-        font-size: .6rem;
-        line-height: 42vh;
-    }
+
 }
