@@ -17,7 +17,7 @@
     display: block;
     position: relative;
     width: 100vw;
-    height: 30vh;
+    height: 28vh;
     background: #000;
     margin: 0 0 90px;
 }
@@ -55,7 +55,7 @@
     max-width: 62.5rem;
 }
 
-.columns {
+.column, .columns  {
     position: relative;
     padding-left: .9375rem;
     padding-right: .9375rem;
@@ -231,6 +231,10 @@ input {
     float: right;
 }
 
+.backoffice h2:not(.columns), .backoffice h3:not(.columns), .backoffice h4:not(.columns) {
+    padding: 0;
+}
+
 a {
     background-color: transparent;
     text-decoration: none;
@@ -244,8 +248,8 @@ h2 {
     display: block;
     -webkit-margin-before: 0.83em;
     -webkit-margin-after: 0.83em;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
 }
 
 button, input, optgroup, select, textarea {
@@ -259,34 +263,61 @@ input, textarea, select, button, meter, progress {
 }
 
 @media (max-width : 992px) {
+
+    .medium-4 {
+        width: 33.33333%;
+    }
     .medium-5 {
-        width: 38%;
+        width: 41.66667%;;
     }
     .medium-offset-0 {
-        margin-left: 30px!important;
+        margin-left: 0!important;
     }
     .medium-offset-1 {
-        margin-left: 7.2%!important;
+        margin-left: 6.33333%!important;
+    }
+    .medium-offset-6 {
+        margin-left: 50%!important;
     }
     .medium-offset-7 {
         margin-left: 44%!important;
     }
-    .columns {
-        padding-left: 1.10375rem;
-        padding-right: .8375rem;
+    /*.columns {*/
+        /*padding-left: 1.10375rem;*/
+        /*padding-right: .8375rem;*/
+    /*}*/
+    .backoffice .row {
+        margin-bottom: 100px;
     }
-    .backoffice h2 {
-        margin: -45px -21px 30px;
+    .button, button {
+        display: inline-block;
     }
-    .row {
-        margin: -31px auto;
+    .column, .columns {
+        position: relative;
+        padding-left: .9375rem;
+        padding-right: .9375rem;
     }
-    .transform-container {
-        height: 36vh;
+
+    h1, h2, h3, h4, h5, h6 {
+        line-height: 1.4;
     }
+
+
+    /*.backoffice h2 {*/
+        /*margin: -45px -21px 30px;*/
+    /*}*/
+    /*.row {*/
+        /*margin: -31px auto;*/
+    /*}*/
+    /*.transform-container {*/
+        /*height: 36vh;*/
+    /*}*/
 
 }
 
 @media (max-width : 600px) {
 
+    .big-header h1 {
+        font-size: .8rem;
+    }
 }

@@ -1,6 +1,3 @@
-<?php
-//    session_start();
-//?>
 <html>
     <header>
         <div id="invisibleBox" style="display:none" onclick="w3_close()"></div>

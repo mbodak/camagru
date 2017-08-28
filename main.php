@@ -1,9 +1,3 @@
-<?php
-    session_start();
-    include ("database.php");
-
-?>
-
 <html>
     <div class="head-block"></div>
 
