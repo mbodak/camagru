@@ -1,26 +1,46 @@
 <?php
-    session_start();
-    include ("database.php");
+include ("head.php");
+include ("header.php");
+?>
 
-    if ($_POST['login'] != "" && $_POST['oldpw'] != "" && $_POST['newpw'] != "" && $_POST['submit'] == 'OK')
-    {
-        $id = -1;
-        $result = mysqli_query($conn, "SELECT login, password FROM users");
-        foreach ($result as $val)
-        {
-            if ($val['login'] == $_POST['login'] && $val['password'] == hash("sha512", $_POST['oldpw']))
-                $id = $val['login'];
-        }
-        if ($id < 0)
-        {
-            echo "ERROR\n";
-            return ;
-        }
-        $pw = hash("sha512", $_POST['newpw']);
-        $str = "UPDATE users SET password = '".$pw."' WHERE login = '".$id."'";
-        $result = mysqli_query($conn, $str);
-        header("Location: index.php");
-    }
-    else
-        echo "ERROR\n";
+<main class="backoffice">
+    <div class="container">
+        <div class="forheader"></div>
+
+        <div class="transform-container">
+            <div class="big-header">
+                <h1>Lost password</h1>
+            </div>
+        </div>
+
+        <div class="transform-container">
+            <form method="post" name="login-form" id="login-form">
+                <div class="row">
+                    <div class="registered">
+
+                        <div class="medium-1 medium-offset-0 columns">
+                            <h2>Forgot your password</h2>
+                        </div>
+
+                        <div class="medium-1 medium-offset-2 columns">
+                            <label for="username">E-mail</label>
+                            <input id="username" name="username" type="email" value="" class="cleaninput border-bottom" required="">
+                        </div>
+
+                        <div class="medium-1 medium-offset-2 columns">
+                            <button class="button submit" type="submit" value="Send">
+                                <span>
+                                    <strong>Send</strong>
+                                </span>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+<?php
+include ("footer.php");
 ?>

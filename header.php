@@ -37,7 +37,7 @@
                 </ul>
                 <ul>
                     <li>
-                        <a href="http://localhost:8080/Camagru/login.php/" class="w3-bar-item w3-button">Login</a>
+                        <a href="/Camagru/login.php/" class="w3-bar-item w3-button">Login</a>
                     </li>
                 </ul>
             </nav>
@@ -46,12 +46,12 @@
             <svg class="close-search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" onclick="close_search()">
                 <polygon points="64,5.9 58.1,0 32,26.1 5.9,0 0,5.9 26.1,32 0,58.1 5.9,64 32,37.9 58.1,64 64,58.1 37.9,32"></polygon>
             </svg>
-            <form role="search" method="get" class="search-form" action="http://localhost:8080/Camagru/">
+            <form role="search" method="get" class="search-form" action="/Camagru/">
                 <div>
                     <input type="text" value="" name="s" id="s" placeholder="Type and press enter">
                 </div>
             </form>
-            <form role="search" method="get" class="search-form" action="http://localhost:8080/Camagru/">
+            <form role="search" method="get" class="search-form" action="/Camagru/">
                 <div>
                     <input type="text" value="" name="s" id="s" placeholder="Type and press enter">
                 </div>
