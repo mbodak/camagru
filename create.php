@@ -2,7 +2,6 @@
     include ("head.php");
     include ("header.php");
 ?>
-
 <main class="backoffice">
     <div class="container">
         <div class="forheader"></div>

@@ -9,7 +9,7 @@
     <link href="/Camagru/style/main.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
     <link href="/Camagru/style/footer.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
     <link href="/Camagru/style/login.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
-
+    <link href="/Camagru/style/take_photo.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
     <link href="/Camagru/style/sidebar.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
     <link href="/Camagru/style/searchform.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
 

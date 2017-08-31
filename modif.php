@@ -1,8 +1,7 @@
 <?php
-include ("head.php");
-include ("header.php");
+    include ("head.php");
+    include ("header.php");
 ?>
-
 <main class="backoffice">
     <div class="container">
         <div class="forheader"></div>
@@ -15,7 +14,7 @@ include ("header.php");
 
         <div class="transform-container">
             <form method="post" name="login-form" id="login-form">
-                <div class="row">
+                <div class="row modif">
                     <div class="registered">
 
                         <div class="medium-1 medium-offset-0 columns">
@@ -42,5 +41,5 @@ include ("header.php");
     </div>
 </main>
 <?php
-include ("footer.php");
+    include ("footer.php");
 ?>

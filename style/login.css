@@ -70,13 +70,26 @@ main {
     margin: 0 auto;
     max-width: 62.5rem;
 }
-
 .row .new {
     width: 50%;
 }
-
 .row .registered {
     width: 50%;
+}
+
+.row.modif {
+    justify-content: center;
+}
+.row.modif .registered {
+    width: auto;
+}
+
+.modif .registered .medium-1 {
+    width: 102.66667%;
+}
+
+.row.modif .registered .columns {
+    padding-left: .0375rem;
 }
 
 .column, .columns  {
@@ -95,7 +108,7 @@ main {
 }
 
 .medium-offset-2 {
-    margin-left: 0%!important;
+    margin-left: 0!important;
 }
 
 .medium-0 {
@@ -317,6 +330,15 @@ input, textarea, select, button, meter, progress {
     }
     .transform-container {
         margin-bottom: 2vh;
+    }
+    .row.modif {
+        margin: -100px auto;
+    }
+    .modif .registered .medium-1 {
+        width: 92.66667%;
+    }
+    .row.modif .registered .columns {
+        padding-left: 3.66667%;
     }
 }
 
