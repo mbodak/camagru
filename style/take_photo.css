@@ -19,7 +19,7 @@ main {
 
 .wrapper {
     width: 1320px;
-    height: 80%;
+    height: 78%;
     /*display: block;*/
     position: relative;
     border: 1px solid #d5d5d6;
@@ -37,17 +37,23 @@ main {
 @media (max-width : 1920px) {
     .wrapper {
         width: 69%;
+        height: 76%;
+    }
+    .gallery {
+        height: 20%;
     }
 }
 
 @media (max-width : 992px) {
     .wrapper {
         width: 89%;
+        height: 72%;
     }
 }
 
 @media (max-width : 600px) {
     .wrapper {
         width: 98%;
+        height: 72%;
     }
 }
