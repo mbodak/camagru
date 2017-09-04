@@ -7,7 +7,11 @@
     <div class="page">
         <div class="wrapper">
             <div class="gallery">
-
+                <div class="photo"></div>
+                <div class="photo"></div>
+                <div class="photo"></div>
+                <div class="photo"></div>
+                <div class="photo"></div>
             </div>
 
             <div class="for_photo">
@@ -24,6 +28,7 @@
         </div>
     </div>
 </main>
+
 
 <?php
     include ("footer.php");
