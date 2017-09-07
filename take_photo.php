@@ -11,37 +11,37 @@
                     <ul>
                         <li>
                             <div>
-                                <canvas id="canvas"></canvas>
+                                <canvas class="canvas" id="canvas1"></canvas>
                             </div>
                         </li>
                         <li>
                             <div>
-                                <canvas id="canvas"></canvas>
+                                <canvas class="canvas" id="canvas2"></canvas>
                             </div>
                         </li>
                         <li>
                             <div>
-                                <canvas id="canvas"></canvas>
+                                <canvas class="canvas" id="canvas3"></canvas>
                             </div>
                         </li>
                         <li>
                             <div>
-                                <canvas id="canvas"></canvas>
+                                <canvas class="canvas" id="canvas4"></canvas>
                             </div>
                         </li>
                         <li>
                             <div>
-                                <canvas id="canvas"></canvas>
+                                <canvas class="canvas" id="canvas5"></canvas>
                             </div>
                         </li>
                         <li>
                             <div>
-                                <canvas id="canvas"></canvas>
+                                <canvas class="canvas" id="canvas6"></canvas>
                             </div>
                         </li>
                         <li>
                             <div>
-                                <canvas id="canvas"></canvas>
+                                <canvas class="canvas" id="canvas7"></canvas>
                             </div>
                         </li>
                     </ul>
