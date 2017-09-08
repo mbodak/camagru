@@ -51,7 +51,7 @@
             <div class="camera">
                 <div class="video">
                     <video id="video" autoplay poster="/Camagru/icons/logo.png"></video>
-                    <button id="snap">Snap Photo</button>
+<!--                    <button id="snap">Snap Photo</button>-->
                 </div>
                 <script>
                     // Grab elements, create settings, etc.
@@ -69,7 +69,7 @@
 
                     var canvas = document.getElementById('canvas');
                     var context = canvas.getContext('2d');
-                    var video = document.getElementById('video');
+                    video = document.getElementById('video');
 
                     // Trigger photo take
                     document.getElementById("snap").addEventListener("click", function() {

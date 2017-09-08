@@ -17,9 +17,3 @@ function open_search() {
 function close_search() {
     document.getElementById("mySearch").style.display = "none";
 }
-
-
-
-
-
-
