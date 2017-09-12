@@ -51,7 +51,6 @@
             <div class="camera">
                 <div class="video">
                     <video id="video" autoplay poster="/Camagru/icons/logo.png"></video>
-<!--                    <button id="snap">Snap Photo</button>-->
                 </div>
                 <script>
                     // Grab elements, create settings, etc.
@@ -77,7 +76,7 @@
                     });
                 </script>
                 <div class="tools">
-                    <div>
+                    <div title="select">
 
                     </div>
                     <div>
@@ -100,7 +99,15 @@
             </div>
 
             <div class="actions">
-
+                <div>
+                    <button id="snap">Snap</button>
+                </div>
+                <div>
+                    <button id="download">Download</button>
+                </div>
+                <div>
+                    <button id="">Clear</button>
+                </div>
             </div>
         </div>
     </div>
