@@ -15,9 +15,9 @@ main {
     overflow: auto;
 }
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*justify-content: space-between;*/
     width: 1326px;
     height: 92%;
     position: relative;
@@ -60,7 +60,7 @@ main {
 /*tools block*/
 .camera .tools {
     display: flex;
-    width: 528px;
+    width: 550px;
     border: 1px solid #d5d5d6;
     overflow: auto;
 }
@@ -220,10 +220,10 @@ main {
         height: 148px;
     }
     .camera .video {
-        width: 70%;
+        width: 58%;
     }
     .camera .tools {
-        width: 29%;
+        width: 40%;
     }
 
     .accordion {  height: auto;  }
@@ -301,7 +301,7 @@ main {
         width: 99.5%;
         line-height: 30%;
         margin-top: 25px;
-        height: 50%;
+        /*height: 50%;*/
     }
     .actions {
         height: 15%;
