@@ -12,24 +12,16 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: auto;
+    overflow: hidden;
 }
 .wrapper {
-    /*display: flex;*/
-    /*flex-direction: column;*/
-    /*justify-content: space-between;*/
     width: 1326px;
     height: 92%;
     position: relative;
-    /*border: 1px solid #d5d5d6;*/
     overflow: hidden;
 }
 .gallery {
-    /*display: flex;*/
-    /*flex-direction: row;*/
-    /*justify-content: space-between;*/
     width: 102%;
-    /*height: 190px;*/
     margin-bottom: 30px;
     margin-left: -16px;
 }
@@ -52,7 +44,6 @@ main {
     position: absolute
 }
 #canvas {
-    border:1px solid black;
     width: 100%;
 }
 
@@ -60,13 +51,20 @@ main {
 /*tools block*/
 .camera .tools {
     display: flex;
+    flex-flow: row wrap;
+    align-content: space-between;
     width: 550px;
     border: 1px solid #d5d5d6;
-    overflow: auto;
+    overflow-y: auto;
 }
-.camera .tools div{
-    width: 50%;
-    height: 20%;
+.camera .tools > div {
+    width: 48%;
+    height: 182px;
+    color: #000;
+    flex-grow: 1;
+    flex-basis: auto;
+    padding: 2px;
+    border: 1px solid #d5d5d6;
 }
 
 
@@ -74,7 +72,6 @@ main {
 .actions {
     width: 100%;
     height: 9%;
-    /*border: 1px solid #d5d5d6;*/
     display: flex;
     justify-content: space-between;
 }
@@ -108,18 +105,10 @@ main {
 .accordion {
     width: 100%;
     max-width: 1350px;
-    /*height: 190px;*/
-    /*overflow: hidden;*/
-    /*padding-top: 10px;*/
-    /*padding-bottom: 20px;*/
 }
 .accordion ul {
     width: 100%;
-    /*display: flex;*/
-    /*justify-content: flex-start;*/
-    /* table-layout: fixed; */
     margin: 10px 0 10px 0;
-    /*padding: 0;*/
 }
 .accordion ul li {
     display: table-cell;
@@ -188,9 +177,9 @@ main {
 .accordion ul li:nth-child(7) { background-image: url("createObjectURL(stream)"); }
 
 
-.accordion ul:hover li { width: 40%; }
+.accordion ul:hover li { width: 10%; }
 
-.accordion ul:hover li:hover { width: 60%; }
+.accordion ul:hover li:hover { width: 15%; }
 
 .accordion ul:hover li:hover canvas { background: rgba(0, 0, 0, 0.4); }
 
@@ -207,17 +196,18 @@ main {
 @media (max-width : 1920px) {
     .wrapper {
         width: 70%;
-        height: 90%;
+        height: 96%;
+        overflow-y: auto;
     }
     .gallery {
-        width: 106%;
+        width: 103%;
     }
     .accordion ul {
-        width: 97%;
+        width: 100%;
     }
     .accordion ul li {
         width: 20%;
-        height: 148px;
+        height: 158px;
     }
     .camera .video {
         width: 58%;
@@ -228,41 +218,56 @@ main {
 
     .accordion {  height: auto;  }
     .accordion ul li {
-        /*display: table;*/
         width: 16.666%;
     }
     .accordion ul:hover li { width: 16%; }
-    .accordion ul:hover li:hover { width: 27%; }
+    .accordion ul:hover li:hover { width: 22%; }
 
     .actions div button {
         font-size: .7875rem;
+    }
+    .camera .tools > div {
+        width: 47%;
+        height: 9.7vw;
     }
 }
 
 @media (max-width : 992px) {
     .wrapper {
         width: 90%;
-        height: 90%;
+        height: 97%;
     }
     .gallery {
         margin-bottom: 20px;
-        width: 107%;
-        /*height: 24%;*/
+        width: 103%;
+        margin-left: -10px;
+    }
+    .accordion {
+        width: 99.6%;
     }
     .accordion ul {
-        width: 97%;
+        width: 99.5%;
     }
     .accordion ul li {
         width: 25%;
         height: 150px;
     }
+    .camera {
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        margin-bottom: 20px;
+    }
     .camera .video {
-        width: 75%;
+        width: 99.5%;
     }
     .camera .tools {
-        width: 23%;
+        width: 99.5%;
+        margin-top: 25px;
     }
-
+    .actions div button {
+        margin-bottom: 34px;
+    }
     .accordion {  height: auto;  }
     .accordion ul li,
     .accordion ul li:hover,
@@ -271,7 +276,7 @@ main {
         width: 20%;
     }
     .accordion ul:hover li { width: 19%; }
-    .accordion ul:hover li:hover { width: 30%; }
+    .accordion ul:hover li:hover { width: 32%; }
 
     .actions div button {
         font-size: .6875rem;
@@ -281,12 +286,11 @@ main {
 @media (max-width : 600px) {
     .wrapper {
         width: 98%;
-        height: 92%;
+        height: 97%;
     }
     .gallery {
         margin-bottom: 20px;
         width: 110%;
-        /*height: 30%;*/
     }
     .camera {
         flex-direction: column;
@@ -301,27 +305,20 @@ main {
         width: 99.5%;
         line-height: 30%;
         margin-top: 25px;
-        /*height: 50%;*/
     }
     .actions {
         height: 15%;
     }
-
     .accordion ul {
         width: 97%;
     }
-    .accordion ul li {
-        /*width: 50%;*/
-    }
-
     .accordion { height: auto; }
     .accordion ul li,
     .accordion ul li:hover,
     .accordion ul:hover li,
     .accordion ul:hover li:hover {
-        width: 33.333%;
-        height: 55%;
-        /*margin: 1vw 0 1vw 0;*/
+        width: 33%;
+        height: 144px;
     }
     .accordion ul:hover li { width: 30%; }
     .accordion ul:hover li:hover { width: 44%; }

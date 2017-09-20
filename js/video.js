@@ -44,11 +44,7 @@ function snapshot() {
         canvas.width = document.getElementById('video').offsetWidth;
         canvas.height = document.getElementById('video').offsetHeight;
         ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-        // ctx.drawImage(video, 0, 0);
     }
 }
 
-
-// canvas.width = document.getElementById('video').offsetWidth;
-// canvas.height = document.getElementById('video').offsetHeight;
-// ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+//подстраиваем высоту блока tools по высоту video

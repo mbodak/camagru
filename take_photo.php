@@ -51,31 +51,22 @@
 
             <div class="camera">
                 <div class="video">
-
                     <canvas id="canvas">
                 </div>
 
-
-
                 <div class="tools">
-                    <div title="select">
+                    <div title="select"></div>
 
-                    </div>
-                    <div>
+                    <div></div>
 
-                    </div>
-                    <div>
+                    <div></div>
 
-                    </div>
-                    <div>
+                    <div></div>
 
-                    </div>
-                    <div>
+                    <div></div>
 
-                    </div>
-                    <div>
+                    <div></div>
 
-                    </div>
                 </div>
 
             </div>
