@@ -24,7 +24,7 @@
 //направляем поток из getUserMedia в video
 var video = document.querySelector("#video"),
     canvas = document.querySelector('#canvas'),
-    ctx = canvas.getContext('2d'),
+    context = canvas.getContext('2d'),
     localMediaStream = null,
     onCameraFail = function (e) {
         console.log('Camera did not work.', e); // Исключение на случай, если камера не работает
@@ -32,7 +32,10 @@ var video = document.querySelector("#video"),
 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 window.URL = window.URL || window.webkitURL;
 navigator.getUserMedia({video: true}, function(stream) {
-    video.src = window.URL.createObjectURL(stream);
+    var obj_url = window.URL.createObjectURL(stream);
+    video.src = obj_url;
+    video.play();
+    window.URL.revokeObjectURL(obj_url);
     localMediaStream = stream;
 }, onCameraFail);
 
@@ -43,8 +46,20 @@ function snapshot() {
     if(localMediaStream){
         canvas.width = document.getElementById('video').offsetWidth;
         canvas.height = document.getElementById('video').offsetHeight;
-        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
     }
 }
+// document.getElementById("snap").addEventListener("click", function() {
+//      context.drawImage(video, 0, 0, 640, 480);
 
-//подстраиваем высоту блока tools по высоту video
+function imgOverlaying(src) {
+    var img = new Image();
+    img.onload = function () {
+        context.drawImage(img, 0, 0);
+    };
+    img.onerror = function () {
+        console.log('Broken image');
+    };
+    img.src = src;
+}
+

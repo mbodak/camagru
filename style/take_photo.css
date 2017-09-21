@@ -1,22 +1,19 @@
 main {
-    height: 80%;
-    min-height: 700px;
-    overflow: hidden;
     flex: 1;
 }
 .page {
     width: 100%;
-    height: 100%;
+    /*height: 100%;*/
     top: 0;
     left: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 .wrapper {
     width: 1326px;
-    height: 92%;
+    margin-top: 25px;
     position: relative;
     overflow: hidden;
 }
@@ -29,7 +26,7 @@ main {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 
@@ -54,26 +51,55 @@ main {
     flex-flow: row wrap;
     align-content: space-between;
     width: 550px;
-    border: 1px solid #d5d5d6;
-    overflow-y: auto;
+    overflow: hidden;
+    background: white;
 }
 .camera .tools > div {
+    display: flex;
     width: 48%;
     height: 182px;
     color: #000;
     flex-grow: 1;
     flex-basis: auto;
     padding: 2px;
-    border: 1px solid #d5d5d6;
+    cursor: pointer;
+    overflow: hidden;
+
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
 }
 
+.camera .tools > div > img {
+    height: 86%;
+    display: block;
+    margin: auto;
+}
+.camera .tools > div > p {
+    color: #1D1D1F;
+    /*margin-top: 30%;*/
+    font-family: AvenirNextLTPro-Regular,Arial,Helvetica;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: .1875rem;
+    font-size: 2.0875rem;
+    line-height: 200px;
+}
+.camera .tools > div:hover {
+    -ms-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+}
 
 /*actions block*/
 .actions {
     width: 100%;
-    height: 9%;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 40px;
 }
 .actions div {
     width: 33%;
@@ -97,7 +123,7 @@ main {
 }
 .actions div button:hover {
     /*color: #000 !important;*/
-    background-color: #9c9c9c !important;
+    background-color: whitesmoke !important;
 }
 
 
@@ -119,11 +145,9 @@ main {
     background-repeat: no-repeat;
     background-position: center center;
     transition: all 500ms ease;
-
     transform: perspective(1000px)rotateY(-30deg);
     background-color: darkgray;
     opacity: 1;
-
 }
 .accordion ul li div {
     display: block;
@@ -176,7 +200,6 @@ main {
 
 .accordion ul li:nth-child(7) { background-image: url("createObjectURL(stream)"); }
 
-
 .accordion ul:hover li { width: 10%; }
 
 .accordion ul:hover li:hover { width: 15%; }
@@ -196,8 +219,7 @@ main {
 @media (max-width : 1920px) {
     .wrapper {
         width: 70%;
-        height: 96%;
-        overflow-y: auto;
+        margin-top: 20px;
     }
     .gallery {
         width: 103%;
@@ -207,7 +229,7 @@ main {
     }
     .accordion ul li {
         width: 20%;
-        height: 158px;
+        height: 150px;
     }
     .camera .video {
         width: 58%;
@@ -230,12 +252,16 @@ main {
         width: 47%;
         height: 9.7vw;
     }
+    .camera .tools > div > p {
+        font-weight: 600;
+        font-size: 1.5875rem;
+        line-height: 11vw;
+    }
 }
 
 @media (max-width : 992px) {
     .wrapper {
         width: 90%;
-        height: 97%;
     }
     .gallery {
         margin-bottom: 20px;
@@ -256,14 +282,23 @@ main {
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
     .camera .video {
         width: 99.5%;
     }
     .camera .tools {
         width: 99.5%;
-        margin-top: 25px;
+        margin-top: 20px;
+    }
+    .camera .tools > div {
+        width: 32%;
+        height: 18vw;
+    }
+    .camera .tools > div > p {
+        font-weight: 600;
+        font-size: 1.3875rem;
+        line-height: 20vw;
     }
     .actions div button {
         margin-bottom: 34px;
@@ -286,7 +321,7 @@ main {
 @media (max-width : 600px) {
     .wrapper {
         width: 98%;
-        height: 97%;
+        margin-top: 10px;
     }
     .gallery {
         margin-bottom: 20px;
@@ -296,18 +331,22 @@ main {
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
     .camera .video {
         width: 100%;
     }
     .camera .tools {
         width: 99.5%;
-        line-height: 30%;
-        margin-top: 25px;
+        margin-top: 20px;
     }
-    .actions {
-        height: 15%;
+    .camera .tools > div {
+        width: 30%;
+        height: 16vw;
+    }
+    .camera .tools > div > p {
+        font-size: 1.0875rem;
+        line-height: 17vw;
     }
     .accordion ul {
         width: 97%;
@@ -318,10 +357,10 @@ main {
     .accordion ul:hover li,
     .accordion ul:hover li:hover {
         width: 33%;
-        height: 144px;
+        height: 140px;
     }
     .accordion ul:hover li { width: 30%; }
-    .accordion ul:hover li:hover { width: 44%; }
+    .accordion ul:hover li:hover { width: 40%; }
 }
 
 

@@ -2,11 +2,12 @@
     include ("head.php");
     include ("header.php");
 ?>
-<video id="video" autoplay poster="/Camagru/icons/logo.png"></video>
+
 <div class="forheader"></div>
-<main>
+<div class="main">
     <div class="page">
         <div class="wrapper">
+            <video id="video" autoplay poster="/Camagru/icons/logo.png"></video>
             <div class="gallery">
                 <div class="accordion">
                     <ul>
@@ -53,19 +54,42 @@
                 <div class="video">
                     <canvas id="canvas">
                 </div>
-
+<script>
+    function imgOverlaying(src) {
+        var img = new Image();
+        img.onload = function () {
+            context.drawImage(img, 0, 0);
+        };
+        img.onerror = function () {
+            console.log('Broken image');
+        };
+        img.src = src;
+    }
+</script>
                 <div class="tools">
-                    <div title="select"></div>
+                    <div title="select" onclick="imgOverlaying('/Camagru/stickers/face.png')">
+                        <img src="/Camagru/stickers/face.png">
+                    </div>
 
-                    <div></div>
+                    <div onclick="imgOverlaying('/Camagru/stickers/hair.png')">
+                        <img src="/Camagru/stickers/hair.png">
+                    </div>
 
-                    <div></div>
+                    <div onclick="imgOverlaying('/Camagru/stickers/deer.png')">
+                        <img src="/Camagru/stickers/deer.png">
+                    </div>
 
-                    <div></div>
+                    <div onclick="imgOverlaying('/Camagru/stickers/hat2.png')">
+                        <img src="/Camagru/stickers/hat2.png">
+                    </div>
 
-                    <div></div>
+                    <div onclick="imgOverlaying('/Camagru/stickers/mas.png')">
+                        <img src="/Camagru/stickers/mas.png">
+                    </div>
 
-                    <div></div>
+                    <div>
+                        <p>UPLOAD</p>
+                    </div>
 
                 </div>
 
@@ -84,9 +108,7 @@
             </div>
         </div>
     </div>
-</main>
-
-
+</div>
 
 <script type="text/javascript" src="/Camagru/js/video.js"></script>
 <?php
