@@ -35,7 +35,7 @@ navigator.getUserMedia({video: true}, function(stream) {
     var obj_url = window.URL.createObjectURL(stream);
     video.src = obj_url;
     video.play();
-    window.URL.revokeObjectURL(obj_url);
+    //window.URL.revokeObjectURL(obj_url);
     localMediaStream = stream;
 }, onCameraFail);
 
