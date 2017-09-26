@@ -34,18 +34,26 @@ main {
 .camera .video {
     border: 1px solid #d5d5d6;
     width: 754px;
+    position: relative;
 }
 #video {
     width: 100%;
     visibility: hidden;
-    position: absolute
+    position: absolute;
 }
 #canvas {
     width: 100%;
+    /*position: absolute;*/
 }
 
+.video > img {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+}
 
-/*tools block*/
+    /*tools block*/
 .camera .tools {
     display: flex;
     flex-flow: row wrap;
@@ -186,19 +194,19 @@ main {
     transition: all 400ms ease;
 }
 
-.accordion ul li:nth-child(1) { background-image: url("createObjectURL(stream)"); }
+.accordion ul li:nth-child(1) { background-image: url(""); }
 
-.accordion ul li:nth-child(2) { background-image: url("createObjectURL(stream)"); }
+.accordion ul li:nth-child(2) { background-image: url(""); }
 
-.accordion ul li:nth-child(3) { background-image: url("createObjectURL(stream)"); }
+.accordion ul li:nth-child(3) { background-image: url(""); }
 
-.accordion ul li:nth-child(4) { background-image: url("createObjectURL(stream)"); }
+.accordion ul li:nth-child(4) { background-image: url(""); }
 
-.accordion ul li:nth-child(5) { background-image: url("createObjectURL(stream)"); }
+.accordion ul li:nth-child(5) { background-image: url(""); }
 
-.accordion ul li:nth-child(6) { background-image: url("createObjectURL(stream)"); }
+.accordion ul li:nth-child(6) { background-image: url(""); }
 
-.accordion ul li:nth-child(7) { background-image: url("createObjectURL(stream)"); }
+.accordion ul li:nth-child(7) { background-image: url(""); }
 
 .accordion ul:hover li { width: 10%; }
 

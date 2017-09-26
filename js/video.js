@@ -32,10 +32,8 @@ var video = document.querySelector("#video"),
 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 window.URL = window.URL || window.webkitURL;
 navigator.getUserMedia({video: true}, function(stream) {
-    var obj_url = window.URL.createObjectURL(stream);
-    video.src = obj_url;
+    video.src = window.URL.createObjectURL(stream);
     video.play();
-    //window.URL.revokeObjectURL(obj_url);
     localMediaStream = stream;
 }, onCameraFail);
 
@@ -43,7 +41,7 @@ navigator.getUserMedia({video: true}, function(stream) {
 //таймер, изображение постоянно копируется в canvas
 cameraInterval = setInterval(function() { snapshot();}, 1);
 function snapshot() {
-    if(localMediaStream){
+    if (localMediaStream) {
         canvas.width = document.getElementById('video').offsetWidth;
         canvas.height = document.getElementById('video').offsetHeight;
         context.drawImage(video, 0, 0, canvas.width, canvas.height);
@@ -52,14 +50,91 @@ function snapshot() {
 // document.getElementById("snap").addEventListener("click", function() {
 //      context.drawImage(video, 0, 0, 640, 480);
 
-function imgOverlaying(src) {
-    var img = new Image();
-    img.onload = function () {
-        context.drawImage(img, 0, 0);
-    };
-    img.onerror = function () {
-        console.log('Broken image');
-    };
+
+
+function imgDraw(src) {
+    var img = document.getElementById("img");
     img.src = src;
 }
 
+
+
+
+
+
+
+
+
+// var bg = document.getElementById('canvas');
+// var bgctx = bg.getContext('2d');
+// bgctx.drawImage(document.getElementById('bgimg'), 20, 20);
+//
+// var image = document.getElementById('logo');
+// var img_context = image.getContext('2d');
+//
+// make_logo();
+//
+// function make_logo() {
+//     logoimage = document.getElementById('logoimg');
+//     logoimage.onload = function() {
+//         logo_context.drawImage(logoimage, 20, 20);
+//     }
+// }
+//
+//
+//
+// var canvasOffset = $("#logo").offset();
+// var offsetX = canvasOffset.left;
+// var offsetY = canvasOffset.top;
+// var canvasWidth = canvas.width;
+// var canvasHeight = canvas.height;
+// var isDragging = false;
+//
+// function handleMouseDown(e) {
+//     canMouseX = parseInt(e.clientX - offsetX);
+//     canMouseY = parseInt(e.clientY - offsetY);
+//     // set the drag flag
+//     isDragging = true;
+// }
+//
+// function handleMouseUp(e) {
+//     canMouseX = parseInt(e.clientX - offsetX);
+//     canMouseY = parseInt(e.clientY - offsetY);
+//     // clear the drag flag
+//     isDragging = false;
+// }
+//
+// function handleMouseOut(e) {
+//     canMouseX = parseInt(e.clientX - offsetX);
+//     canMouseY = parseInt(e.clientY - offsetY);
+//     // user has left the canvas, so clear the drag flag
+//     isDragging = false;
+// }
+//
+// function handleMouseMove(e) {
+//     canMouseX = parseInt(e.clientX - offsetX);
+//     canMouseY = parseInt(e.clientY - offsetY);
+//     // if the drag flag is set, clear the canvas and draw the image
+//     if (isDragging) {
+//         img_context.clearRect(0, 0, canvasWidth, canvasHeight);
+//         img_context.drawImage(logoimage, canMouseX, canMouseY + canvasHeight / 4);
+//     }
+// }
+//
+// $("#logo").mousedown(function(e) {
+//     handleMouseDown(e);
+// });
+// $("#logo").mousemove(function(e) {
+//     handleMouseMove(e);
+// });
+// $("#logo").mouseup(function(e) {
+//     handleMouseUp(e);
+// });
+// $("#logo").mouseout(function(e) {
+//     handleMouseOut(e);
+// });
+//
+// function output() {
+//     bgctx.drawImage(canvas, 0, 0);
+//     window.open(bg.toDataURL());
+// }
