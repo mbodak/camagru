@@ -51,9 +51,8 @@
             </div>
 
             <div class="camera">
-                <div class="video">
+                <div class="video" id="tmp">
                     <canvas id="canvas"></canvas>
-                    <img id="img">
                 </div>
 
                 <div class="tools">
@@ -93,7 +92,7 @@
                     <button id="download">Download</button>
                 </div>
                 <div>
-                    <button id="">Clear</button>
+                    <button id="clearButton" onclick="clearButton()">Clear</button>
                 </div>
             </div>
         </div>

@@ -35,6 +35,8 @@ navigator.getUserMedia({video: true}, function(stream) {
     video.src = window.URL.createObjectURL(stream);
     video.play();
     localMediaStream = stream;
+    context.translate(canvas.width, 0);
+    context.scale(-1, 1);
 }, onCameraFail);
 
 
@@ -47,94 +49,172 @@ function snapshot() {
         context.drawImage(video, 0, 0, canvas.width, canvas.height);
     }
 }
-// document.getElementById("snap").addEventListener("click", function() {
-//      context.drawImage(video, 0, 0, 640, 480);
-
-
 
 function imgDraw(src) {
-    var img = document.getElementById("img");
+    if (!document.getElementById('img')) {
+        var daddy = document.getElementById('tmp');
+        var img = document.createElement('img');
+        img.id = 'img';
+        daddy.appendChild(img);
+    } else {
+        img = document.getElementById('img');
+    }
     img.src = src;
+    img.onmousedown = function(e) {
+
+        var coords = getCoords(img);
+        var shiftX = e.pageX - coords.left;
+        var shiftY = e.pageY - coords.top;
+
+        img.style.position = 'absolute';
+        document.body.appendChild(img);
+        moveAt(e);
+
+        img.style.zIndex = 1000; // над другими элементами
+
+        function moveAt(e) {
+            img.style.left = e.pageX - shiftX + 'px';
+            img.style.top = e.pageY - shiftY + 'px';
+        }
+
+        document.onmousemove = function(e) {
+            moveAt(e);
+        };
+
+        img.onmouseup = function() {
+            document.onmousemove = null;
+            img.onmouseup = null;
+        };
+
+    };
+    img.ondragstart = function() {
+        return false;
+    };
+
+    img.onerror = function () {
+        alert('Broken image');
+    };
+
+}
+
+function getCoords(elem) {
+    // (1)
+    var box = elem.getBoundingClientRect();
+
+    var body = document.body;
+    var docEl = document.documentElement;
+
+    // (2)
+    var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
+    var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
+
+    // (3)
+    var clientTop = docEl.clientTop || body.clientTop || 0;
+    var clientLeft = docEl.clientLeft || body.clientLeft || 0;
+
+    // (4)
+    var top  = box.top +  scrollTop - clientTop;
+    var left = box.left + scrollLeft - clientLeft;
+
+    // (5)
+    return { top: Math.round(top), left: Math.round(left) };
+}
+
+
+
+function clearButton() {
+    var daddy = document.getElementById('tmp');
+    var butt = document.getElementById('img');
+    if (butt) {
+        daddy.removeChild(butt);
+    }
 }
 
 
 
 
 
-
-
-
-
-// var bg = document.getElementById('canvas');
-// var bgctx = bg.getContext('2d');
-// bgctx.drawImage(document.getElementById('bgimg'), 20, 20);
-//
-// var image = document.getElementById('logo');
-// var img_context = image.getContext('2d');
-//
-// make_logo();
-//
-// function make_logo() {
-//     logoimage = document.getElementById('logoimg');
-//     logoimage.onload = function() {
-//         logo_context.drawImage(logoimage, 20, 20);
+// function mouseMove(img) {
+//     img.onmousedown = function(){return false;};
+//     img.style.cursor = 'move';
+//     // console.log(img);
+//     img.onmousemove = function(e){
+//         console.log('here');
+//         x = e.pageX;
+//         y = e.pageY;
+//         left = img.offsetLeft;
+//         top = img.offsetTop;
+//         left = x - left;
+//         top = y - top;
+//         // img.onmousemove = function(e){
+//         //     console.log(e.pageX, e.pageY);
+//         //     x = e.pageX;
+//         //     y = e.pageY;
+//             img.style.top = y - top + 'px';
+//             img.style.left = x - left + 'px;';
+//         // }
+//     };
+//     img.onmouseup = function(){
+//         img.style.cursor = 'auto';
+//         img.onmousedown = function(){};
+//         img.onmousemove = function(){};
 //     }
 // }
+
+// function mouseMove(img) {
+//
+//     var drp = false; // true - если перетаскиваем
+//     var pozx = 0;
+//     var pozy = 0; // координаты начала отображения изображения
+//     var smx = 0;
+//     var smy = 0;   // координаты мыши - нажали на кнопку
+//     var emx = 0;
+//     var emy = 0;   // координаты мыши - опустили на кнопку
 //
 //
+//     iw = img.width;
+//     ih = img.height;
+//     sw = $("#canvas").width();
+//     sh = $("#canvas").height();
 //
-// var canvasOffset = $("#logo").offset();
-// var offsetX = canvasOffset.left;
-// var offsetY = canvasOffset.top;
-// var canvasWidth = canvas.width;
-// var canvasHeight = canvas.height;
-// var isDragging = false;
 //
-// function handleMouseDown(e) {
-//     canMouseX = parseInt(e.clientX - offsetX);
-//     canMouseY = parseInt(e.clientY - offsetY);
-//     // set the drag flag
-//     isDragging = true;
-// }
+// // Событие на нажатие кнопки мыши
+//     document.getElementById('canvas').onmousedown = function (e) {
+//         smx = e.clientX;
+//         smy = e.clientY;
+//         drp = true;
+//     };
+// // Событие на опускание кнопки мыши
+//     document.getElementById('canvas').onmouseup = function (e) {
+//         drp = false;
+//     };
 //
-// function handleMouseUp(e) {
-//     canMouseX = parseInt(e.clientX - offsetX);
-//     canMouseY = parseInt(e.clientY - offsetY);
-//     // clear the drag flag
-//     isDragging = false;
-// }
-//
-// function handleMouseOut(e) {
-//     canMouseX = parseInt(e.clientX - offsetX);
-//     canMouseY = parseInt(e.clientY - offsetY);
-//     // user has left the canvas, so clear the drag flag
-//     isDragging = false;
-// }
-//
-// function handleMouseMove(e) {
-//     canMouseX = parseInt(e.clientX - offsetX);
-//     canMouseY = parseInt(e.clientY - offsetY);
-//     // if the drag flag is set, clear the canvas and draw the image
-//     if (isDragging) {
-//         img_context.clearRect(0, 0, canvasWidth, canvasHeight);
-//         img_context.drawImage(logoimage, canMouseX, canMouseY + canvasHeight / 4);
-//     }
-// }
-//
-// $("#logo").mousedown(function(e) {
-//     handleMouseDown(e);
-// });
-// $("#logo").mousemove(function(e) {
-//     handleMouseMove(e);
-// });
-// $("#logo").mouseup(function(e) {
-//     handleMouseUp(e);
-// });
-// $("#logo").mouseout(function(e) {
-//     handleMouseOut(e);
-// });
-//
-// function output() {
-//     bgctx.drawImage(canvas, 0, 0);
-//     window.open(bg.toDataURL());
+//     iw = img.width;
+//     ih = img.height;
+//     sw = $("#canvas").width();
+//     sh = $("#canvas").height();
+//     document.getElementById('canvas').onmousemove = function (e) {
+//         if (drp === true) {
+//             emx = e.clientX;
+//             emy = e.clientY;
+//             pozx = pozx + (smx - emx);
+//             pozy = pozy + (smy - emy);
+// // отлавливаем выход за пределы экрана
+//             if (pozx < 0) {
+//                 pozx = 0;
+//             }
+//             if (pozy < 0) {
+//                 pozy = 0;
+//             }
+//             if (pozx > (img.width - iw)) {
+//                 pozx = img.width - iw;
+//             }
+//             if (pozy > (img.height - ih)) {
+//                 pozy = img.height - ih;
+//             }
+//             context.drawImage(img, pozx, pozy, iw, ih, 0, 0, sw, sh);
+//         }
+//         smx = e.clientX;
+//         smy = e.clientY;
+//     };
 // }

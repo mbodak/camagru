@@ -35,6 +35,11 @@ main {
     border: 1px solid #d5d5d6;
     width: 754px;
     position: relative;
+    transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
 }
 #video {
     width: 100%;
@@ -130,7 +135,7 @@ main {
     outline: none;
 }
 .actions div button:hover {
-    /*color: #000 !important;*/
+    color: #000 !important;
     background-color: whitesmoke !important;
 }
 
