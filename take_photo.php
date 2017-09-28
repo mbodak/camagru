@@ -51,7 +51,7 @@
             </div>
 
             <div class="camera">
-                <div class="video" id="tmp">
+                <div class="video" id="daddy">
                     <canvas id="canvas"></canvas>
                 </div>
 
@@ -86,7 +86,7 @@
 
             <div class="actions">
                 <div>
-                    <button id="snap">Snap</button>
+                    <button id="snap" onclick="snap()">Snap</button>
                 </div>
                 <div>
                     <button id="download">Download</button>

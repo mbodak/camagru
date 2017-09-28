@@ -41,7 +41,7 @@ navigator.getUserMedia({video: true}, function(stream) {
 
 
 //таймер, изображение постоянно копируется в canvas
-cameraInterval = setInterval(function() { snapshot();}, 1);
+cameraInterval = setInterval(function() { snapshot();}, 33);
 function snapshot() {
     if (localMediaStream) {
         canvas.width = document.getElementById('video').offsetWidth;
@@ -50,10 +50,12 @@ function snapshot() {
     }
 }
 
+var img = null;
+
 function imgDraw(src) {
     if (!document.getElementById('img')) {
-        var daddy = document.getElementById('tmp');
-        var img = document.createElement('img');
+        var daddy = document.getElementById('daddy');
+        img = document.createElement('img');
         img.id = 'img';
         daddy.appendChild(img);
     } else {
@@ -77,7 +79,7 @@ function imgDraw(src) {
             img.style.top = e.pageY - shiftY + 'px';
         }
 
-        document.onmousemove = function(e) {
+        img.onmousemove = function(e) {
             moveAt(e);
         };
 
@@ -94,127 +96,68 @@ function imgDraw(src) {
     img.onerror = function () {
         alert('Broken image');
     };
-
 }
 
 function getCoords(elem) {
-    // (1)
     var box = elem.getBoundingClientRect();
 
     var body = document.body;
     var docEl = document.documentElement;
 
-    // (2)
     var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
     var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
 
-    // (3)
     var clientTop = docEl.clientTop || body.clientTop || 0;
     var clientLeft = docEl.clientLeft || body.clientLeft || 0;
 
-    // (4)
     var top  = box.top +  scrollTop - clientTop;
     var left = box.left + scrollLeft - clientLeft;
 
-    // (5)
     return { top: Math.round(top), left: Math.round(left) };
 }
 
 
 
 function clearButton() {
-    var daddy = document.getElementById('tmp');
+    var daddy = document.getElementById('daddy');
     var butt = document.getElementById('img');
     if (butt) {
         daddy.removeChild(butt);
     }
 }
 
+function snap() {
+    var takeImg1 = document.getElementById('canvas1');
+    var ctx = takeImg1.getContext("2d");
+
+    console.log(canvas);
+    ctx.drawImage(canvas, 0, 0, canvas.width, canvas.height);
+    ctx.scale(takeImg1.width, takeImg1.height);
+    var imgObj = new Image();
+    if (img) {
+        imgObj.src = img.src;
+        imgObj.onload = function () {
+            ctx.drawImage(imgObj, 0, 0, img.width, img.height);
+        };
+    }
+}
 
 
+// var image = takeImg1.toDataURL("image/png");
+// document.write('<img src="' + img + '" width="328" height="526"/>');
 
 
-// function mouseMove(img) {
-//     img.onmousedown = function(){return false;};
-//     img.style.cursor = 'move';
-//     // console.log(img);
-//     img.onmousemove = function(e){
-//         console.log('here');
-//         x = e.pageX;
-//         y = e.pageY;
-//         left = img.offsetLeft;
-//         top = img.offsetTop;
-//         left = x - left;
-//         top = y - top;
-//         // img.onmousemove = function(e){
-//         //     console.log(e.pageX, e.pageY);
-//         //     x = e.pageX;
-//         //     y = e.pageY;
-//             img.style.top = y - top + 'px';
-//             img.style.left = x - left + 'px;';
-//         // }
-//     };
-//     img.onmouseup = function(){
-//         img.style.cursor = 'auto';
-//         img.onmousedown = function(){};
-//         img.onmousemove = function(){};
+// var c=document.getElementById("myCanvas");
+// var ctx=c.getContext("2d");
+// var imageObj1 = new Image();
+// var imageObj2 = new Image();
+// imageObj1.src = "1.png"
+// imageObj1.onload = function() {
+//     ctx.drawImage(imageObj1, 0, 0, 328, 526);
+//     imageObj2.src = "2.png";
+//     imageObj2.onload = function() {
+//         ctx.drawImage(imageObj2, 15, 85, 300, 300);
+//         var img = c.toDataURL("image/png");
+//         document.write('<img src="' + img + '" width="328" height="526"/>');
 //     }
-// }
-
-// function mouseMove(img) {
-//
-//     var drp = false; // true - если перетаскиваем
-//     var pozx = 0;
-//     var pozy = 0; // координаты начала отображения изображения
-//     var smx = 0;
-//     var smy = 0;   // координаты мыши - нажали на кнопку
-//     var emx = 0;
-//     var emy = 0;   // координаты мыши - опустили на кнопку
-//
-//
-//     iw = img.width;
-//     ih = img.height;
-//     sw = $("#canvas").width();
-//     sh = $("#canvas").height();
-//
-//
-// // Событие на нажатие кнопки мыши
-//     document.getElementById('canvas').onmousedown = function (e) {
-//         smx = e.clientX;
-//         smy = e.clientY;
-//         drp = true;
-//     };
-// // Событие на опускание кнопки мыши
-//     document.getElementById('canvas').onmouseup = function (e) {
-//         drp = false;
-//     };
-//
-//     iw = img.width;
-//     ih = img.height;
-//     sw = $("#canvas").width();
-//     sh = $("#canvas").height();
-//     document.getElementById('canvas').onmousemove = function (e) {
-//         if (drp === true) {
-//             emx = e.clientX;
-//             emy = e.clientY;
-//             pozx = pozx + (smx - emx);
-//             pozy = pozy + (smy - emy);
-// // отлавливаем выход за пределы экрана
-//             if (pozx < 0) {
-//                 pozx = 0;
-//             }
-//             if (pozy < 0) {
-//                 pozy = 0;
-//             }
-//             if (pozx > (img.width - iw)) {
-//                 pozx = img.width - iw;
-//             }
-//             if (pozy > (img.height - ih)) {
-//                 pozy = img.height - ih;
-//             }
-//             context.drawImage(img, pozx, pozy, iw, ih, 0, 0, sw, sh);
-//         }
-//         smx = e.clientX;
-//         smy = e.clientY;
-//     };
-// }
+// };
