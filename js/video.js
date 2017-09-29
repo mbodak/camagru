@@ -1,25 +1,3 @@
-// // Grab elements, create settings, etc.
-// var video = document.getElementById('video');
-//
-// // Get access to the camera!
-// if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-//     // Not adding `{ audio: true }` since we only want video now
-//     navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
-//         video.src = window.URL.createObjectURL(stream);
-//         video.play();
-//     });
-// }
-// // Elements for taking the snapshot
-//
-// var canvas = document.getElementById('canvas');
-// var context = canvas.getContext('2d');
-// video = document.getElementById('video');
-//
-// // Trigger photo take
-// document.getElementById("snap").addEventListener("click", function() {
-//     context.drawImage(video, 0, 0, 640, 480);
-// });
-
 
 //направляем поток из getUserMedia в video
 var video = document.querySelector("#video"),
@@ -29,6 +7,8 @@ var video = document.querySelector("#video"),
     onCameraFail = function (e) {
         console.log('Camera did not work.', e); // Исключение на случай, если камера не работает
     };
+
+
 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 window.URL = window.URL || window.webkitURL;
 navigator.getUserMedia({video: true}, function(stream) {
@@ -40,6 +20,11 @@ navigator.getUserMedia({video: true}, function(stream) {
 }, onCameraFail);
 
 
+var mask = null;
+var maskX = null;
+var maskY = null;
+
+
 //таймер, изображение постоянно копируется в canvas
 cameraInterval = setInterval(function() { snapshot();}, 33);
 function snapshot() {
@@ -48,23 +33,30 @@ function snapshot() {
         canvas.height = document.getElementById('video').offsetHeight;
         context.drawImage(video, 0, 0, canvas.width, canvas.height);
     }
+    if (mask) {
+        maskX = getCoords(mask).left;
+        maskY = getCoords(mask).top;
+        context.drawImage(mask, maskX, maskY, mask.width, mask.height);
+    }
 }
 
-var img = null;
 
-function imgDraw(src) {
-    if (!document.getElementById('img')) {
-        var daddy = document.getElementById('daddy');
-        img = document.createElement('img');
-        img.id = 'img';
-        daddy.appendChild(img);
-    } else {
-        img = document.getElementById('img');
-    }
-    img.src = src;
-    img.onmousedown = function(e) {
+function changeMask(src) {
+    var tmpMask;
+    tmpMask = new Image();
+    tmpMask.src = src;
+    tmpMask.onload = function () {
+        mask = tmpMask;
+    };
 
-        var coords = getCoords(img);
+    // var move = maskMove(mask);
+}
+
+
+function maskMove(srcMask) {
+    srcMask.onmousedown = function(e) {
+
+        var coords = getCoords(srcMask);
         var shiftX = e.pageX - coords.left;
         var shiftY = e.pageY - coords.top;
 
@@ -72,7 +64,7 @@ function imgDraw(src) {
         document.body.appendChild(img);
         moveAt(e);
 
-        img.style.zIndex = 1000; // над другими элементами
+        img.style.zIndex = 100;
 
         function moveAt(e) {
             img.style.left = e.pageX - shiftX + 'px';
@@ -93,9 +85,7 @@ function imgDraw(src) {
         return false;
     };
 
-    img.onerror = function () {
-        alert('Broken image');
-    };
+
 }
 
 function getCoords(elem) {
@@ -117,24 +107,21 @@ function getCoords(elem) {
 }
 
 
-
 function clearButton() {
-    var daddy = document.getElementById('daddy');
-    var butt = document.getElementById('img');
-    if (butt) {
-        daddy.removeChild(butt);
-    }
+    mask = null;
 }
+
 
 function snap() {
     var takeImg1 = document.getElementById('canvas1');
     var ctx = takeImg1.getContext("2d");
+    takeImg1.width = canvas.width;
+    takeImg1.height = canvas.height;
+    ctx.drawImage(canvas, 0, 0, takeImg1.width, takeImg1.height);
 
-    console.log(canvas);
-    ctx.drawImage(canvas, 0, 0, canvas.width, canvas.height);
-    ctx.scale(takeImg1.width, takeImg1.height);
     var imgObj = new Image();
     if (img) {
+
         imgObj.src = img.src;
         imgObj.onload = function () {
             ctx.drawImage(imgObj, 0, 0, img.width, img.height);
@@ -143,21 +130,3 @@ function snap() {
 }
 
 
-// var image = takeImg1.toDataURL("image/png");
-// document.write('<img src="' + img + '" width="328" height="526"/>');
-
-
-// var c=document.getElementById("myCanvas");
-// var ctx=c.getContext("2d");
-// var imageObj1 = new Image();
-// var imageObj2 = new Image();
-// imageObj1.src = "1.png"
-// imageObj1.onload = function() {
-//     ctx.drawImage(imageObj1, 0, 0, 328, 526);
-//     imageObj2.src = "2.png";
-//     imageObj2.onload = function() {
-//         ctx.drawImage(imageObj2, 15, 85, 300, 300);
-//         var img = c.toDataURL("image/png");
-//         document.write('<img src="' + img + '" width="328" height="526"/>');
-//     }
-// };

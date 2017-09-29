@@ -56,23 +56,23 @@
                 </div>
 
                 <div class="tools">
-                    <div class="mask" title="select" onclick="imgDraw('/Camagru/stickers/face.png')">
+                    <div class="mask" title="select" onclick="changeMask('/Camagru/stickers/face.png')">
                         <img src="/Camagru/stickers/face.png">
                     </div>
 
-                    <div class="mask" onclick="imgDraw('/Camagru/stickers/hair.png')">
+                    <div class="mask" onclick="changeMask('/Camagru/stickers/hair.png')">
                         <img src="/Camagru/stickers/hair.png">
                     </div>
 
-                    <div class="mask" onclick="imgDraw('/Camagru/stickers/deer.png')">
+                    <div class="mask" onclick="changeMask('/Camagru/stickers/deer.png')">
                         <img src="/Camagru/stickers/deer.png">
                     </div>
 
-                    <div class="mask" onclick="imgDraw('/Camagru/stickers/hat1.png')">
+                    <div class="mask" onclick="changeMask('/Camagru/stickers/hat1.png')">
                         <img src="/Camagru/stickers/hat1.png">
                     </div>
 
-                    <div class="mask" onclick="imgDraw('/Camagru/stickers/mas.png')">
+                    <div class="mask" onclick="changeMask('/Camagru/stickers/mas.png')">
                         <img src="/Camagru/stickers/mas.png">
                     </div>
 
