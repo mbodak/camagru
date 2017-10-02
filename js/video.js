@@ -15,8 +15,8 @@ navigator.getUserMedia({video: true}, function(stream) {
     video.src = window.URL.createObjectURL(stream);
     video.play();
     localMediaStream = stream;
-    context.translate(canvas.width, 0);
-    context.scale(-1, 1);
+    // context.translate(canvas.width, 0);
+    // context.scale(-1, 1);
 }, onCameraFail);
 
 
@@ -35,6 +35,7 @@ function snapshot() {
     }
     if (mask) {
         maskX = getCoords(mask).left;
+        // console.log(maskX);
         maskY = getCoords(mask).top;
         context.drawImage(mask, maskX, maskY, mask.width, mask.height);
     }
@@ -53,40 +54,38 @@ function changeMask(src) {
 }
 
 
-function maskMove(srcMask) {
-    srcMask.onmousedown = function(e) {
 
-        var coords = getCoords(srcMask);
-        var shiftX = e.pageX - coords.left;
-        var shiftY = e.pageY - coords.top;
+mask.onmousedown = function(e) {
+    var coords = getCoords(mask);
+    var shiftX = e.pageX - coords.left;
+    var shiftY = e.pageY - coords.top;
 
-        img.style.position = 'absolute';
-        document.body.appendChild(img);
+    // img.style.position = 'absolute';
+    // document.body.appendChild(img);
+    moveAt(e);
+
+    mask.style.zIndex = 100;
+
+    function moveAt(e) {
+        mask.style.left = e.pageX - shiftX + 'px';
+        mask.style.top = e.pageY - shiftY + 'px';
+    }
+
+    mask.onmousemove = function(e) {
         moveAt(e);
-
-        img.style.zIndex = 100;
-
-        function moveAt(e) {
-            img.style.left = e.pageX - shiftX + 'px';
-            img.style.top = e.pageY - shiftY + 'px';
-        }
-
-        img.onmousemove = function(e) {
-            moveAt(e);
-        };
-
-        img.onmouseup = function() {
-            document.onmousemove = null;
-            img.onmouseup = null;
-        };
-
-    };
-    img.ondragstart = function() {
-        return false;
     };
 
+    mask.onmouseup = function() {
+        document.onmousemove = null;
+        mask.onmouseup = null;
+    };
 
-}
+};
+mask.ondragstart = function() {
+    return false;
+};
+
+
 
 function getCoords(elem) {
     var box = elem.getBoundingClientRect();
@@ -120,11 +119,11 @@ function snap() {
     ctx.drawImage(canvas, 0, 0, takeImg1.width, takeImg1.height);
 
     var imgObj = new Image();
-    if (img) {
+    if (mask) {
 
-        imgObj.src = img.src;
+        imgObj.src = mask.src;
         imgObj.onload = function () {
-            ctx.drawImage(imgObj, 0, 0, img.width, img.height);
+            ctx.drawImage(imgObj, 0, 0, mask.width, mask.height);
         };
     }
 }
