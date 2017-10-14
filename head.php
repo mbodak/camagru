@@ -14,6 +14,7 @@
     <link href="/Camagru/style/searchform.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
     <script type="text/javascript" src="/Camagru/js/index.js"></script>
+
 </head>
