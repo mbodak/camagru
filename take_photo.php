@@ -51,7 +51,7 @@
             </div>
 
             <div class="camera">
-                <div class="video" id="daddy">
+                <div class="video">
                     <canvas id="canvas"></canvas>
                 </div>
 
@@ -76,30 +76,32 @@
                         <img src="/Camagru/stickers/mas.png">
                     </div>
 
-                    <div>
+                    <div onclick="document.getElementById('uploadMask').click();">
                         <p>UPLOAD</p>
                     </div>
-
                 </div>
-
             </div>
 
             <div class="actions">
                 <div>
-                    <button id="snap" onclick="snap()">Snap</button>
+                    <button id="snap" onclick="snapPhoto()">Snap</button>
                 </div>
                 <div>
-                    <button id="download">Download</button>
+                    <button onclick="document.getElementById('downloadPhoto').click();">Download</button>
                 </div>
                 <div>
                     <button id="clearButton" onclick="clearButton()">Clear</button>
                 </div>
             </div>
+
+            <input type='file' id='downloadPhoto' name="getPhoto" onchange="downloadPhoto()" style="display: none">
+            <input type='file' id='uploadMask' name="getMask" onchange="uploadMask()" style="display: none">
         </div>
     </div>
 </div>
 
 <script type="text/javascript" src="/Camagru/js/video.js"></script>
+
 <?php
     include ("footer.php");
 ?>
