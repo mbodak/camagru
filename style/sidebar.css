@@ -108,10 +108,7 @@ button,input,select,textarea{font:inherit;margin:0}optgroup{font-weight:bold}
 #mySidebar ul li {
     display: block;
     position: relative;
-    width: 200px;
-    height: 40px;
     line-height: 40px;
-    margin: 0 0 10px;
     padding: 0;
 }
 

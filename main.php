@@ -32,5 +32,8 @@
         <div class="photo"></div>
         <div class="photo"></div>
         <div class="photo"></div>
+
+        <button class="load-more-butt">Load more...</button>
+
     </div>
 </div>
