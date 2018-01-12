@@ -29,7 +29,7 @@
                         <a href="/Camagru/index.php" class="w3-bar-item w3-button">Home</a>
                     </li>
                     <li>
-                        <a href="#" class="w3-bar-item w3-button">Profile</a>
+                        <a href="/Camagru/profile.php" class="w3-bar-item w3-button">Profile</a>
                     </li>
                     <li>
                         <a href="/Camagru/take_photo.php" class="w3-bar-item w3-button">Take photo</a>

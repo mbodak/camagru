@@ -78,6 +78,19 @@ body {
     border-radius: 6px;
 }
 
+.profile-photo {
+    width: 23.333%;
+    height: 23.143vw;
+    margin: 20px auto;
+    border-radius: 50%;
+    text-align: center;
+}
+.ava {
+    width: 90%;
+    height: 90%;
+    vertical-align: middle;
+}
+
 #invisibleBox {
     display: block;
     position: fixed;
@@ -123,6 +136,10 @@ body {
     .photo {
         height: 21.93vw;
     }
+    .profile-photo {
+        height: 23.143vw;
+    }
+
 }
 
 @media (max-width : 992px) {
@@ -133,6 +150,10 @@ body {
     .photo {
         height: 28.2vw;
     }
+    .profile-photo {
+        width: 28.644%;
+    }
+
 }
 
 @media (max-width : 600px) {
@@ -145,6 +166,9 @@ body {
         height: 80vw;
         margin: 2%;
         margin-left: 10%;
+    }
+    .profile-photo {
+        margin: 25px auto;
     }
     .load-more-butt {
         width: 50%;
