@@ -81,6 +81,8 @@ body {
 .profile-photo {
     width: 23.333%;
     height: 23.143vw;
+    max-width: 300px;
+    max-height: 300px;
     margin: 15px auto;
     border-radius: 50%;
     text-align: center;
@@ -90,7 +92,7 @@ body {
 .xlogin {
     text-align: center;
     font-family: AvenirNextLTPro-Demi,Arial,Helvetica;
-    font-size: 40px;
+    font-size: 30px;
 }
 
 #invisibleBox {
