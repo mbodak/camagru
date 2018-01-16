@@ -81,14 +81,16 @@ body {
 .profile-photo {
     width: 23.333%;
     height: 23.143vw;
-    margin: 20px auto;
+    margin: 15px auto;
     border-radius: 50%;
     text-align: center;
+    background-image: url(../stickers/avatar.png);
+    background-size: cover;
 }
-.ava {
-    width: 90%;
-    height: 90%;
-    vertical-align: middle;
+.xlogin {
+    text-align: center;
+    font-family: AvenirNextLTPro-Demi,Arial,Helvetica;
+    font-size: 40px;
 }
 
 #invisibleBox {
@@ -139,6 +141,9 @@ body {
     .profile-photo {
         height: 23.143vw;
     }
+    .xlogin {
+        font-size: 30px;
+    }
 
 }
 
@@ -152,6 +157,9 @@ body {
     }
     .profile-photo {
         width: 28.644%;
+    }
+    .xlogin {
+        font-size: 25px;
     }
 
 }
@@ -168,9 +176,12 @@ body {
         margin-left: 10%;
     }
     .profile-photo {
-        margin: 25px auto;
+        margin: 20px auto;
     }
     .load-more-butt {
         width: 50%;
+    }
+    .xlogin {
+        font-size: 5vw;
     }
 }

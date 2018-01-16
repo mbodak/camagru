@@ -17,7 +17,8 @@
 
             <div class="box-nav">
                 <button onclick="open_search()">
-                    <i class="material-icons">search</i>
+<!--                    <i class="material-icons">search</i>-->
+                    <i class="material-icons">face</i>
                 </button>
             </div>
         </div>
@@ -37,7 +38,7 @@
                 </ul>
                 <ul>
                     <li>
-                        <a href="/Camagru/login.php/" class="w3-bar-item w3-button">Login</a>
+                        <a href="/Camagru/login.php/" class="w3-bar-item w3-button">Log out</a>
                     </li>
                 </ul>
             </nav>

@@ -5,9 +5,11 @@
 
 <div class="head-block"></div>
 
-<div class="photo profile-photo">
-    <img class="ava" src="stickers/trollface.png">
+<div>
+    <div class="photo profile-photo"></div>
+    <div class="xlogin">xlogin</div>
 </div>
+
 
 <div class="main">
     <div class="flex-main">
