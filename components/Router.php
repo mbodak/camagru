@@ -22,6 +22,7 @@ class Router
 
     public function runRouter() {
         $uri = $this->getURI();
+
         if ($uri != NULL) {
             foreach ($this->_routes as $uriPattern => $path) {
                 if (preg_match("~$uriPattern~", $uri)) {
@@ -30,7 +31,7 @@ class Router
                     $controllerName = array_shift($segment) . 'Controller';
                     $actionName = 'action' . ucfirst(array_shift($segment));
 
-                    $controllerFile = ROOT.'/controller/'.$controllerName.'.php';
+                    $controllerFile = ROOT.'/controllers/'.$controllerName.'.php';
                     if (file_exists($controllerFile)) {
                         include_once ($controllerFile);
                     }
