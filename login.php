@@ -21,7 +21,7 @@
                             <h2>New Member</h2>
                         </div>
                         <div class="medium-0 medium-offset-1 columns">
-                            <a href="/Camagru/create.php" class="button button--full button--blue-on-green">
+                            <a href="create.php" class="button button--full button--blue-on-green">
                             <span>
                                 <strong>Create account</strong>
                             </span>
@@ -46,7 +46,7 @@
 
                         <div class="medium-1 medium-offset-2 columns">
                             <p>
-                                <a href="/Camagru/modif.php">Forgot your password?</a>
+                                <a href="modif.php">Forgot your password?</a>
                             </p>
                         </div>
 

@@ -10,8 +10,8 @@
             </div>
 
             <div class="box-logo">
-                <a href="/Camagru/index.php">
-                    <img class="logo" src="/Camagru/icons/logo.png" alt="camagru">
+                <a href="index.php">
+                    <img class="logo" src="icons/logo.png" alt="camagru">
                 </a>
             </div>
 
@@ -22,8 +22,8 @@
                     </button>
 
                     <div class="dropdown-content">
-                        <a href="/Camagru/profile.php">Profile</a>
-                        <a href="/Camagru/modif.php">Change password</a>
+                        <a href="profile.php">Profile</a>
+                        <a href="modif.php">Change password</a>
                         <a href="#">Notification ON</a>
                         <a href="#">LOG OUT</a>
                     </div>
@@ -35,18 +35,18 @@
             <nav role="navigation">
                 <ul>
                     <li>
-                        <a href="/Camagru/index.php" class="w3-bar-item w3-button">Home</a>
+                        <a href="index.php" class="w3-bar-item w3-button">Home</a>
                     </li>
                     <li>
-                        <a href="/Camagru/profile.php" class="w3-bar-item w3-button">Profile</a>
+                        <a href="profile.php" class="w3-bar-item w3-button">Profile</a>
                     </li>
                     <li>
-                        <a href="/Camagru/take_photo.php" class="w3-bar-item w3-button">Take photo</a>
+                        <a href="take_photo.php" class="w3-bar-item w3-button">Take photo</a>
                     </li>
                 </ul>
                 <ul>
                     <li>
-                        <a href="/Camagru/login.php/" class="w3-bar-item w3-button">Log out</a>
+                        <a href="login.php/" class="w3-bar-item w3-button">Log out</a>
                     </li>
                 </ul>
             </nav>

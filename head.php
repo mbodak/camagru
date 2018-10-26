@@ -5,16 +5,16 @@
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <link href="/Camagru/style/header.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
-    <link href="/Camagru/style/main.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
-    <link href="/Camagru/style/footer.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
-    <link href="/Camagru/style/login.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
-    <link href="/Camagru/style/take_photo.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
-    <link href="/Camagru/style/sidebar.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
-    <link href="/Camagru/style/searchform.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
+    <link href="style/header.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
+    <link href="style/main.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
+    <link href="style/footer.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
+    <link href="style/login.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
+    <link href="style/take_photo.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
+    <link href="style/sidebar.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
+    <link href="style/searchform.css?v=<?=time();?>" rel='stylesheet' type='text/css'>
 
 
     <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-    <script type="text/javascript" src="/Camagru/js/index.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
 
 </head>
