@@ -8,7 +8,6 @@ return array (
     'camagru/login' => 'account/login',
     'camagru/logout' => 'account/logout',
     'camagru/modify' => 'account/modify',
-    'camagru/forgot' => 'account/forgot',
-
+    'camagru/forgot' => 'account/forgot'
 );
 
