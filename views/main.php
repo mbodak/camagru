@@ -1,3 +1,7 @@
+<?php
+    require_once (ROOT.'/views/header.php');
+?>
+
 <div class="head-block"></div>
 
 <div class="main">
@@ -37,3 +41,7 @@
 
     </div>
 </div>
+
+<?php
+    require_once (ROOT.'/views/footer.php');
+?>

@@ -6,7 +6,7 @@
             </div>
             <div class="about">
                 <p>
-                    <a href="camagru.en.pdf" target="_blank">About Project</a>
+                    <a href="./views/camagru.en.pdf" target="_blank">About Project</a>
                     <br><br>
                     <a href="">Contact Us</a>
                     <br><br>
@@ -26,14 +26,14 @@
                 <div class="github">
                     <a href="https://github.com/mbodak" target="_blank">
                         <button>
-                            <img class="link" src="icons/github-big-logo.png">
+                            <img class="link" src="./icons/github-big-logo.png">
                         </button>
                     </a>
                 </div>
                 <div class="linkedin">
                     <a href="https://www.linkedin.com/in/marina-bodak-a1a5abb4/" target="_blank">
                         <button>
-                            <img class="link" src="icons/linkedin-logo.png">
+                            <img class="link" src="./icons/linkedin-logo.png">
                         </button>
                     </a>
                 </div>

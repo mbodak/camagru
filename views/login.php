@@ -1,6 +1,5 @@
 <?php
-    include ("head.php");
-    include ("header.php");
+    require_once (ROOT.'/views/header.php');
 ?>
 <main class="backoffice">
     <div class="container">
@@ -21,7 +20,7 @@
                             <h2>New Member</h2>
                         </div>
                         <div class="medium-0 medium-offset-1 columns">
-                            <a href="create.php" class="button button--full button--blue-on-green">
+                            <a href="/camagru/sign-up" class="button button--full button--blue-on-green">
                             <span>
                                 <strong>Create account</strong>
                             </span>
@@ -46,16 +45,18 @@
 
                         <div class="medium-1 medium-offset-2 columns">
                             <p>
-                                <a href="modif.php">Forgot your password?</a>
+                                <a href='/camagru/forgot'>Forgot your password?</a>
                             </p>
                         </div>
 
                         <div class="medium-1 medium-offset-2 columns">
-                            <button class="button submit" type="submit" value="Login">
+                            <a href='/camagru/login'>
+                                <button class="button submit" type="submit" value="Login">
                                 <span>
                                     <strong>Login</strong>
                                 </span>
-                            </button>
+                                </button>
+                            </a>
                         </div>
                     </div>
 
@@ -64,6 +65,7 @@
         </div>
     </div>
 </main>
+
 <?php
-    include ("footer.php");
+    require_once (ROOT.'/views/footer.php');
 ?>
