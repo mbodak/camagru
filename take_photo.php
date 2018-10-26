@@ -7,7 +7,7 @@
 <div class="main">
     <div class="page">
         <div class="wrapper">
-            <video id="video" autoplay poster="/Camagru/icons/logo.png"></video>
+            <video id="video" autoplay poster="icons/logo.png"></video>
             <div class="gallery">
                 <div class="accordion">
                     <ul>
@@ -56,24 +56,24 @@
                 </div>
 
                 <div class="tools">
-                    <div class="mask" title="select" onclick="changeMask('/Camagru/stickers/face.png')">
-                        <img src="/Camagru/stickers/face.png">
+                    <div class="mask" title="select" onclick="changeMask('stickers/face.png')">
+                        <img src="stickers/face.png">
                     </div>
 
-                    <div class="mask" onclick="changeMask('/Camagru/stickers/hair.png')">
-                        <img src="/Camagru/stickers/hair.png">
+                    <div class="mask" onclick="changeMask('stickers/hair.png')">
+                        <img src="stickers/hair.png">
                     </div>
 
-                    <div class="mask" onclick="changeMask('/Camagru/stickers/deer.png')">
-                        <img src="/Camagru/stickers/deer.png">
+                    <div class="mask" onclick="changeMask('stickers/deer.png')">
+                        <img src="stickers/deer.png">
                     </div>
 
-                    <div class="mask" onclick="changeMask('/Camagru/stickers/hat1.png')">
-                        <img src="/Camagru/stickers/hat1.png">
+                    <div class="mask" onclick="changeMask('stickers/hat1.png')">
+                        <img src="stickers/hat1.png">
                     </div>
 
-                    <div class="mask" onclick="changeMask('/Camagru/stickers/mas.png')">
-                        <img src="/Camagru/stickers/mas.png">
+                    <div class="mask" onclick="changeMask('stickers/mas.png')">
+                        <img src="stickers/mas.png">
                     </div>
 
                     <div onclick="document.getElementById('uploadMask').click();">
@@ -100,7 +100,7 @@
     </div>
 </div>
 
-<script type="text/javascript" src="/Camagru/js/video.js"></script>
+<script type="text/javascript" src="js/video.js"></script>
 
 <?php
     include ("footer.php");
