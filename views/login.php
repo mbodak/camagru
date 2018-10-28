@@ -20,7 +20,7 @@
                             <h2>New Member</h2>
                         </div>
                         <div class="medium-0 medium-offset-1 columns">
-                            <a href="/camagru/sign-up" class="button button--full button--blue-on-green">
+                            <a href="sign-up" class="button button--full button--blue-on-green">
                             <span>
                                 <strong>Create account</strong>
                             </span>
@@ -45,12 +45,12 @@
 
                         <div class="medium-1 medium-offset-2 columns">
                             <p>
-                                <a href='/camagru/forgot'>Forgot your password?</a>
+                                <a href='forgot'>Forgot your password?</a>
                             </p>
                         </div>
 
                         <div class="medium-1 medium-offset-2 columns">
-                            <a href='/camagru/login'>
+                            <a href='login'>
                                 <button class="button submit" type="submit" value="Login">
                                 <span>
                                     <strong>Login</strong>

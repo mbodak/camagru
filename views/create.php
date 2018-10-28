@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="medium-1 medium-offset-2 columns">
-                            <a href="login.php" class="button submit back" type="button" value="Back">
+                            <a href='login' class="button submit back" type="button" value="Back">
                                 <span>Back</span>
                             </a>
                         </div>

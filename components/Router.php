@@ -21,11 +21,16 @@ require_once (ROOT.'/config/routes.php');
 
         public function runRouter() {
             $uri = $this->getURI();
+            $isBaseUrl = trim(dirname($_SERVER["REQUEST_URI"]), '/');
+            if (empty($isBaseUrl)) {
+                $uri = array_keys($this->_routes)[0]; // home
+            }
             if ($uri) {
                 foreach ($this->_routes as $uriPattern => $path) {
                     if (preg_match("~$uriPattern~", $uri)) {
-                        $internalRoute = preg_replace("~$uriPattern~", $path, $uri);
-                        $segment = explode('/', $internalRoute);
+//                        $internalRoute = preg_replace("~$uriPattern~", $path, $uri);
+//                        $segment = explode('/', $internalRoute);
+                        $segment = explode('/', $path);
                         $controllerName = array_shift($segment).'Controller';
                         $actionName = 'action'.ucfirst(array_shift($segment));
 
