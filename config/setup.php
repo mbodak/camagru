@@ -11,11 +11,11 @@ function recreateUsersTable(PDO $pdo) {
     $pdo->query('DROP TABLE IF EXISTS `users`');
     $pdo->query('CREATE TABLE `users` (
                               `id` int(11) NOT NULL,
-                              `email` varchar(254) NOT NULL,
-                              `login` varchar(22) NOT NULL,
-                              `passwd` varchar(254) NOT NULL,
+                              `email` varchar(256) NOT NULL,
+                              `login` varchar(32) NOT NULL,
+                              `passwd` varchar(256) NOT NULL,
                               `is_activated` tinyint(1) NOT NULL,
-                              `code` varchar(10) NOT NULL,
+                              `code` varchar(16) NOT NULL,
                               `notif_enabled` tinyint(1) NOT NULL
                             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;');
     $pdo->query('ALTER TABLE `users` ADD PRIMARY KEY (`id`),
@@ -45,7 +45,7 @@ function recreateSessionsTable(PDO $pdo) {
     $pdo->query('CREATE TABLE `sessions` (
                               `id` int(11) NOT NULL,
                               `user_id` int(11) NOT NULL,
-                              `session_code` varchar(20) NOT NULL
+                              `session_code` varchar(32) NOT NULL
                             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;');
     $pdo->query('ALTER TABLE `sessions` ADD PRIMARY KEY (`id`);');
     $pdo->query('ALTER TABLE `sessions` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;');
