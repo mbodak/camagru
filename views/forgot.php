@@ -1,6 +1,5 @@
 <?php
-    include ("head.php");
-    include ("header.php");
+    require_once (ROOT.'/views/header.php');
 ?>
 <main class="backoffice">
     <div class="container">
@@ -40,6 +39,7 @@
         </div>
     </div>
 </main>
+
 <?php
-    include ("footer.php");
+    require_once (ROOT.'/views/footer.php');
 ?>

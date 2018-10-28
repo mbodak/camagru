@@ -1,6 +1,5 @@
 <?php
-    include ("head.php");
-    include ("header.php");
+    require_once (ROOT.'/views/header.php');
 ?>
 <main class="backoffice">
     <div class="container">
@@ -27,7 +26,7 @@
                         </div>
 
                         <div class="medium-1 medium-offset-2 columns">
-                            <a href="login.php" class="button submit back" type="button" value="Back">
+                            <a href='login' class="button submit back" type="button" value="Back">
                                 <span>Back</span>
                             </a>
                         </div>
@@ -56,11 +55,9 @@
 
 
         </div>
-
-
-
     </div>
 </main>
+
 <?php
-    include ("footer.php");
+    require_once (ROOT.'/views/footer.php');
 ?>

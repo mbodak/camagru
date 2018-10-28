@@ -1,35 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
-    include ("head.php");
-
-
     //1 Configuration
-    ini_set('display_errors', 1);
+    ini_set('display_errors','on');
     error_reporting(E_ALL);
-
-
-
+    session_start();
 
     //2 Connect files
     define('ROOT', dirname(__FILE__));
     require_once(ROOT.'/components/Router.php');
 
-
     //3 Connection with DB
+//    require_once(ROOT.'/components/DataBase.php');
 
+    if (!isset($_SESSION['logged_user'])) {
+        $_SESSION['logged_user'] = "";
+    }
+    if (!isset($_SESSION['error'])) {
+        $_SESSION['error'] = "";
+    }
+    if (!isset($_SESSION['activation'])) {
+        $_SESSION['activation'] = "";
+    }
 
     //4 Calling Router
     $router = new Router();
-    $router->run();
+    $router->runRouter();
 
-
-?>
-<body id="body">
-<?php
-    include ("header.php");
-    include ("main.php");
-    include ("footer.php");
-?>
-</body>
-</html>

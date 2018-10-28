@@ -1,6 +1,5 @@
 <?php
-    include ("head.php");
-    include ("header.php");
+    require_once (ROOT.'/views/header.php');
 ?>
 
 <div class="forheader"></div>
@@ -103,5 +102,5 @@
 <script type="text/javascript" src="js/video.js"></script>
 
 <?php
-    include ("footer.php");
+    require_once (ROOT.'/views/footer.php');
 ?>

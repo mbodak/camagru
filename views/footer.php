@@ -6,7 +6,7 @@
             </div>
             <div class="about">
                 <p>
-                    <a href="camagru.en.pdf" target="_blank">About Project</a>
+                    <a href="about" target="_blank">About Project</a>
                     <br><br>
                     <a href="">Contact Us</a>
                     <br><br>
