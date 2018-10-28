@@ -35,6 +35,8 @@
                 </a>
             </div>
 
+
+
 <!--            <div class="box-nav">-->
 <!--                <a href="login">-->
 <!--                    <button>-->
@@ -43,7 +45,11 @@
 <!--                </a>-->
 <!--            </div>-->
 
+
             <div class="box-nav">
+                <div class="nickname">
+                    <b>mbodak</b>
+                </div>
                 <div class="dropdown">
                     <button>
                         <i class="material-icons">face</i>
