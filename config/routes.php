@@ -9,5 +9,7 @@ DEFINE('ROUTES', array (
     '/login'         => 'account/login',
     '/logout'        => 'account/logout',
     '/forgot'        => 'account/forgot',
+    '/recover'       => 'account/recover',
+    '/change'        => 'account/change',
     '/notifications' => 'account/notifications'
 ));

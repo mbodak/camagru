@@ -34,8 +34,8 @@
                         </div>
 
                         <div class="medium-1 medium-offset-2 columns">
-                            <label for="username">E-mail</label>
-                            <input id="username" name="username" type="email" value="" class="cleaninput border-bottom" required="">
+                            <label for="email">E-mail</label>
+                            <input id="email" name="email" type="email" value="" class="cleaninput border-bottom" required="">
                         </div>
 
                         <div class="medium-1 medium-offset-2 columns">
@@ -52,9 +52,9 @@
                         <div class="medium-1 medium-offset-2 columns">
                             <a href='login'>
                                 <button class="button submit" type="submit" value="Login">
-                                <span>
-                                    <strong>Login</strong>
-                                </span>
+                                    <span>
+                                        <strong>Login</strong>
+                                    </span>
                                 </button>
                             </a>
                         </div>
