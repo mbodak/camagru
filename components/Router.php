@@ -1,47 +1,50 @@
 <?php
-
-class Router
-{
-    private $_routes;
-
-    public function _construct()
+require_once (ROOT.'/config/routes.php');
+    class Router
     {
-        $routesPath = ROOT.'config/routes.php';
-        $this->routes = include($routesPath);
-    }
+        private $_routes;
 
-    private function getURI ()
-    {
-        $uri = NULL;
-        if (!empty($_SERVER['REQUEST_URI']))
+        public function __construct()
         {
-            $uri = (trim($_SERVER['REQUEST_URI'], '/'));
+            $this->_routes = ROUTES;
         }
-        return $uri;
-    }
 
-    public function runRouter() {
-        $uri = $this->getURI();
+        private function getURI ()
+        {
+            $uri = NULL;
+            if (!empty($_SERVER['REQUEST_URI']))
+            {
+                $uri = (trim($_SERVER['REQUEST_URI'], '/'));
+            }
+            return $uri;
+        }
 
-        if ($uri != NULL) {
-            foreach ($this->_routes as $uriPattern => $path) {
-                if (preg_match("~$uriPattern~", $uri)) {
-                    $internalRoute = preg_replace("~$uriPattern~", $path, $uri);
-                    $segment = explode('/', $internalRoute);
-                    $controllerName = array_shift($segment) . 'Controller';
-                    $actionName = 'action' . ucfirst(array_shift($segment));
+        public function runRouter() {
+            $uri = $this->getURI();
+            $isBaseUrl = trim(dirname($_SERVER["REQUEST_URI"]), '/');
+            if (empty($isBaseUrl)) {
+                $uri = array_keys($this->_routes)[0]; // home
+            }
+            if ($uri) {
+                foreach ($this->_routes as $uriPattern => $path) {
+                    if (preg_match("~$uriPattern~", $uri)) {
+//                        $internalRoute = preg_replace("~$uriPattern~", $path, $uri);
+//                        $segment = explode('/', $internalRoute);
+                        $segment = explode('/', $path);
+                        $controllerName = array_shift($segment).'Controller';
+                        $actionName = 'action'.ucfirst(array_shift($segment));
 
-                    $controllerFile = ROOT.'/controllers/'.$controllerName.'.php';
-                    if (file_exists($controllerFile)) {
-                        include_once ($controllerFile);
-                    }
-                    $controllerObject = new $controllerName;
-                    $result = $controllerObject->$actionName();
-                    if ($result != NULL) {
-                        break;
+                        $controllerFile = ROOT.'/controllers/'.$controllerName.'.php';
+                        if (file_exists($controllerFile)) {
+                            include_once ($controllerFile);
+                        }
+                        $controllerObject = new $controllerName;
+                        $result = $controllerObject->$actionName();
+                        if ($result != NULL) {
+                            break;
+                        }
                     }
                 }
             }
         }
     }
-}

@@ -1,10 +1,8 @@
 <?php
-    include ("head.php");
-    include ("header.php");
+    require_once (ROOT.'/views/header.php');
 ?>
 
 <div class="head-block"></div>
-
 <div>
     <div class="photo profile-photo"></div>
     <div class="xlogin">xlogin</div>
@@ -50,5 +48,5 @@
 </div>
 
 <?php
-    include ("footer.php");
+    require_once (ROOT.'/views/footer.php');
 ?>
