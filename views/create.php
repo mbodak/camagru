@@ -12,30 +12,12 @@
         </div>
 
         <div class="transform-container">
-            <form method="post" name="login-form" id="login-form">
+            <form method="post" name="create-form" id="create-form" onsubmit="return (formValidationSignUp())">
                 <div class="row">
                     <div class="new">
                         <div class="medium-1 medium-offset-2 columns">
-                            <label for="first_name">First name</label>
-                            <input id="first_name" name="first_name" type="text" value="" class="cleaninput border-bottom" required="">
-                        </div>
-
-                        <div class="medium-1 medium-offset-2 columns">
-                            <label for="username">E-mail</label>
-                            <input id="username" name="username" type="email" value="" class="cleaninput border-bottom" required="">
-                        </div>
-
-                        <div class="medium-1 medium-offset-2 columns">
-                            <a href='login' class="button submit back" type="button" value="Back">
-                                <span>Back</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="registered">
-                        <div class="medium-1 medium-offset-2 columns">
-                            <label for="username">Last name</label>
-                            <input id="last_name" name="last_name" type="text" value="" class="cleaninput border-bottom" required="">
+                            <label for="login">Login</label>
+                            <input id="login" name="login" type="text" value="" class="cleaninput border-bottom" required="">
                         </div>
 
                         <div class="medium-1 medium-offset-2 columns">
@@ -44,16 +26,32 @@
                         </div>
 
                         <div class="medium-1 medium-offset-2 columns">
+                            <a href='login' class="button submit back" type="button">
+                                <span>Back</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="registered">
+                        <div class="medium-1 medium-offset-2 columns">
+                            <label for="email">E-mail</label>
+                            <input id="email" name="email" type="email" value="" class="cleaninput border-bottom" required="">
+                        </div>
+
+                        <div class="medium-1 medium-offset-2 columns">
+                            <label for="password">Repeat Password</label>
+                            <input id="repeat_password" name="repeat_password" type="password" value="" class="cleaninput border-bottom" required="">
+                        </div>
+
+                        <div class="medium-1 medium-offset-2 columns">
                             <button class="button submit" type="submit" value="Save">
-                                <span>Save</span>
+                                <span>Register</span>
                             </button>
                         </div>
                     </div>
 
                 </div>
             </form>
-
-
         </div>
     </div>
 </main>

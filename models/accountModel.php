@@ -27,8 +27,16 @@
             require_once (ROOT.'/views/takePhoto.php');
         }
 
-        public static function changePassword() {
+        public static function forgotPassword() {
             require_once (ROOT.'/views/forgot.php');
+        }
+
+        public static function recoverPassword() {
+            require_once (ROOT.'/views/recover.php');
+        }
+
+        public static function changePassword() {
+            require_once (ROOT.'/views/change.php');
         }
 
         public static function activateAccount($login, $id) {

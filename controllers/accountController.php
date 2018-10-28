@@ -24,6 +24,16 @@
         }
 
         public function actionForgot() {
+            accountModel::forgotPassword();
+            return (true);
+        }
+
+        public function actionRecover() {
+            accountModel::recoverPassword();
+            return (true);
+        }
+
+        public function actionChange() {
             accountModel::changePassword();
             return (true);
         }
