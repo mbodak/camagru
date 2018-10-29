@@ -12,7 +12,7 @@ class MailService
         }
         $file = implode('/',$arr);
         $file .= '/'.$link;
-        return "${$_SERVER["REQUEST_SCHEME"]}://${$_SERVER['HTTP_HOST']}${$file}?code=${$code}";
+        return $_SERVER["REQUEST_SCHEME"]."://".$_SERVER['HTTP_HOST'].$file."?code=".$code;
     }
     private static function send($mail_to, $mail_subject, $mail_message) {
         $lineBreak = "\r\n";
@@ -38,14 +38,14 @@ class MailService
     public static function registerConfirmation($email, $code) {
         $link = self::createLinkWithCode('confirm', $code);
         $subject = "Camagru registration!";
-        $message = "Confirm your registration:<br>${$link}<br>";
+        $message = "Confirm your registration:<br>".$link."<br>";
         self::send($email, $subject, $message);
     }
 
     public static function restorePasswordConfirmation($email, $code) {
         $link = self::createLinkWithCode('restore', $code);
         $subject = "Camagru restore password!";
-        $message = "Restore your password:<br>${$link}<br>";
+        $message = "Restore your password:<br>".$link."<br>";
         self::send($email, $subject, $message);
     }
     public static function likeNotification($email) {

@@ -12,7 +12,7 @@ class Users
      */
     public static function isLoginOccupied($login) {
         try {
-            $id = DBInstance::run("SELECT `id` FROM {${self::$table}} WHERE `login` = ?", [$login])->fetch();
+            $id = DBInstance::run("SELECT `id` FROM ".self::$table." WHERE `login` = ?", [$login])->fetch();
             if ($id) {
                 return true;
             }
@@ -28,7 +28,7 @@ class Users
      */
     public static function isEmailOccupied($email) {
         try {
-            $id = DBInstance::run("SELECT `id` FROM {${self::$table}} WHERE `email` = ?", [$email])->fetch();
+            $id = DBInstance::run("SELECT `id` FROM ".self::$table." WHERE `email` = ?", [$email])->fetch();
             if ($id) {
                 return true;
             }
@@ -42,14 +42,13 @@ class Users
      * @return boolean, true if user was created and false if some error was happened!
      * @param string $email - email
      * @param string $login - login
-     * @param string $login - login
      * @param string $passwd - password
      * @param string $activationCode - activation code that was sent to email
      */
     public static function add($email, $login, $passwd, $activationCode) {
         $password = hash('sha256', $passwd);
         try {
-            DBInstance::run("INSERT INTO {${self::$table}} VALUES (?, ?, ?, ?, ?, ?, ?)", [NULL, $email, $login, $password, 0 /* IS ACTIVATED */, $activationCode, 1 /* NOTIFICATION ENABLED */]);
+            DBInstance::run("INSERT INTO ".self::$table." VALUES (?, ?, ?, ?, ?, ?, ?)", [NULL, $email, $login, $password, 0 /* IS ACTIVATED */, $activationCode, 1 /* NOTIFICATION ENABLED */]);
         } catch (PDOException $e) {
             return false;
         }
@@ -63,9 +62,9 @@ class Users
      */
     public static function activateUser($id, $activationCode) {
         try {
-            $res = DBInstance::run("SELECT `id` FROM {${self::$table}} WHERE `id` = ? AND `code` = ? AND `is_activated` = ?", [$id, $activationCode, 0])->fetch();
+            $res = DBInstance::run("SELECT `id` FROM ".self::$table." WHERE `id` = ? AND `code` = ? AND `is_activated` = ?", [$id, $activationCode, 0])->fetch();
             if ($res['id']) {
-                $stmt = DBInstance::run("UPDATE {${self::$table}} SET `code` = ?, `is_activated` = ? WHERE `id` = ?", ["0", 1, $res['id']]);
+                $stmt = DBInstance::run("UPDATE ".self::$table." SET `code` = ?, `is_activated` = ? WHERE `id` = ?", ["0", 1, $res['id']]);
                 if ($stmt->rowCount() > 0)
                     return true;
             }
@@ -86,7 +85,7 @@ class Users
     public static function authorize($login, $passwd) {
         $password = hash('sha256', $passwd);
         try {
-            $stmt = DBInstance::run("SELECT `id`, `is_activated` FROM {${self::$table}} WHERE `passwd` = ? AND (`email` = ? OR `login` = ?)", [$password, $login, $login]);
+            $stmt = DBInstance::run("SELECT `id`, `is_activated` FROM ".self::$table." WHERE `passwd` = ? AND (`email` = ? OR `login` = ?)", [$password, $login, $login]);
             if ($stmt->rowCount() <= 0)
                 return ["result" => false, "message" => 'User not found or password is wrong'];
             $result = $stmt->fetch();
@@ -104,7 +103,7 @@ class Users
      */
     public static function getUserInfo($id) {
         try {
-            $res = DBInstance::run("SELECT `id`, `login`, `email`, `notif_enabled` FROM {${self::$table}} WHERE `id` = ? AND `is_activated` = ?", [$id, 1])->fetch();
+            $res = DBInstance::run("SELECT `id`, `login`, `email`, `notif_enabled` FROM ".self::$table." WHERE `id` = ? AND `is_activated` = ?", [$id, 1])->fetch();
             return $res;
         } catch (PDOException $e) {
             return null;
@@ -120,11 +119,11 @@ class Users
      */
     public static function restorePasswordInit($loginOrEmail, $activationCode) {
         try {
-            $stmt = DBInstance::run("SELECT `id`, `email` FROM {${self::$table}} WHERE `is_activated` = ? AND (`email` = ? OR `login` = ?)", [1, $loginOrEmail, $loginOrEmail]);
+            $stmt = DBInstance::run("SELECT `id`, `email` FROM ".self::$table." WHERE `is_activated` = ? AND (`email` = ? OR `login` = ?)", [1, $loginOrEmail, $loginOrEmail]);
             if ($stmt->rowCount() <= 0)
                 return ["result" => false, "message" => 'User not found!'];
             $result = $stmt->fetch();
-            DBInstance::run("UPDATE {${self::$table}} SET `code` = ? WHERE `id` = ?", [$activationCode, $result['id']]);
+            DBInstance::run("UPDATE ".self::$table." SET `code` = ? WHERE `id` = ?", [$activationCode, $result['id']]);
             return ["result" => true, "message" => "Message sent to ${$result['email']}"];
         } catch (PDOException $e) {
             return ["result" => false, "message" => 'Some error has occurred!'];
@@ -140,11 +139,11 @@ class Users
      */
     public static function restorePasswordConfirm($activationCode, $passwd) {
         try {
-            $stmt = DBInstance::run("SELECT `id` FROM {${self::$table}} WHERE `is_activated` = ? AND `code` = ?", [1, $activationCode]);
+            $stmt = DBInstance::run("SELECT `id` FROM ".self::$table." WHERE `is_activated` = ? AND `code` = ?", [1, $activationCode]);
             if ($stmt->rowCount() <= 0)
                 return ["result" => false, "message" => 'User not found!'];
             $result = $stmt->fetch();
-            DBInstance::run("UPDATE {${self::$table}} SET `code` = ?, `password` = ? WHERE `id` = ?", ["1", hash('sha256', $passwd), $result['id']]);
+            DBInstance::run("UPDATE ".self::$table." SET `code` = ?, `password` = ? WHERE `id` = ?", ["1", hash('sha256', $passwd), $result['id']]);
             return ["result" => true, "message" => 'User`s password was changed!!'];
         } catch (PDOException $e) {
             return ["result" => false, "message" => 'Some error has occurred!'];
@@ -161,9 +160,9 @@ class Users
         $oldPass = hash('sha256', $oldPassword);
         $newPass = hash('sha256', $newPassword);
         try {
-            $res = DBInstance::run("SELECT `id` FROM {${self::$table}} WHERE `login` = ? AND `passwd` = ?", [$login, $oldPass])->fetch();
+            $res = DBInstance::run("SELECT `id` FROM ".self::$table." WHERE `login` = ? AND `passwd` = ?", [$login, $oldPass])->fetch();
             if ($res['id']) {
-                $stmt = DBInstance::run("UPDATE {${self::$table}} SET `passwd` = ? WHERE `id` = ?", [$newPass, $res['id']]);
+                $stmt = DBInstance::run("UPDATE ".self::$table." SET `passwd` = ? WHERE `id` = ?", [$newPass, $res['id']]);
                 if ($stmt->rowCount() > 0)
                     return true;
             }
@@ -179,7 +178,7 @@ class Users
      */
     public static function turnOntNotifications($id) {
         try {
-            $stmt = DBInstance::run("UPDATE {${self::$table}} SET `notif_enabled` = ? WHERE `id` = ?", [1, $id]);
+            $stmt = DBInstance::run("UPDATE ".self::$table." SET `notif_enabled` = ? WHERE `id` = ?", [1, $id]);
             if ($stmt->rowCount() > 0)
                 return true;
             return false;
@@ -194,7 +193,7 @@ class Users
      */
     public static function turnOffNotifications($id) {
         try {
-            $stmt = DBInstance::run("UPDATE {${self::$table}} SET `notif_enabled` = ? WHERE `id` = ?", [0, $id]);
+            $stmt = DBInstance::run("UPDATE ".self::$table." SET `notif_enabled` = ? WHERE `id` = ?", [0, $id]);
             if ($stmt->rowCount() > 0)
                 return true;
             return false;
