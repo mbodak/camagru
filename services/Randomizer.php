@@ -11,7 +11,7 @@ class Randomizer
         }
         return $result;
     }
-    public static function generateNumber($min = 0, $max) {
+    public static function generateNumber($min, $max) {
         return rand($min, $max);
     }
 }

@@ -8,8 +8,8 @@
             return (true);
         }
 
-        public function actionActivation($login, $id) {
-            accountModel::activateAccount($login, $id);
+        public function actionActivate() {
+            accountModel::activateAccount();
             return (true);
         }
 

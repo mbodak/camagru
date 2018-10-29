@@ -12,7 +12,7 @@
         </div>
 
         <div class="transform-container">
-            <form method="post" name="create-form" id="create-form" onsubmit="return (formValidationSignUp())">
+            <form method="post" name="create-form" id="create-form" onsubmit="return formValidationSignUp()">
                 <div class="row">
                     <div class="new">
                         <div class="medium-1 medium-offset-2 columns">
@@ -44,9 +44,10 @@
                         </div>
 
                         <div class="medium-1 medium-offset-2 columns">
-                            <button class="button submit" type="submit" value="Save">
-                                <span>Register</span>
-                            </button>
+                            <input class="button submit" name="Submit"  type="submit" value="Register"/>
+<!--                            <button class="button submit" type="submit" value="Save">-->
+<!--                                <span>Register</span>-->
+<!--                            </button>-->
                         </div>
                     </div>
 

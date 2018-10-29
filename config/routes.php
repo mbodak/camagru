@@ -11,5 +11,6 @@ DEFINE('ROUTES', array (
     '/forgot'        => 'account/forgot',
     '/recover'       => 'account/recover',
     '/change'        => 'account/change',
-    '/notifications' => 'account/notifications'
+    '/notifications' => 'account/notifications',
+    '/activate'      => 'account/activate'
 ));
