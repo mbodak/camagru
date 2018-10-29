@@ -15,22 +15,23 @@ class MailService
         return "${$_SERVER["REQUEST_SCHEME"]}://${$_SERVER['HTTP_HOST']}${$file}?code=${$code}";
     }
     private static function send($mail_to, $mail_subject, $mail_message) {
+        $lineBreak = "\r\n";
         $encoding = "utf-8";
         $subject_preferences = array(
             "input-charset" => $encoding,
             "output-charset" => $encoding,
             "line-length" => 76,
-            "line-break-chars" => "\r\n"
+            "line-break-chars" => $lineBreak
         );
         $from_mail = "noreply@".$_SERVER['HTTP_HOST'];
         $from_name = "noreply";
-        $header  = "Content-type: text/html; charset=".$encoding." \r\n";
-        $header .= "From: ".$from_name." <".$from_mail."> \r\n";
-        $header .= "Reply-To: ".$from_mail."\r\n";
-        $header .= "X-Mailer: PHP/".phpversion()."\r\n";
-        $header .= "MIME-Version: 1.0 \r\n";
-        $header .= "Content-Transfer-Encoding: 8bit \r\n";
-        $header .= "Date: ".date("r (T)")." \r\n";
+        $header = "From: ".$from_name." <".$from_mail.">".$lineBreak;
+        $header .= "Reply-To: ".$from_mail.$lineBreak;
+        $header .= "Content-type: text/html; charset=".$encoding.$lineBreak;
+        $header .= "MIME-Version: 1.0".$lineBreak;
+        $header .= "X-Mailer: PHP/".phpversion().$lineBreak;
+        $header .= "Content-Transfer-Encoding: 8bit".$lineBreak;
+        $header .= "Date: ".date("r (T)").$lineBreak;
         $header .= iconv_mime_encode("Subject", $mail_subject, $subject_preferences);
         mail($mail_to, $mail_subject, $mail_message, $header);
     }
