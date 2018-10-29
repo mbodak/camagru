@@ -57,12 +57,11 @@ class Users
     /**
      * Activate user's account after registration! Confirm email!
      * @return boolean, true - activated, false - doesn't activated
-     * @param number $id - id of user to activation
      * @param string $activationCode - activation code that was sent to email of user
      */
-    public static function activateUser($id, $activationCode) {
+    public static function activateUser($activationCode) {
         try {
-            $res = DBInstance::run("SELECT `id` FROM ".self::$table." WHERE `id` = ? AND `code` = ? AND `is_activated` = ?", [$id, $activationCode, 0])->fetch();
+            $res = DBInstance::run("SELECT `id` FROM ".self::$table." WHERE `code` = ? AND `is_activated` = ?", [$activationCode, 0])->fetch();
             if ($res['id']) {
                 $stmt = DBInstance::run("UPDATE ".self::$table." SET `code` = ?, `is_activated` = ? WHERE `id` = ?", ["0", 1, $res['id']]);
                 if ($stmt->rowCount() > 0)
@@ -111,27 +110,27 @@ class Users
     }
     /**
      * Initialize restoring password process!
-     * @return array ['result' => boolean, 'message' => string, 'data' => number]
+     * @return bool
      *  result - true if initialization succeed
      *  message - reason of initialization problem, or message with email
-     * @param string $loginOrEmail - login or email user that will be restored pass
+     * @param string $email - email user that will be restored pass
      * @param string $activationCode - activation code that was sent to email of user
      */
-    public static function restorePasswordInit($loginOrEmail, $activationCode) {
+    public static function restorePasswordInit($email, $activationCode) {
         try {
-            $stmt = DBInstance::run("SELECT `id`, `email` FROM ".self::$table." WHERE `is_activated` = ? AND (`email` = ? OR `login` = ?)", [1, $loginOrEmail, $loginOrEmail]);
+            $stmt = DBInstance::run("SELECT `id`, `email` FROM ".self::$table." WHERE `is_activated` = ? AND `email` = ?", [1, $email]);
             if ($stmt->rowCount() <= 0)
-                return ["result" => false, "message" => 'User not found!'];
+                return false;
             $result = $stmt->fetch();
             DBInstance::run("UPDATE ".self::$table." SET `code` = ? WHERE `id` = ?", [$activationCode, $result['id']]);
-            return ["result" => true, "message" => "Message sent to ${$result['email']}"];
+            return true;
         } catch (PDOException $e) {
-            return ["result" => false, "message" => 'Some error has occurred!'];
+            return false;
         }
     }
     /**
      * Confirm restoring password process!
-     * @return array ['result' => boolean, 'message' => string, 'data' => number]
+     * @return bool
      *  result - true if initialization succeed
      *  message - reason of initialization problem, or message with email
      * @param string $activationCode - activation code that was sent to email of user
@@ -141,12 +140,13 @@ class Users
         try {
             $stmt = DBInstance::run("SELECT `id` FROM ".self::$table." WHERE `is_activated` = ? AND `code` = ?", [1, $activationCode]);
             if ($stmt->rowCount() <= 0)
-                return ["result" => false, "message" => 'User not found!'];
+                return false;
             $result = $stmt->fetch();
-            DBInstance::run("UPDATE ".self::$table." SET `code` = ?, `password` = ? WHERE `id` = ?", ["1", hash('sha256', $passwd), $result['id']]);
-            return ["result" => true, "message" => 'User`s password was changed!!'];
+            DBInstance::run("UPDATE ".self::$table." SET `code` = ?, `passwd` = ? WHERE `id` = ?", ["1", hash('sha256', $passwd), $result['id']]);
+            return true;
         } catch (PDOException $e) {
-            return ["result" => false, "message" => 'Some error has occurred!'];
+            print $e;
+            return false;
         }
     }
     /**

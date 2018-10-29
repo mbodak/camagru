@@ -12,7 +12,7 @@
         </div>
 
         <div class="transform-container">
-            <form method="post" name="forgot-form" id="forgot-form">
+            <form method="post" name="forgot-form" id="forgot-form" onsubmit="return forgotPassword()">
                 <div class="row modif">
                     <div class="registered">
 

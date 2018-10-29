@@ -7,7 +7,7 @@ include_once ROOT.'/models/camagruModel.php';
 
 class accountModel {
     public static function createAccount() {
-        if ($_POST &&  $_POST['login'] && $_POST['email'] && $_POST['password']) {
+        if ($_POST && $_POST['login'] && $_POST['email'] && $_POST['password']) {
             $code = Randomizer::generateString();
             // TODO check email sending
             MailService::registerConfirmation($_POST['email'], $code);
@@ -42,10 +42,32 @@ class accountModel {
     }
 
     public static function forgotPassword() {
+        if ($_POST && $_POST['email']) {
+            $code = Randomizer::generateString();
+            $sent = Users::restorePasswordInit($_POST['email'], $code);
+            if ($sent) {
+                MailService::restorePasswordConfirmation($_POST['email'], $code);
+                header("Location: ".LinkService::getRoot()."#forgotSent");
+            } else {
+                header("Location: ".LinkService::getRoot()."#forgotNotSent");
+            }
+            exit();
+        }
         require_once (ROOT.'/views/forgot.php');
     }
 
     public static function recoverPassword() {
+        if ($_POST && $_POST['password']) {
+            $queries = array();
+            parse_str($_SERVER['QUERY_STRING'], $queries);
+            if ($queries['code'] && Users::restorePasswordConfirm($queries['code'], $_POST['password'])) {
+                header("Location: ".LinkService::getRoot()."#recovered");
+            } else {
+                header("Location: " . LinkService::getRoot() . "#notRecovered");
+            }
+            exit();
+        }
+
         require_once (ROOT.'/views/recover.php');
     }
 
@@ -54,7 +76,13 @@ class accountModel {
     }
 
     public static function activateAccount() {
-        header("Location: http://localhost:8080/camagru");
+        $queries = array();
+        parse_str($_SERVER['QUERY_STRING'], $queries);
+        if (Users::activateUser($queries['code'])) {
+            header("Location: ".LinkService::getRoot()."#activated");
+        } else {
+            header("Location: " . LinkService::getRoot() . "#notActivated");
+        }
     }
 
     public static function notifications() {
