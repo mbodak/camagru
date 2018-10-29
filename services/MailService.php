@@ -25,9 +25,9 @@ class MailService
         );
         $from_mail = "noreply@".$_SERVER['HTTP_HOST'];
         $from_name = "noreply";
-        $header = "From: ".$from_name." <".$from_mail.">".$lineBreak;
+        $header = "Content-type: text/html; charset=".$encoding.$lineBreak;
+        $header .= "From: ".$from_name." <".$from_mail.">".$lineBreak;
         $header .= "Reply-To: ".$from_mail.$lineBreak;
-        $header .= "Content-type: text/html; charset=".$encoding.$lineBreak;
         $header .= "MIME-Version: 1.0".$lineBreak;
         $header .= "X-Mailer: PHP/".phpversion().$lineBreak;
         $header .= "Content-Transfer-Encoding: 8bit".$lineBreak;
@@ -36,14 +36,14 @@ class MailService
         mail($mail_to, $mail_subject, $mail_message, $header);
     }
     public static function registerConfirmation($email, $code) {
-        $link = self::createLinkWithCode('confirm', $code);
+        $link = self::createLinkWithCode('activate', $code);
         $subject = "Camagru registration!";
         $message = "Confirm your registration:<br>".$link."<br>";
         self::send($email, $subject, $message);
     }
 
     public static function restorePasswordConfirmation($email, $code) {
-        $link = self::createLinkWithCode('restore', $code);
+        $link = self::createLinkWithCode('confirm', $code);
         $subject = "Camagru restore password!";
         $message = "Restore your password:<br>".$link."<br>";
         self::send($email, $subject, $message);

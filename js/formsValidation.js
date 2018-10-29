@@ -81,6 +81,24 @@ function formValidationSignUp() {
     return false;
 }
 
+function forgotPassword() {
+    let email = document.forms["forgot-form"]["username"].value;
+    redirectPost('forgot', { email: email });
+    return false;
+}
+
+function recoverPassword() {
+    let password = document.forms["recover-form"]["password"].value;
+    let repeatedPassword = document.forms["recover-form"]["repeat_password"].value;
+    // console.log('recover?code='+getQueryStringValue('code'));
+    redirectPost('recover?code='+getQueryStringValue('code'), { password });
+    return false;
+}
+
+function getQueryStringValue (key) {
+    return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+}
+
 function ajax(address, otherBody, onloadFunc) {
     let body = 'type=POST';
     if (otherBody) {

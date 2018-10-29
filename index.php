@@ -8,9 +8,6 @@
     define('ROOT', dirname(__FILE__));
     require_once(ROOT.'/components/Router.php');
 
-    //3 Connection with DB
-//    require_once(ROOT.'/components/DataBase.php');
-
     if (!isset($_SESSION['logged_user'])) {
         $_SESSION['logged_user'] = "";
     }
