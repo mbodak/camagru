@@ -47,18 +47,20 @@ function formValidationSignUp() {
         alert("Passwords does not match. Try again.");
         return (false);
     }
-    ajax('handlers/checkEmail.php', { email }, response => {
+    ajax('emailoccupied', { email }, response => {
+        console.log('email', response);
         if (response === "true") {
             alert("Email is occupied! Chose another one!");
             return
         }
-        ajax('handlers/checkLogin.php', { login }, response => {
-            console.log(response);
+        ajax('logioccupied', { login }, response => {
+            console.log(login);
+            console.log('login', response);
             if (response === "true") {
                 alert("Login is occupied! Chose another one!");
                 return
             }
-            redirectPost('sign-up', { login, email, password });
+            // redirectPost('sign-up', { login, email, password });
         });
     });
     return false;
@@ -89,6 +91,46 @@ function removePhoto(id) {
         redirectPost('remove', { id });
     }
     return false;
+}
+
+function showLikesCover(id, elem) {
+    ajax('isliked', { id }, response => {
+        const isLiked = response === 'true';
+        const dislikeElement = elem.querySelector('.dislike');
+        const likeElement = elem.querySelector('.like');
+        if (isLiked) {
+            dislikeElement ? dislikeElement.style.display = "block" : "";
+            likeElement ? likeElement.style.display = "none" : "";
+        } else {
+            likeElement ? likeElement.style.display = "block" : "";
+            dislikeElement ? dislikeElement.style.display = "none" : "";
+        }
+        elem.querySelector('.photo-hover').style.display = "block";
+    });
+}
+
+function hideLikesCover(elem) {
+    elem.querySelector('.photo-hover').style.display = "none";
+}
+
+function setLike(id, elem) {
+    ajax('like', { id }, response => {
+    });
+    let count = elem.querySelector('.lco').innerHTML;
+    count = parseInt(count) + 1;
+    elem.querySelector('.lco').innerHTML = count;
+    elem.querySelector('.dislike').style.display = "block";
+    elem.querySelector('.like').style.display = "none";
+}
+
+function removeLike(id, elem) {
+    ajax('dislike', { id }, response => {
+    });
+    let count = elem.querySelector('.lco').innerHTML;
+    count = parseInt(count) - 1;
+    elem.querySelector('.lco').innerHTML = count;
+    elem.querySelector('.like').style.display = "block";
+    elem.querySelector('.dislike').style.display = "none";
 }
 
 function login() {

@@ -22,4 +22,7 @@ class imageModel
     public static function dislike($id) {
         return Likes::remove(USER['id'], $id);
     }
+    public static function isLiked($id) {
+        return Likes::isLiked(USER['id'], $id);
+    }
 }
