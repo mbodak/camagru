@@ -60,6 +60,28 @@
             return (true);
         }
 
+        public function actionIsEmailOccupied() {
+            if ($_POST && isset($_POST['email'])) {
+                if (accountModel::checkEmail($_POST['email'])) {
+                    print "true";
+                } else {
+                    print "false";
+                }
+            }
+            return (true);
+        }
+
+        public function actionIsLoginOccupied() {
+            if ($_POST && isset($_POST['login'])) {
+                if (accountModel::checkLogin($_POST['login'])) {
+                    print "true";
+                } else {
+                    print "false";
+                }
+            }
+            return (true);
+        }
+
         public function actionPhoto() {
             if (!LOGGED_IN) {
                 header("Location: ".LinkService::getRoot());

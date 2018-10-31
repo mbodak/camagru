@@ -36,6 +36,14 @@ class accountModel {
         require_once (ROOT.'/views/login.php');
     }
 
+    public static function checkEmail($email) {
+        return Users::isEmailOccupied($email);
+    }
+
+    public static function checkLogin($login) {
+        return Users::isLoginOccupied($login);
+    }
+
     public static function logOut() {\
         Sessions::remove(intval($_SESSION['logged_user']), $_SESSION['session_code']);
         $_SESSION['logged_user'] = "";

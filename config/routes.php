@@ -13,8 +13,11 @@ DEFINE('ROUTES', array (
     '/change'        => 'account/change',
     '/notifications' => 'account/notifications',
     '/activate'      => 'account/activate',
+    '/emailoccupied' => 'account/isEmailOccupied',
+    '/logioccupied' => 'account/isLoginOccupied',
     '/savephoto'     => 'image/save',
     '/remove'        => 'image/remove',
     '/like'          => 'image/like',
-    '/dislike'       => 'image/dislike'
+    '/dislike'       => 'image/dislike',
+    '/isliked'       => 'image/isLiked'
 ));

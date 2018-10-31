@@ -10,17 +10,19 @@
         $images = Images::getAll(0, 1000);
         foreach ($images as $value) {
             print '
-                    <div class="photo" onmouseover="showLikesCover(this)" onmouseleave="hideLikesCover(this)">
+                    <div class="photo" onmouseover="showLikesCover('.$value["id"].', this)" onmouseleave="hideLikesCover(this)">
                             <img src="images/'.$value["name"].'" alt="image">
                             
                             <div class="photo-hover">
                                 <div class="set-like">
-                                    <i class="material-icons like" onclick="setLike(this.parentElement.parentElement.parentElement)">thumb_up</i>
-                                    <i class="material-icons dislike" onclick="removeLike(this.parentElement.parentElement.parentElement)">thumb_down</i>
+                                    '; if (LOGGED_IN) : print '
+                                    <i class="material-icons like" onclick="setLike('.$value["id"].', this.parentElement.parentElement)">thumb_up</i>
+                                    <i class="material-icons dislike" onclick="removeLike('.$value["id"].', this.parentElement.parentElement)">thumb_down</i>
+                                    '; endif; print '
                                 </div>
                                 <div class="count-likes">
                                     <i class="material-icons" style="color: red">favorite</i>
-                                    <i><b>'.$value["likes_count"].'</b></i>
+                                    <i><b class="lco">'.$value["likes_count"].'</b></i>
                                 </div>
                             </div>
                     </div>';

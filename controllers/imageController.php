@@ -32,6 +32,20 @@ class imageController
         }
         return (true);
     }
+    public function actionIsLiked() {
+        if (!LOGGED_IN) {
+            exit();
+        }
+        if ($_POST && isset($_POST['id'])) {
+            if (imageModel::isLiked(intval($_POST['id']))) {
+                print "true";
+            } else {
+                print "false";
+            }
+            exit();
+        }
+        return (true);
+    }
     public function actionDislike() {
         if (!LOGGED_IN) {
             exit();
