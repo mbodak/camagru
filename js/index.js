@@ -20,8 +20,7 @@ function close_search() {
 
 function showSuccessRegisterModal() {
     let hash = location.hash.substr(1);
-    console.log(hash);
-    switch (hash) {
+    switch (urldecode(hash)) {
         case 'registered':
             alert("Your CAMAGRU account was successfully created!");
             break;
@@ -35,10 +34,22 @@ function showSuccessRegisterModal() {
             alert("Your CAMAGRU account was not activated. Please, try again.");
             break;
         case 'forgotSent':
-            alert("");
+            alert("Recover password code was sent to your email.");
             break;
         case 'forgotNotSent':
-            alert("");
+            alert("Something went wrong. Please, try again.");
+            break;
+        case 'changed':
+            alert("Your password was successfully changed!");
+            break;
+        case 'notChanged':
+            alert("Something went wrong. Please, try again.");
+            break;
+        case 'recovered':
+            alert("Your password was successfully recovered!");
+            break;
+        case 'notRecovered':
+            alert("Something went wrong. Please, try again.");
             break;
         default:
             break;

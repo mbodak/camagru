@@ -89,7 +89,7 @@ class accountModel {
             if (Users::changePassword(USER['login'], $_POST['old_password'], $_POST['new_password'])) {
                 header("Location: ".LinkService::getRoot()."#changed");
             } else {
-                header("Location: " . LinkService::getRoot() . "change#notchanged");
+                header("Location: " . LinkService::getRoot() . "change#notChanged");
             }
             exit();
         }
