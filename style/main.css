@@ -78,6 +78,11 @@ body {
     border-radius: 6px;
 }
 
+.photo > img {
+    height: 100%;
+    width: 100%;
+}
+
 .profile-photo {
     width: 23.333%;
     height: 23.143vw;

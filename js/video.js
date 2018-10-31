@@ -80,6 +80,21 @@ function snapPhoto() {
             ctx.drawImage(imgObj, maskX, maskY, mask.width, mask.height);
         };
     }
+    let imageSrc = canvas.toDataURL("image/png");
+    let img = new Image();
+    img.onload = function () {
+        document.getElementById('f-file').value = img.src;
+        let fd = new FormData(document.forms["send-photo-form"]);
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', 'savephoto', true);
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                console.log(xhr.responseText);
+            }
+        };
+        xhr.send(fd);
+    };
+    img.src = imageSrc;
 }
 
 function downloadPhoto() {

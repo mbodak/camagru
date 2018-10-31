@@ -13,7 +13,7 @@
         </div>
 
         <div class="transform-container">
-            <form method="post" name="login-form" id="login-form">
+            <form method="post" name="login-form" id="login-form" onsubmit="return login()">
                 <div class="row">
                     <div class="new">
                         <div class="medium-1 medium-offset-1 columns">

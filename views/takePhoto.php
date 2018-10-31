@@ -98,6 +98,9 @@
         </div>
     </div>
 </div>
+<form method="post" accept-charset="utf-8" name="send-photo-form">
+    <input name="file" id='f-file' type="hidden"/>
+</form>
 
 <script type="text/javascript" src="js/video.js"></script>
 

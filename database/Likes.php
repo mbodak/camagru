@@ -13,7 +13,7 @@ class Likes
      */
     public static function add($userId, $imageId) {
         try {
-            DBInstance::run("INSERT INTO {${self::$table}} VALUES (?, ?)", [$userId, $imageId]);
+            DBInstance::run("INSERT INTO ".self::$table." VALUES (?, ?)", [$userId, $imageId]);
             return true;
         } catch (PDOException $e) {
             return false;
@@ -28,7 +28,7 @@ class Likes
      */
     public static function isLiked($userId, $imageId) {
         try {
-            $res = DBInstance::run("SELECT * FROM {${self::$table}} WHERE user_id = ? AND image_id = ?", [$userId, $imageId])->fetch();
+            $res = DBInstance::run("SELECT * FROM ".self::$table." WHERE user_id = ? AND image_id = ?", [$userId, $imageId])->fetch();
             if (!empty($res)) {
                 return true;
             }
@@ -46,7 +46,7 @@ class Likes
      */
     public static function remove($userId, $imageId) {
         try {
-            DBInstance::run("DELETE FROM {${self::$table}} WHERE user_id = ? AND image_id = ?", [$userId, $imageId]);
+            DBInstance::run("DELETE FROM ".self::$table." WHERE user_id = ? AND image_id = ?", [$userId, $imageId]);
             return true;
         } catch (PDOException $e) {
             return false;

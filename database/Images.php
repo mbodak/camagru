@@ -13,7 +13,7 @@ class Images
                                   `users`,
                                   `images`
                                 LEFT JOIN
-                                  ( SELECT image_id, COUNT(*) AS quantity FROM `likes` GROUP BY id_image ) likes
+                                  ( SELECT image_id, COUNT(*) AS quantity FROM `likes` GROUP BY image_id ) likes
                                   ON `images`.id = `likes`.image_id";
     /**
      * Create photo!
@@ -23,7 +23,7 @@ class Images
      */
     public static function add($name, $userId) {
         try {
-            DBInstance::run("INSERT INTO {${self::$table}} VALUES (?, ?, ?)", [NULL, $name, $userId]);
+            DBInstance::run("INSERT INTO ".self::$table." VALUES (?, ?, ?)", [NULL, $name, $userId]);
             return true;
         } catch (PDOException $e) {
             return false;
@@ -38,7 +38,7 @@ class Images
      */
     public static function remove($id, $userId) {
         try {
-            $res = DBInstance::run("DELETE FROM `image` WHERE id = ? AND id_user = ?", [$id, $userId]);
+            $res = DBInstance::run("DELETE FROM ".self::$table." WHERE id = ? AND id_user = ?", [$id, $userId]);
             if ($res->rowCount()) {
                 return true;
             }
@@ -56,7 +56,7 @@ class Images
     public static function getAll($skip, $take) {
         // TODO check binding
         try {
-            $sql = "{${self::$select}}
+            $sql = self::$select."
                 WHERE `users`.`id` = `images`.user_id
                 ORDER BY `images`.id DESC
                 LIMIT  :?, :?";
@@ -71,7 +71,7 @@ class Images
      */
     public static function getById($id) {
         try {
-            $sql = "{${self::$select}}
+            $sql = self::$select."
                 WHERE `images`.id = ?
                 AND `users`.`id` = `images`.user_id";
             return DBInstance::run($sql, [$id])->fetch();
@@ -88,13 +88,17 @@ class Images
      */
     public static function getAllByOwner($ownerId, $skip, $take) {
         try {
-            $sql = "{${self::$select}}
-                WHERE `images`.user_id = ?
+            $sql = self::$select."
+                WHERE `images`.user_id = :id
                 AND `users`.id = `images`.user_id
                 ORDER BY `images`.id DESC
-                LIMIT  ?, ?";
-
-            return DBInstance::run($sql, [$ownerId, $skip, $take])->fetchAll();
+                LIMIT  :skip, :take";
+            $stmt = DBInstance::instance()->prepare($sql);
+            $stmt->bindValue(':id', intval($ownerId), PDO::PARAM_INT);
+            $stmt->bindValue(':skip', intval($skip), PDO::PARAM_INT);
+            $stmt->bindValue(':take', intval($take), PDO::PARAM_INT);
+            $stmt->execute();
+            return $stmt->fetchAll();
         } catch (PDOException $e) {
             return $e;
         }
