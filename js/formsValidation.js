@@ -102,7 +102,9 @@ function changePassword() {
 }
 
 function removePhoto(id) {
-    redirectPost('remove', { id });
+    if(confirm("Are you sure you want to delete image?")) {
+        redirectPost('remove', { id });
+    }
     return false;
 }
 

@@ -10,13 +10,11 @@ class imageController
     public function actionRemove() {
         if ($_POST && isset($_POST['id'])) {
             if (imageModel::remove(intval($_POST['id']))) {
-                echo "true";
+                header("Location: ".LinkService::getRoot()."profile#removed");
             } else {
-                echo "false";
+                header("Location: ".LinkService::getRoot()."profile#notRemoved");
             }
-            exit();
         }
-        header("Location: ".LinkService::getRoot()."profile#removed");
         return (true);
     }
 }

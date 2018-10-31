@@ -38,7 +38,7 @@ class Images
      */
     public static function remove($id, $userId) {
         try {
-            $res = DBInstance::run("DELETE FROM ".self::$table." WHERE id = ? AND id_user = ?", [$id, $userId]);
+            $res = DBInstance::run("DELETE FROM ".self::$table." WHERE id = ? AND user_id = ?", [$id, $userId]);
             if ($res->rowCount()) {
                 return true;
             }
