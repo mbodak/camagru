@@ -18,17 +18,44 @@ function close_search() {
     document.getElementById("mySearch").style.display = "none";
 }
 
-// var height = 0;
-// var attempt = 0;
-// var intS = 0;
-//
-// function scrollToEndPage() {
-//     console.log("height:" + height + " scrollHeight:" + document.body.scrollHeight + " att:" + attempt );
-//
-//     if (height < document.body.scrollHeight) {
-//         height = document.body.scrollHeight;
-//         window.scrollTo(0, height); attempt++;
-//     } else {
-//         clearInterval(intS);
-//     }
-// } intS = setInterval(scrollToEndPage,5000);
+function showSuccessRegisterModal() {
+    let hash = location.hash.substr(1);
+    console.log(hash);
+    switch (hash) {
+        case 'registered':
+            alert("Your CAMAGRU account was successfully created!");
+            break;
+        case 'notRegistered':
+            alert("Ooops... Looks like this one login or email is already occupied.");
+            break;
+        case 'activated':
+            alert("Your CAMAGRU account was successfully activated!");
+            break;
+        case 'notActivated':
+            alert("Your CAMAGRU account was not activated. Please, try again.");
+            break;
+        case 'forgotSent':
+            alert("");
+            break;
+        case 'forgotNotSent':
+            alert("");
+            break;
+        default:
+            break;
+    }
+}
+
+function showLikesCover() {
+    document.getElementById("like-img").className = "isLike";
+    document.getElementById("like-cover").style.display = "block";
+}
+
+function hideLikesCover() {
+    document.getElementById("like-cover").style.display = "none";
+}
+
+function setLike() {
+
+}
+
+showSuccessRegisterModal();
