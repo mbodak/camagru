@@ -1,7 +1,4 @@
 <?php
-require_once ROOT.'/services/Randomizer.php';
-require_once ROOT.'/services/MailService.php';
-require_once ROOT.'/services/LinkService.php';
 include_once ROOT.'/models/camagruModel.php';
 
 class accountModel {
