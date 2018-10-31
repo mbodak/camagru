@@ -27,38 +27,35 @@ function formValidationSignUp() {
 
     if (login.length < 8 || login.length > 16) {
         document.forms["create-form"]["login"].style = "background: red;";
-        alert("Login must be between 8 and 16 symbols");
+        setTimeout(function() { alert("Login must be between 8 and 16 symbols") }, 1);
         return (false);
     }
     if (!filterEmail.test(email)) {
         document.forms["create-form"]["email"].style = "background: red;";
-        alert("Please provide a valid email address");
+        setTimeout(function() { alert("Please provide a valid email address") }, 1);
         return (false);
     }
     if (!filterPassword.test(password)) {
         document.forms["create-form"]["password"].style = "background: red;";
-        alert("Password must include minimum 8 symbols at least 1 uppercase alphabet, 1 lowercase alphabet and 1 number");
+        setTimeout(function() { alert("Password must include minimum 8 symbols at least 1 uppercase alphabet, 1 lowercase alphabet and 1 number") }, 1);
         return (false);
     }
     if (compare) {
         document.forms["create-form"]["password"].style = "background: red;";
         document.forms["create-form"]["repeat_password"].style = "background: red;";
 
-        alert("Passwords does not match. Try again.");
+        setTimeout(function() { alert("Passwords does not match. Try again.") }, 1);
         return (false);
     }
     ajax('emailoccupied', { email }, response => {
-        console.log('email', response);
         if (response === "true") {
-            alert("Email is occupied! Chose another one!");
-            return
+            setTimeout(function() { alert("Email is occupied! Chose another one!") }, 1);
+            return;
         }
         ajax('logioccupied', { login }, response => {
-            console.log(login);
-            console.log('login', response);
             if (response === "true") {
-                alert("Login is occupied! Chose another one!");
-                return
+                setTimeout(function() { alert("Login is occupied! Chose another one!") }, 1);
+                return ;
             }
             redirectPost('sign-up', { login, email, password });
         });
@@ -68,6 +65,12 @@ function formValidationSignUp() {
 
 function forgotPassword() {
     let email = document.forms["forgot-form"]["username"].value;
+    let filterEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    if (!filterEmail.test(email)) {
+        document.forms["forgot-form"]["username"].style = "background: red;";
+        setTimeout(function() { alert("Please provide a valid email address") }, 1);
+        return (false);
+    }
     redirectPost('forgot', { email: email });
     return false;
 }
@@ -75,6 +78,19 @@ function forgotPassword() {
 function recoverPassword() {
     let password = document.forms["recover-form"]["password"].value;
     let repeatedPassword = document.forms["recover-form"]["repeat_password"].value;
+    let filterPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+    let compare = password.localeCompare(repeatedPassword);
+    if (!filterPassword.test(password)) {
+        document.forms["recover-form"]["password"].style = "background: red;";
+        setTimeout(function() { alert("Password must include minimum 8 symbols at least 1 uppercase alphabet, 1 lowercase alphabet and 1 number") }, 1);
+        return (false);
+    }
+    if (compare) {
+        document.forms["recover-form"]["password"].style = "background: red;";
+        document.forms["recover-form"]["repeat_password"].style = "background: red;";
+        setTimeout(function() { alert("Passwords does not match. Try again.") }, 1);
+        return (false);
+    }
     redirectPost('recover?code='+getQueryStringValue('code'), { password });
     return false;
 }
@@ -82,12 +98,18 @@ function recoverPassword() {
 function changePassword() {
     let oldPassword = document.forms["change-form"]["old_password"].value;
     let newPassword = document.forms["change-form"]["new_password"].value;
+    let filterPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+    if (!filterPassword.test(newPassword)) {
+        document.forms["change-form"]["new_password"].style = "background: red;";
+        setTimeout(function() { alert("Password must include minimum 8 symbols at least 1 uppercase alphabet, 1 lowercase alphabet and 1 number") }, 1);
+        return (false);
+    }
     redirectPost('change', { old_password: oldPassword, new_password: newPassword });
     return false;
 }
 
 function removePhoto(id) {
-    if(confirm("Are you sure you want to delete image?")) {
+    if (confirm("Are you sure you want to delete image?")) {
         redirectPost('remove', { id });
     }
     return false;
