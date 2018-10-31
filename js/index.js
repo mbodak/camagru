@@ -30,7 +30,7 @@ function showSuccessRegisterModal() {
             setTimeout(function() { alert("Ooops... Looks like this one login or email is already occupied.") }, 1);
             break;
         case 'activated':
-            setTimeout(function() { alert("Your CAMAGRU account was successfully activated!") }, 1);
+            setTimeout(function() { alert("Your CAMAGRU account was successfully activated! Now you can login!") }, 1);
             break;
         case 'notActivated':
             setTimeout(function() { alert("Your CAMAGRU account was not activated. Please, try again.") }, 1);
@@ -39,13 +39,13 @@ function showSuccessRegisterModal() {
             setTimeout(function() { alert("Recover password code was sent to your email.") }, 1);
             break;
         case 'forgotNotSent':
-            setTimeout(function() { alert("Something went wrong. Please, try again.") }, 1);
+            setTimeout(function() { alert("Email not found! Try again!") }, 1);
             break;
         case 'changed':
             setTimeout(function() { alert("Your password was successfully changed!") }, 1);
             break;
         case 'notChanged':
-            setTimeout(function() { alert("Something went wrong. Please, try again.") }, 1);
+            setTimeout(function() { alert("Incorrect old password!") }, 1);
             break;
         case 'recovered':
             setTimeout(function() { alert("Your password was successfully recovered!") }, 1);
@@ -53,12 +53,22 @@ function showSuccessRegisterModal() {
         case 'notRecovered':
             setTimeout(function() { alert("Something went wrong. Please, try again.") }, 1);
             break;
+        case 'loggedin':
+            break;
         default:
             if (str) {
                 setTimeout(function() { alert(clearHash) }, 1);
             }
             break;
     }
+}
+
+function showRomove(elem){
+    elem.querySelector('.clear').style.display = "block";
+}
+
+function hideRomove(elem) {
+    elem.querySelector('.clear').style.display = "none";
 }
 
 showSuccessRegisterModal();

@@ -3,16 +3,7 @@
 class MailService
 {
     private static function createLinkWithCode($link, $code) {
-        $arr = explode('/', $_SERVER['PHP_SELF']);
-        if(!empty($arr[count($arr)-1])) {
-            unset($arr[count($arr)-1]);
-        }
-        if(!empty($arr[count($arr)-1])) {
-            unset($arr[count($arr)-1]);
-        }
-        $file = implode('/',$arr);
-        $file .= '/'.$link;
-        return $_SERVER["REQUEST_SCHEME"]."://".$_SERVER['HTTP_HOST'].$file."?code=".$code;
+        return $_SERVER["REQUEST_SCHEME"]."://".$_SERVER['HTTP_HOST'].LinkService::getRoot().$link."?code=".$code;
     }
     private static function send($mail_to, $mail_subject, $mail_message) {
         $lineBreak = "\r\n";
@@ -43,7 +34,7 @@ class MailService
     }
 
     public static function restorePasswordConfirmation($email, $code) {
-        $link = self::createLinkWithCode('confirm', $code);
+        $link = self::createLinkWithCode('recover', $code);
         $subject = "Camagru restore password!";
         $message = "Restore your password:<br>".$link."<br>";
         self::send($email, $subject, $message);
