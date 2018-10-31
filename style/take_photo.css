@@ -136,7 +136,7 @@ main {
     border-style: none;
     outline: none;
     box-shadow: -1px 2px 14px 0px darkgrey;
-     border-radius: 2px;
+    border-radius: 2px;
 }
 .actions div button:hover {
     color: #000;
