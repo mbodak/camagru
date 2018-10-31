@@ -92,7 +92,7 @@ body {
     position: absolute;
     z-index: 50;
     top: 30%;
-    left: 25%;
+    left: 30%;
 }
 
 .set-like i {
@@ -114,7 +114,7 @@ body {
 }
 
 .count-likes {
-    margin: 10%;
+    margin: 13%;
     font-size: 25px;
     bottom: 0;
 }
