@@ -14,4 +14,5 @@ DEFINE('ROUTES', array (
     '/notifications' => 'account/notifications',
     '/activate'      => 'account/activate',
     '/savephoto'     => 'image/save',
+    '/remove'        => 'image/remove',
 ));
