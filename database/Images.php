@@ -59,8 +59,12 @@ class Images
             $sql = self::$select."
                 WHERE `users`.`id` = `images`.user_id
                 ORDER BY `images`.id DESC
-                LIMIT  :?, :?";
-            return DBInstance::run($sql, [$skip, $take])->fetchAll();
+                LIMIT  :skip, :take";
+            $stmt = DBInstance::instance()->prepare($sql);
+            $stmt->bindValue(':skip', intval($skip), PDO::PARAM_INT);
+            $stmt->bindValue(':take', intval($take), PDO::PARAM_INT);
+            $stmt->execute();
+            return $stmt->fetchAll();
         } catch (PDOException $e) {
             return $e;
         }

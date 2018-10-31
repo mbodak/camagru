@@ -6,38 +6,18 @@
 
 <div class="main">
     <div class="flex-main">
-        <div class="photo"></div>
-        <div class="photo"></div>
-        <div class="photo"></div>
-        <div class="photo"></div>
-        <div class="photo"></div>
-        <div class="photo"></div>
-        <div class="photo"></div>
-        <div class="photo"></div>
-        <div class="photo"></div>
-        <div class="photo"></div>
-        <div class="photo"></div>
-        <div class="photo"></div>
-        <div class="photo"></div>
-        <div class="photo"></div>
-        <div class="photo"></div>
-        <div class="photo"></div>
-        <div class="photo"></div>
-        <div class="photo"></div>
-        <div class="photo"></div>
-        <div class="photo"></div>
-        <div class="photo"></div>
-        <div class="photo"></div>
-        <div class="photo"></div>
-        <div class="photo"></div>
-        <div class="photo"></div>
-        <div class="photo"></div>
-        <div class="photo"></div>
-        <div class="photo"></div>
-        <div class="photo"></div>
-        <div class="photo"></div>
-
-        <button class="load-more-butt">Load more...</button>
+        <?php
+        $images = Images::getAll(0, 1000);
+        foreach ($images as $value) {
+            print '
+                    <div class="photo">
+                        <img src="images/'.$value["name"].'" alt="image">
+                        <div style="display: inline-block">'
+                            .$value["likes_count"].
+                        '</div>
+                    </div>';
+        }
+        ?>
 
     </div>
 </div>

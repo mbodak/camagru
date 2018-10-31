@@ -13,4 +13,7 @@ class imageModel
             exit();
         }
     }
+    public static function remove($id) {
+        return Images::remove($id, USER['id']);
+    }
 }
