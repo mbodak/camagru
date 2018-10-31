@@ -30,7 +30,7 @@ function showSuccessRegisterModal() {
             alert("Ooops... Looks like this one login or email is already occupied.");
             break;
         case 'activated':
-            alert("Your CAMAGRU account was successfully activated!");
+            alert("Your CAMAGRU account was successfully activated! Now you can login!");
             break;
         case 'notActivated':
             alert("Your CAMAGRU account was not activated. Please, try again.");
@@ -39,13 +39,13 @@ function showSuccessRegisterModal() {
             alert("Recover password code was sent to your email.");
             break;
         case 'forgotNotSent':
-            alert("Something went wrong. Please, try again.");
+            alert("Email not found! Try again!");
             break;
         case 'changed':
             alert("Your password was successfully changed!");
             break;
         case 'notChanged':
-            alert("Something went wrong. Please, try again.");
+            alert("Incorrect old password!");
             break;
         case 'recovered':
             alert("Your password was successfully recovered!");
@@ -53,12 +53,22 @@ function showSuccessRegisterModal() {
         case 'notRecovered':
             alert("Something went wrong. Please, try again.");
             break;
+        case 'loggedin':
+            break;
         default:
             if (str) {
                 alert(clearHash);
             }
             break;
     }
+}
+
+function showRomove(elem){
+    elem.querySelector('.clear').style.display = "block";
+}
+
+function hideRomove(elem) {
+    elem.querySelector('.clear').style.display = "none";
 }
 
 showSuccessRegisterModal();

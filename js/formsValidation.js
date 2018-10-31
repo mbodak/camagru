@@ -60,7 +60,7 @@ function formValidationSignUp() {
                 alert("Login is occupied! Chose another one!");
                 return
             }
-            // redirectPost('sign-up', { login, email, password });
+            redirectPost('sign-up', { login, email, password });
         });
     });
     return false;

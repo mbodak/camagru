@@ -49,7 +49,7 @@ class accountModel {
         $_SESSION['logged_user'] = "";
         $_SESSION['session_code'] = "";
         session_destroy();
-        header("Location: http://localhost:8080/camagru");
+        header("Location: ".LinkService::getRoot());
     }
 
     public static function profile() {
