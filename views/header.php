@@ -21,11 +21,11 @@
     </head>
 
     <header>
-        <div id="invisibleBox" style="display:none" onclick="w3_close()"></div>
+        <div id="invisibleBox" style="display:none" onclick="menu_close()"></div>
         <div class="flex-header">
 
             <div class="box-actions">
-                <button onclick="w3_open()">
+                <button onclick="menu_open()">
                     <i class="material-icons">menu</i>
                 </button>
             </div>

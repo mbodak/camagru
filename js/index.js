@@ -1,10 +1,10 @@
-function w3_open() {
+function menu_open() {
     document.getElementById("mySidebar").style.display = "block";
     document.getElementById("invisibleBox").style.display = "block";
     document.getElementById("body").style.overflow = "hidden";
 }
 
-function w3_close() {
+function menu_close() {
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("invisibleBox").style.display = "none";
     document.getElementById("body").style.overflow = "auto";
