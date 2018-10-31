@@ -24,40 +24,40 @@ function showSuccessRegisterModal() {
     const str = clearHash.replace(/\s+/g,'', '');
     switch (str) {
         case 'registered':
-            alert("Your CAMAGRU account was successfully created!");
+            setTimeout(function() { alert("Your CAMAGRU account was successfully created!") },1);
             break;
         case 'notRegistered':
-            alert("Ooops... Looks like this one login or email is already occupied.");
+            setTimeout(function() { alert("Ooops... Looks like this one login or email is already occupied.") }, 1);
             break;
         case 'activated':
-            alert("Your CAMAGRU account was successfully activated! Now you can login!");
+            setTimeout(function() { alert("Your CAMAGRU account was successfully activated! Now you can login!") }, 1);
             break;
         case 'notActivated':
-            alert("Your CAMAGRU account was not activated. Please, try again.");
+            setTimeout(function() { alert("Your CAMAGRU account was not activated. Please, try again.") }, 1);
             break;
         case 'forgotSent':
-            alert("Recover password code was sent to your email.");
+            setTimeout(function() { alert("Recover password code was sent to your email.") }, 1);
             break;
         case 'forgotNotSent':
-            alert("Email not found! Try again!");
+            setTimeout(function() { alert("Email not found! Try again!") }, 1);
             break;
         case 'changed':
-            alert("Your password was successfully changed!");
+            setTimeout(function() { alert("Your password was successfully changed!") }, 1);
             break;
         case 'notChanged':
-            alert("Incorrect old password!");
+            setTimeout(function() { alert("Incorrect old password!") }, 1);
             break;
         case 'recovered':
-            alert("Your password was successfully recovered!");
+            setTimeout(function() { alert("Your password was successfully recovered!") }, 1);
             break;
         case 'notRecovered':
-            alert("Something went wrong. Please, try again.");
+            setTimeout(function() { alert("Something went wrong. Please, try again.") }, 1);
             break;
         case 'loggedin':
             break;
         default:
             if (str) {
-                alert(clearHash);
+                setTimeout(function() { alert(clearHash) }, 1);
             }
             break;
     }
