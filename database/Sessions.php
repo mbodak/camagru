@@ -13,7 +13,7 @@ class Sessions
      */
     public static function add($userID, $sessionCode) {
         try {
-            DBInstance::run("INSERT INTO {${self::$table}} VALUES (?, ?, ?)", [null, $userID, $sessionCode]);
+            DBInstance::run("INSERT INTO ".self::$table." VALUES (?, ?, ?)", [null, $userID, $sessionCode]);
             return true;
         } catch (PDOException $e) {
             return false;
@@ -27,7 +27,7 @@ class Sessions
      */
     public static function remove($userID, $sessionCode) {
         try {
-            DBInstance::run("DELETE FROM {${self::$table}} WHERE `user_id` = ? AND `session_code` = ?", [$userID, $sessionCode]);
+            DBInstance::run("DELETE FROM ".self::$table." WHERE `user_id` = ? AND `session_code` = ?", [$userID, $sessionCode]);
             return true;
         } catch (PDOException $e) {
             return false;
@@ -41,7 +41,7 @@ class Sessions
      */
     public static function isExist($userID, $sessionCode) {
         try {
-            $id = DBInstance::run("SELECT `id` FROM {${self::$table}} WHERE `user_id` = ? AND `session_code` = ?", [$userID, $sessionCode])->fetch()['id'];
+            $id = DBInstance::run("SELECT `id` FROM ".self::$table." WHERE `user_id` = ? AND `session_code` = ?", [$userID, $sessionCode])->fetch()['id'];
             if ($id) {
                 return true;
             }

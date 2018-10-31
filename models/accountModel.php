@@ -1,5 +1,4 @@
 <?php
-require_once ROOT.'/database/index.php';
 require_once ROOT.'/services/Randomizer.php';
 require_once ROOT.'/services/MailService.php';
 require_once ROOT.'/services/LinkService.php';
@@ -7,7 +6,7 @@ include_once ROOT.'/models/camagruModel.php';
 
 class accountModel {
     public static function createAccount() {
-        if ($_POST && $_POST['login'] && $_POST['email'] && $_POST['password']) {
+        if ($_POST && isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password'])) {
             $code = Randomizer::generateString();
             // TODO check email sending
             MailService::registerConfirmation($_POST['email'], $code);
@@ -23,12 +22,27 @@ class accountModel {
     }
 
     public static function login() {
-
+        if ($_POST && isset($_POST['email']) && isset($_POST['password'])) {
+            $loginResult = Users::authorize($_POST['email'], $_POST['password']);
+            if ($loginResult['result']) {
+                $sessionCode = Randomizer::generateString();
+                if (Sessions::add($loginResult['data'], $sessionCode)) {
+                    $_SESSION['logged_user'] = $loginResult['data'];
+                    $_SESSION['session_code'] = $sessionCode;
+                    header("Location: ".LinkService::getRoot()."#loggedin");
+                }
+            } else {
+                header("Location: ".LinkService::getRoot()."login#".$loginResult['message']);
+            }
+            exit();
+        }
         require_once (ROOT.'/views/login.php');
     }
 
-    public static function logOut() {
+    public static function logOut() {\
+        Sessions::remove(intval($_SESSION['logged_user']), $_SESSION['session_code']);
         $_SESSION['logged_user'] = "";
+        $_SESSION['session_code'] = "";
         session_destroy();
         header("Location: http://localhost:8080/camagru");
     }
@@ -42,7 +56,7 @@ class accountModel {
     }
 
     public static function forgotPassword() {
-        if ($_POST && $_POST['email']) {
+        if ($_POST && isset($_POST['email'])) {
             $code = Randomizer::generateString();
             $sent = Users::restorePasswordInit($_POST['email'], $code);
             if ($sent) {
@@ -57,7 +71,7 @@ class accountModel {
     }
 
     public static function recoverPassword() {
-        if ($_POST && $_POST['password']) {
+        if ($_POST && isset($_POST['password'])) {
             $queries = array();
             parse_str($_SERVER['QUERY_STRING'], $queries);
             if ($queries['code'] && Users::restorePasswordConfirm($queries['code'], $_POST['password'])) {
@@ -67,11 +81,18 @@ class accountModel {
             }
             exit();
         }
-
         require_once (ROOT.'/views/recover.php');
     }
 
     public static function changePassword() {
+        if ($_POST && isset($_POST['old_password']) && isset($_POST['new_password'])) {
+            if (Users::changePassword(USER['login'], $_POST['old_password'], $_POST['new_password'])) {
+                header("Location: ".LinkService::getRoot()."#changed");
+            } else {
+                header("Location: " . LinkService::getRoot() . "change#notchanged");
+            }
+            exit();
+        }
         require_once (ROOT.'/views/change.php');
     }
 
@@ -86,7 +107,11 @@ class accountModel {
     }
 
     public static function notifications() {
-
+        if (USER['notif_enabled']) {
+            Users::turnOffNotifications(intval(USER['id']));
+        } else {
+            Users::turnOntNotifications(intval(USER['id']));
+        }
     }
 
 }

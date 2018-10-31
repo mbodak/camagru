@@ -90,8 +90,21 @@ function forgotPassword() {
 function recoverPassword() {
     let password = document.forms["recover-form"]["password"].value;
     let repeatedPassword = document.forms["recover-form"]["repeat_password"].value;
-    // console.log('recover?code='+getQueryStringValue('code'));
     redirectPost('recover?code='+getQueryStringValue('code'), { password });
+    return false;
+}
+
+function changePassword() {
+    let oldPassword = document.forms["change-form"]["old_password"].value;
+    let newPassword = document.forms["change-form"]["new_password"].value;
+    redirectPost('change', { old_password: oldPassword, new_password: newPassword });
+    return false;
+}
+
+function login() {
+    let email = document.forms["login-form"]["email"].value;
+    let password = document.forms["login-form"]["password"].value;
+    redirectPost('login', { email, password });
     return false;
 }
 

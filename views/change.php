@@ -12,7 +12,7 @@
         </div>
 
         <div class="transform-container">
-            <form method="post" name="change-form" id="change-form">
+            <form method="post" name="change-form" id="change-form" onsubmit="return changePassword()">
                 <div class="row modif">
                     <div class="registered">
 
@@ -22,12 +22,12 @@
 
                         <div class="medium-1 medium-offset-2 columns">
                             <label for="password">Old Password</label>
-                            <input id="password3" name="password" type="password" value="" class="cleaninput border-bottom" required="">
+                            <input id="password3" name="old_password" type="password" value="" class="cleaninput border-bottom" required="">
                         </div>
 
                         <div class="medium-1 medium-offset-2 columns">
                             <label for="password">New Password</label>
-                            <input id="password4" name="password" type="password" value="" class="cleaninput border-bottom" required="">
+                            <input id="password4" name="new_password" type="password" value="" class="cleaninput border-bottom" required="">
                         </div>
 
                         <div class="medium-1 medium-offset-2 columns">
@@ -37,7 +37,6 @@
                                 </span>
                             </button>
                         </div>
-
                     </div>
                 </div>
             </form>

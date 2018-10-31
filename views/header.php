@@ -35,21 +35,11 @@
                     <img class="logo" src="icons/logo.png" alt="camagru">
                 </a>
             </div>
-
-
-
-<!--            <div class="box-nav">-->
-<!--                <a href="login">-->
-<!--                    <button>-->
-<!--                        <i class="material-icons">exit_to_app</i>-->
-<!--                    </button>-->
-<!--                </a>-->
-<!--            </div>-->
-
-
             <div class="box-nav">
                 <div class="nickname">
-                    <b>mbodak</b>
+                    <?php if(LOGGED_IN) : ?>
+                    <b><?=USER['login']?></b>
+                    <?php endif; ?>
                 </div>
                 <div class="dropdown">
                     <button>
@@ -57,10 +47,18 @@
                     </button>
 
                     <div class="dropdown-content">
-                        <a href='profile'>Profile</a>
-                        <a href='forgot'>Change password</a>
-                        <a href='notifications'>Notifications ON</a>
-                        <a href='logout'>LOG OUT</a>
+                        <?php if(LOGGED_IN) : ?>
+                            <a href='profile'>Profile</a>
+                            <a href='change'>Change password</a>
+                            <a href='notifications'>
+                                <?php if(USER['notif_enabled']) : echo "Disable"; else : echo "Enable"; endif;?>
+                                notifications
+                            </a>
+                            <a href='logout'>LOG OUT</a>
+                        <?php else : ?>
+                            <a href='sign-up'>sign up</a>
+                            <a href='login'>log in</a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -73,18 +71,29 @@
                     <li>
                         <a href='home' class="w3-bar-item w3-button">Home</a>
                     </li>
-
-                    <li>
-                        <a href='profile' class="w3-bar-item w3-button">Profile</a>
-                    </li>
-                    <li>
-                        <a href='take-photo' class="w3-bar-item w3-button">Take photo</a>
-                    </li>
+                    <?php if(LOGGED_IN) : ?>
+                        <li>
+                            <a href='profile' class="w3-bar-item w3-button">Profile</a>
+                        </li>
+                        <li>
+                            <a href='take-photo' class="w3-bar-item w3-button">Take photo</a>
+                        </li>
+                    <?php else : ?>
+                        <li>
+                            <a href='sign-up' class="w3-bar-item w3-button">Sign up</a>
+                        </li>
+                    <?php endif; ?>
                 </ul>
                 <ul>
-                    <li>
-                        <a href='logout' class="w3-bar-item w3-button">Log out</a>
-                    </li>
+                    <?php if(LOGGED_IN) : ?>
+                        <li>
+                            <a href='logout' class="w3-bar-item w3-button">Log out</a>
+                        </li>
+                    <?php else : ?>
+                        <li>
+                            <a href='login' class="w3-bar-item w3-button">Log in</a>
+                        </li>
+                    <?php endif; ?>
                 </ul>
             </nav>
         </aside>
@@ -103,5 +112,8 @@
 <!--                </div>-->
 <!--            </form>-->
 <!--        </div>-->
+<!--        --><?php //if(LOGGED_IN) : ?>
+<!--        --><?php //else : ?>
+<!--        --><?php //endif; ?>
     </header>
 </html>

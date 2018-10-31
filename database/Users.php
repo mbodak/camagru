@@ -86,13 +86,13 @@ class Users
         try {
             $stmt = DBInstance::run("SELECT `id`, `is_activated` FROM ".self::$table." WHERE `passwd` = ? AND (`email` = ? OR `login` = ?)", [$password, $login, $login]);
             if ($stmt->rowCount() <= 0)
-                return ["result" => false, "message" => 'User not found or password is wrong'];
+                return array("result" => false, "message" => 'User not found or password is wrong');
             $result = $stmt->fetch();
             if ($result['is_activated'] == 0)
-                return ["result" => false, "message" => 'User does not activated'];
-            return ["result" => true, "message" => 'Successful login', "data" => $result['id']];
+                return array("result" => false, "message" => 'User does not activated');
+            return array("result" => true, "message" => 'Successful login', "data" => $result['id']);
         } catch (PDOException $e) {
-            return ["result" => false, "message" => 'Some unexpected error'];
+            return array("result" => false, "message" => 'Some unexpected error');
         }
     }
     /**
