@@ -19,8 +19,12 @@
         <?php
         $images = Images::getAllByOwner(USER['id'], 0, 100);
         foreach ($images as $value) {
-            print '<div class="photo" onclick="return removePhoto('.$value["id"].')">
-                    <img src="images/'.$value["name"].'" alt="image">
+            print '<div class="photo" onmouseover="showRomove(this)" onmouseleave="hideRomove(this)" onclick="return removePhoto('.$value["id"].')">
+                        <img src="images/'.$value["name"].'" alt="image">
+                        
+                        <div class="clear">
+                            <i class="material-icons" style="color: red">clear</i>
+                        </div>
                    </div>';
         }
         ?>

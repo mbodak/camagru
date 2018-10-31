@@ -81,4 +81,12 @@ function removeLike(photo) {
 
 }
 
+function showRomove(elem){
+    elem.querySelector('.clear').style.display = "block";
+}
+
+function hideRomove(elem) {
+    elem.querySelector('.clear').style.display = "none";
+}
+
 showSuccessRegisterModal();
