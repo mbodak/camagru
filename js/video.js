@@ -8,6 +8,7 @@ var mask = null;
 var maskX = 0;
 var maskY = 0;
 var dragging = false;
+const snapButton = document.querySelector('#snap');
 
 
 onCameraFail = function (event) {
@@ -54,8 +55,8 @@ function snapshot() {
 }
 
 function changeMask(src) {
-    var tmpMask;
-    tmpMask = new Image();
+    snapButton.classList.remove("snap-disable");
+    let tmpMask = new Image();
     tmpMask.src = src;
     tmpMask.onload = function () {
         mask = tmpMask;
@@ -63,15 +64,60 @@ function changeMask(src) {
 }
 
 function clearButton() {
+    snapButton.classList.add("snap-disable");
     mask = null;
 }
 
 function snapPhoto() {
-    var takeImg1 = document.querySelector('#canvas1');
-    var ctx = takeImg1.getContext("2d");
-    takeImg1.width = canvas.width;
-    takeImg1.height = canvas.height;
-    ctx.drawImage(canvas, 0, 0, takeImg1.width, takeImg1.height);
+    {
+        if (!mask) {
+            return;
+        }
+        const cvs1 = document.querySelector('#canvas1');
+        const ctx1 = cvs1.getContext("2d");
+        const cvs2 = document.querySelector('#canvas2');
+        const ctx2 = cvs2.getContext("2d");
+        const cvs3 = document.querySelector('#canvas3');
+        const ctx3 = cvs3.getContext("2d");
+        const cvs4 = document.querySelector('#canvas4');
+        const ctx4 = cvs4.getContext("2d");
+        const cvs5 = document.querySelector('#canvas5');
+        const ctx5 = cvs5.getContext("2d");
+        const cvs6 = document.querySelector('#canvas6');
+        const ctx6 = cvs6.getContext("2d");
+        const cvs7 = document.querySelector('#canvas7');
+        const ctx7 = cvs7.getContext("2d");
+
+        cvs7.width = cvs6.width;
+        cvs7.height = cvs6.height;
+        ctx7.drawImage(cvs6, 0, 0, cvs7.width, cvs7.height);
+
+        cvs6.width = cvs5.width;
+        cvs6.height = cvs5.height;
+        ctx6.drawImage(cvs5, 0, 0, cvs6.width, cvs6.height);
+
+        cvs5.width = cvs4.width;
+        cvs5.height = cvs4.height;
+        ctx5.drawImage(cvs4, 0, 0, cvs5.width, cvs5.height);
+
+        cvs4.width = cvs3.width;
+        cvs4.height = cvs3.height;
+        ctx4.drawImage(cvs3, 0, 0, cvs4.width, cvs4.height);
+
+        cvs3.width = cvs2.width;
+        cvs3.height = cvs2.height;
+        ctx3.drawImage(cvs2, 0, 0, cvs3.width, cvs3.height);
+
+        cvs2.width = cvs1.width;
+        cvs2.height = cvs1.height;
+        ctx2.drawImage(cvs1, 0, 0, cvs2.width, cvs2.height);
+
+        cvs1.width = canvas.width;
+        cvs1.height = canvas.height;
+        ctx1.drawImage(canvas, 0, 0, cvs1.width, cvs1.height);
+
+    }
+
 
     var imgObj = new Image();
     if (mask) {

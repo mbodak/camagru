@@ -8,5 +8,4 @@ class camagruModel {
     public static function about() {
         require_once(ROOT . '/views/camagru.en.pdf');
     }
-
 }
