@@ -6,13 +6,13 @@
             </div>
             <div class="about">
                 <p>
-                    <a href="about" target="_blank">About Project</a>
+                    <a href="views/camagru.en.pdf" target="_blank">About Project</a>
                     <br><br>
-                    <a href="">Contact Us</a>
+                    <a href="#">Contact Us</a>
                     <br><br>
-                    <a href="">bodak.marina.ev@gmail.com</a>
+                    <a href="mailto:bodak.marina.ev@gmail.com">bodak.marina.ev@gmail.com</a>
                     <br>
-                    <a href="">+38 (095) 447 48 12</a>
+                    <a href="#">+38 (095) 447 48 12</a>
                 </p>
             </div>
             <div class="social">
