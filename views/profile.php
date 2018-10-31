@@ -5,9 +5,9 @@
 <div class="head-block"></div>
 <div>
     <div class="photo profile-photo"></div>
-    <div class="xlogin"><?=USER['login']?></div>
-    <div class="xlogin"><?=USER['email']?></div>
-    <div class="xlogin">
+    <div class="xlogin"><b><?=USER['login']?></b></div>
+    <div class="inform"><b><?=USER['email']?></b></div>
+    <div class="inform">
         Notifications
         <?php if(USER['notif_enabled']) : echo "ON"; else : echo "OFF"; endif;?>
     </div>

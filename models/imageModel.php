@@ -16,4 +16,10 @@ class imageModel
     public static function remove($id) {
         return Images::remove($id, USER['id']);
     }
+    public static function like($id) {
+        return Likes::add(USER['id'], $id);
+    }
+    public static function dislike($id) {
+        return Likes::remove(USER['id'], $id);
+    }
 }

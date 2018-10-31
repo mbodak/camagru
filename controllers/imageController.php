@@ -4,19 +4,43 @@ include_once ROOT.'/models/imageModel.php';
 class imageController
 {
     public function actionSave() {
+        if (!LOGGED_IN) {
+            exit();
+        }
         imageModel::save();
         return (true);
     }
     public function actionRemove() {
-        if ($_POST && isset($_POST['id'])) {
-            if (imageModel::remove(intval($_POST['id']))) {
-                echo "true";
-            } else {
-                echo "false";
-            }
+        if (!LOGGED_IN) {
             exit();
         }
-        header("Location: ".LinkService::getRoot()."profile#removed");
+        if ($_POST && isset($_POST['id'])) {
+            if (imageModel::remove(intval($_POST['id']))) {
+                header("Location: ".LinkService::getRoot()."profile#removed");
+            } else {
+                header("Location: ".LinkService::getRoot()."profile#notRemoved");
+            }
+        }
+        return (true);
+    }
+    public function actionLike() {
+        if (!LOGGED_IN) {
+            exit();
+        }
+        if ($_POST && isset($_POST['id'])) {
+            imageModel::like(intval($_POST['id']));
+        }
+        return (true);
+    }
+    public function actionDislike() {
+        if (!LOGGED_IN) {
+            exit();
+        }
+        if ($_POST && isset($_POST['id'])) {
+            if ($_POST && isset($_POST['id'])) {
+                imageModel::dislike(intval($_POST['id']));
+        }
+        }
         return (true);
     }
 }
