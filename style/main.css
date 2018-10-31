@@ -76,47 +76,6 @@ body {
     text-decoration: none;
     box-shadow: 3px 6px 14px 1px lightgrey;
     border-radius: 6px;
-    position: relative;
-}
-
-.photo:hover {
-    /*background: darkgrey;*/
-    opacity: 0.5;
-    transition: all .2s cubic-bezier(.645,.045,.355,1);
-}
-
-.photo-hover {
-    width: 100%;
-    height: 100%;
-    display: none;
-    position: absolute;
-    z-index: 50;
-    top: 30%;
-    left: 25%;
-}
-
-.set-like i {
-    margin: 15%;
-    font-size: 50px;
-
-    -webkit-transition: all .5s;
-    -moz-transition: all .5s;
-    -o-transition: all .5s;
-    transition: all .5s;
-}
-
-.set-like > i:hover {
-    -ms-transform: scale(1.2);
-    -moz-transform: scale(1.2);
-    -webkit-transform: scale(1.2);
-    -o-transform: scale(1.2);
-    transform: scale(1.2);
-}
-
-.count-likes {
-    margin: 10%;
-    font-size: 25px;
-    bottom: 0;
 }
 
 .photo > img {
@@ -139,13 +98,6 @@ body {
     text-align: center;
     font-family: AvenirNextLTPro-Demi,Arial,Helvetica;
     font-size: 30px;
-}
-
-.inform {
-    text-align: center;
-    font-family: AvenirNextLTPro-Demi,Arial,Helvetica;
-    font-size: 20px;
-    margin: 10px;
 }
 
 #invisibleBox {
@@ -181,10 +133,6 @@ body {
 .load-more-butt:hover {
     background: #5a5a5a;
 
-}
-
-.dislike, .like {
-    display: none;
 }
 
 
