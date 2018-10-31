@@ -1,5 +1,4 @@
 
-
 function redirectPost(url, data) {
     const form = document.createElement('form');
     document.body.appendChild(form);
@@ -16,7 +15,6 @@ function redirectPost(url, data) {
 }
 
 function formValidationSignUp() {
-    let insert = document.getElementsByTagName('label')[1];
     let login = document.forms["create-form"]["login"].value.trim();
     let email = document.forms["create-form"]["email"].value;
     let password = document.forms["create-form"]["password"].value;
@@ -27,52 +25,37 @@ function formValidationSignUp() {
     let filterPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
     let compare = password.localeCompare(repeatedPassword);
 
-    let errorDiv = document.getElementsByClassName("error_div")[0];
-    let div = document.createElement("div");
-
-    if (errorDiv) {
-        errorDiv.parentElement.removeChild(errorDiv);
-    }
     if (login.length < 8 || login.length > 16) {
-        div.className = "error_div";
-        div.innerHTML = "Login must be between 8 and 16 symbols";
-        insert.insertBefore(div, insert.firstChild);
+        document.forms["create-form"]["login"].style = "background: red;";
+        alert("Login must be between 8 and 16 symbols");
         return (false);
     }
     if (!filterEmail.test(email)) {
-        div.className = "error_div";
-        div.innerHTML = "Please provide a valid email address";
-        insert.insertBefore(div, insert.firstChild);
+        document.forms["create-form"]["email"].style = "background: red;";
+        alert("Please provide a valid email address");
         return (false);
     }
     if (!filterPassword.test(password)) {
-        div.className = "error_div";
-        div.innerHTML = "Password must include minimum 8 symbols at least 1 uppercase alphabet, 1 lowercase alphabet and 1 number";
-        insert.insertBefore(div, insert.firstChild);
+        document.forms["create-form"]["password"].style = "background: red;";
+        alert("Password must include minimum 8 symbols at least 1 uppercase alphabet, 1 lowercase alphabet and 1 number");
         return (false);
     }
     if (compare) {
-        document.forms["create-form"]["password"].style = "background: #D78A8A;";
-        document.forms["create-form"]["repeat_password"].style = "background: #D78A8A;";
+        document.forms["create-form"]["password"].style = "background: red;";
+        document.forms["create-form"]["repeat_password"].style = "background: red;";
 
-        div.className = "error_div";
-        div.innerHTML = "Please provide a valid password";
-        insert.insertBefore(div, insert.firstChild);
+        alert("Please provide a valid password");
         return (false);
     }
     ajax('handlers/checkEmail.php', { email }, response => {
         if (response === "true") {
-            div.className = "error_div";
-            div.innerHTML = "Email is occupied! Chose another one!";
-            insert.insertBefore(div, insert.firstChild);
+            alert("Email is occupied! Chose another one!");
             return
         }
         ajax('handlers/checkLogin.php', { login }, response => {
             console.log(response);
             if (response === "true") {
-                div.className = "error_div";
-                div.innerHTML = "Login is occupied! Chose another one!";
-                insert.insertBefore(div, insert.firstChild);
+                alert("Login is occupied! Chose another one!");
                 return
             }
             redirectPost('sign-up', { login, email, password });
