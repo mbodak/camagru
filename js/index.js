@@ -20,8 +20,9 @@ function close_search() {
 
 function showSuccessRegisterModal() {
     let hash = location.hash.substr(1);
-    // urldecode(hash)
-    switch (hash) {
+    const clearHash = decodeURIComponent((hash + '').replace(/\+/g, '%20'));
+    const str = clearHash.replace(/\s+/g,'', '');
+    switch (str) {
         case 'registered':
             alert("Your CAMAGRU account was successfully created!");
             break;
@@ -53,6 +54,9 @@ function showSuccessRegisterModal() {
             alert("Something went wrong. Please, try again.");
             break;
         default:
+            if (str) {
+                alert(clearHash);
+            }
             break;
     }
 }
