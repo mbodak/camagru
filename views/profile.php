@@ -17,42 +17,13 @@
 <div class="main">
     <div class="flex-main">
         <?php
-        $images = Images::getAllByOwner(USER['id'], 0, 10);
-        foreach ($images as $value)
-            print_r($value);
+        $images = Images::getAllByOwner(USER['id'], 0, 100);
+        foreach ($images as $value) {
+            print '<div class="photo" onclick="return removePhoto('.$value["id"].')">
+                    <img src="images/'.$value["name"].'" alt="image">
+                   </div>';
+        }
         ?>
-<!--        <div class="photo"><img src="images/31540996631869.jpg" alt="image"></div>-->
-<!--        <div class="photo"></div>-->
-<!--        <div class="photo"></div>-->
-<!--        <div class="photo"></div>-->
-<!--        <div class="photo"></div>-->
-<!--        <div class="photo"></div>-->
-<!--        <div class="photo"></div>-->
-<!--        <div class="photo"></div>-->
-<!--        <div class="photo"></div>-->
-<!--        <div class="photo"></div>-->
-<!--        <div class="photo"></div>-->
-<!--        <div class="photo"></div>-->
-<!--        <div class="photo"></div>-->
-<!--        <div class="photo"></div>-->
-<!--        <div class="photo"></div>-->
-<!--        <div class="photo"></div>-->
-<!--        <div class="photo"></div>-->
-<!--        <div class="photo"></div>-->
-<!--        <div class="photo"></div>-->
-<!--        <div class="photo"></div>-->
-<!--        <div class="photo"></div>-->
-<!--        <div class="photo"></div>-->
-<!--        <div class="photo"></div>-->
-<!--        <div class="photo"></div>-->
-<!--        <div class="photo"></div>-->
-<!--        <div class="photo"></div>-->
-<!--        <div class="photo"></div>-->
-<!--        <div class="photo"></div>-->
-<!--        <div class="photo"></div>-->
-<!--        <div class="photo"></div>-->
-
-        <button class="load-more-butt">Load more...</button>
 
     </div>
 </div>

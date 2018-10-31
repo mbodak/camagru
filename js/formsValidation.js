@@ -84,6 +84,11 @@ function changePassword() {
     return false;
 }
 
+function removePhoto(id) {
+    redirectPost('remove', { id });
+    return false;
+}
+
 function login() {
     let email = document.forms["login-form"]["email"].value;
     let password = document.forms["login-form"]["password"].value;
