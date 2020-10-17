@@ -44,7 +44,7 @@ function formValidationSignUp() {
         document.forms["create-form"]["password"].style = "background: red;";
         document.forms["create-form"]["repeat_password"].style = "background: red;";
 
-        alert("Please provide a valid password");
+        alert("Passwords does not match. Try again.");
         return (false);
     }
     ajax('handlers/checkEmail.php', { email }, response => {
@@ -85,7 +85,9 @@ function changePassword() {
 }
 
 function removePhoto(id) {
-    redirectPost('remove', { id });
+    if(confirm("Are you sure you want to delete image?")) {
+        redirectPost('remove', { id });
+    }
     return false;
 }
 

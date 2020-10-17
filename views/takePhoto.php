@@ -83,10 +83,7 @@
 
             <div class="actions">
                 <div>
-                    <button id="snap" onclick="snapPhoto()">Snap</button>
-                </div>
-                <div>
-                    <button onclick="document.getElementById('downloadPhoto').click();">Download</button>
+                    <button id="snap" class="snap-disable" onclick="snapPhoto()">Snap</button>
                 </div>
                 <div>
                     <button id="clearButton" onclick="clearButton()">Clear</button>

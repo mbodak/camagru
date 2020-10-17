@@ -10,6 +10,7 @@ define('ROOT', dirname(__FILE__));
 require_once(ROOT.'/components/Router.php');
 require_once ROOT.'/database/index.php';
 require_once ROOT.'/database/Images.php';
+require_once ROOT.'/database/Likes.php';
 require_once ROOT.'/services/Randomizer.php';
 require_once ROOT.'/services/MailService.php';
 require_once ROOT.'/services/LinkService.php';
